@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:orientation="vertical"
+			  android:layout_width="fill_parent"
+			  android:layout_height="fill_parent"
+              android:id="@id/layout">
+	<TableLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_gravity="center_horizontal">
+		<TableRow
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent">
+			<Button
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Previous"
+					android:id="@+id/prev" android:layout_column="0" android:width="100dp" android:onClick="prevPage"
+					android:enabled="false"/>
+			<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="hi"
+					android:id="@+id/pageText" android:layout_gravity="left|center_vertical" android:layout_column="1"
+					android:layout_marginLeft="1dp" android:layout_marginRight="1dp" android:minWidth="100dp"
+					android:gravity="center_vertical|center_horizontal"/>
+			<Button
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Next"
+					android:id="@+id/next" android:layout_column="2" android:width="100dp" android:onClick="nextPage"
+					android:enabled="false"/>
+		</TableRow>
+	</TableLayout>
+	<WebView
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:id="@+id/webView" android:layout_weight="1"/>
+	<HorizontalScrollView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/horizontalScrollView">
+        <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@id/thumbnailRow">
+            </TableRow>
+            <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@id/pageNumberTow">
+            </TableRow>
+        </TableLayout>
+    </HorizontalScrollView>
+</LinearLayout>
+

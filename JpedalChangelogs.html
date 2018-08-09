@@ -1,0 +1,2458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+<body id="Body" bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+<h1>
+</h1>
+<div id="dnn__ctl0_ContentPane"><div id="dnn__ctl0__ctl0_ContentPanel">
+	
+    <div class="ISContent Normal" id="IngeniContentBlock_631476">
+	<div class="custom-side-mod">
+	
+<table>
+<h2 class="p3"><b>Release date</b></h2>
+<p class="p1"><b>25th November&nbsp;2015&nbsp;</b>(6.7b25)</p>
+<p class="p1">(next release due 23rd December&nbsp;2015)</p>
+<h2 class="p3"><b>Summary</b></h2>
+<ul>
+<li>Improvements to XFA support</li>
+<li>Ongoing code tidy to clean-up and remove old code</li>
+<li>General fixes for customer files</li>
+</ul>
+<h2 class="p3"><b>Changes and Enhancements</b></h2>
+<p>22804: Table cells appearing black</p>
+<p>Fixed</p>
+<p>23155: Encrypted Annotation not correctly opened</p>
+<p>Fixed</p>
+<p>23019: Overly large image areas in Swing Viewer</p>
+<p>Fixed</p>
+<p>23060: Ensure mouse handler methods are deferenced correctly in dispose()</p>
+<p>Fixed</p>
+<p>23225: setDownsampleMode(String newLevel) does not work if value in quotes (so none works but not “none”)</p>
+<p>Fixed</p>
+</table>	
+	
+<h1><b><p>SOME GAP...</p></b></h1>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>20th December 2013&nbsp;</b>(5.08b20)</p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Enhancements to XFA support</li>
+<li>Swing Viewer speed improvements</li>
+<li>JavaFX Viewer first release</li>
+<li>Code tidy and speed improvements to Decoder</li>
+<li>Rewrite of SMask handling</li>
+<li>General fixes for customer files</li>
+</ul>
+<div>
+<p>15289: bug in text annotations</p>
+<p>Fix position change of text popups when altering scaling or page, also fixed issue with font size during printing</p>
+<p>15681: Content not correctly aligned in customer PDF when changing pages</p>
+<p>Fixed</p>
+<p>15685: Video name not correctly decoded if Hex string</p>
+<p>Fixed an issue where some embedded videos weren't being extracted correctly.</p>
+<p>15117: Deselecting visited Bookmarks on Viewer</p>
+<p>Fixed, Bookmarks can now be triggered even if it is current selected</p>
+<p>15313: Minor Bugs in Viewer</p>
+<p>Fixed issue where page navigation would freeze the nav buttons are clicking multiple times whilst page is loading</p>
+<p>15315: Nav bar on continuous and continuous facing mode not updating page count</p>
+<p>Fixed</p>
+<p>15548: Outlines not updating page counter</p>
+<p>Fixed, page counter correctly updated when using bookmarks</p>
+<p>15569: Bookmarks doesn't stay open when using the navigation buttons.</p>
+<p>Fixed, selected tab remains consistent when navigating a file</p>
+<p>15578: Add baseViewerFX into non Abacus,adobe,server builds</p>
+<p>Added</p>
+<p>15589: Width not correct in XFA if font not standard</p>
+<p>Use Arial as fallback</p>
+<p>15634: Investigate if we can reduce number of calls to resetNavBar</p>
+<p>Improvements to viewer start up and PDF opening performance.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>29th November 2013&nbsp;</b>(5.07b29)</p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Enhancements to XFA support, espesically complex table layouts which now display correctly</li>
+<li>Rewrite of Swing Viewer code to improve performance and tidy up as part of JavaFX developments</li>
+<li>Enhancements to image clipping example.</li>
+<li>Rewrite of DeviceN colorcode to improve performance and fix some odd cases</li>
+<li>General fixes for customer files</li>
+</ul>
+<div>
+<p>15333: Added new example to extract checkbox data</p>
+<p>http://files.idrsolutions.com/samplecode/org/jpedal/examples/acroform/ExtractFormCheckboxData.java.html</p>
+<p>15462: PDF file containing (&gt;&gt;) in Colorspace does not open</p>
+<p>Fixed</p>
+<p>15464: ExtractClippedImages example does not correctly merge Mask images</p>
+<p>Fixed</p>
+<p>15483: Image with 1 bit image mask not showing</p>
+<p>Fixed</p>
+<p>15507: Word list extraction consuming values when empty string provided</p>
+<p>Fixed, word list extraction now treats an empty string in the same manner as a null value.</p>
+<p>15517: unreadable preview with pdf</p>
+<p>Fixed</p>
+<p>15451: Change pdfData.flushTextList(boolean) to pdfData.flushTextList()</p>
+<p>Remove unused boolean</p>
+<p>15320: Image not displayed correctly on PDF</p>
+<p>Fixed</p>
+<p>15388: Text missing in PDF form</p>
+<p>Fixed</p>
+<p>15405: DeviceN colorspace not correct on sample file</p>
+<p>Fixed</p>
+<p>15417: Multipage view modes do not show XFA pages correctly</p>
+<p>Fixed</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>25th October 2013&nbsp;</b>(5.06b25)</p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Enhancements to XFA support</li>
+<li>Improvements to Viewer</li>
+<li>Refactoring of Viewer classes to prepare for JavaFX enhancements</li>
+<li>General fixes for customer files</li>
+</ul>
+<div>
+<p>15020: Issue in JPedal server edition</p>
+<p>Fixed issue where PdfDecoderServer decoding in background was not correctly creating the pages grouping object</p>
+<p>15146: &gt;&gt; Chars in (String) causes issues</p>
+<p>Fixed</p>
+<p>15165: Encrypted files do not open if ID starts [</p>
+<p>Fixed</p>
+<p>15185: RE: Difference in Jpedal searched occurrences and Acrobat searched occurrences</p>
+<p>Fixed issue where text lines used for searching was not ordered correctly</p>
+<p>15209: XFA Forms not printed</p>
+<p>Fixed</p>
+<p>15216: Ensure byte aligned flag is taken notice of when finding EOL in CCITT</p>
+<p>Fixed</p>
+<p>14614: Shading does not appear on page</p>
+<p>Fixed</p>
+<p>14785: Page change when changing display mode</p>
+<p>Fixed, when changing to different display modes the view displays the current page instead of reverting to page one.</p>
+<p>14836: manual selection and searching on page turning mode</p>
+<p>Text Selection and Search has been locked out of page turning and page flow modes</p>
+<p>15249: Remove enhancedGUI from properties and any GUI window</p>
+<p>Removed enhancedGUI value from properties file and preferences options in Viewer example.</p>
+<p>15116: Deselect All (Ctrl + Shift + A) on viewer</p>
+<p>Locked deselect all out of all modes other than single page mode as it did not function in these modes.</p>
+<p>15118: "Next ten Pages" in Page Turning Mode in Viewer.</p>
+<p>Fix issue where forward 10 pages would forward by 11 pages if on page 1.</p>
+<p>15119: coordinates in Facing Page Mode in JPedal Viewer</p>
+<p>Fixed issue where page coordinates in facing mode where never updated beyond 0 , 0</p>
+<p>15121: JPedal PageTurning mode issue</p>
+<p>Fixed issue where final page was not rendered correctly in page turning mode on some files</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>30th September 2013&nbsp;</b>(5.05b30)</p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Enhancements to XFA support</li>
+<li>Improvements to Viewer</li>
+<li>Code tidy &nbsp;to make JavaFX enhancements easier to add</li>
+<li>General fixes for customer files</li>
+</ul>
+<div>
+<p>14479: bookmark issues</p>
+<p>Broken bookmarks within the pdf are now handled more gracefull</p>
+<p>14490: blurry images - signed jar</p>
+<p>Fixed issue where jpeg quality / compression value was not being handled correctly in pdf to image converters.</p>
+<p>14654: Add viewer settings tracking option to the properties file</p>
+<p>Add values to the properties file to allow certain values to be tracked between sessions and comments that describes the use of each property value.</p>
+<p>14373: font mapping issue</p>
+<p>Fixed issue where in some cases font mapping was returning incorrect data</p>
+<p>14843: Fwd: Rollouts</p>
+<p>Fixed issue where side tab bar was not expanding correctly.</p>
+<p>14883: Linearized PDF does not open</p>
+<p>Fixed</p>
+<p>14888: Adobe signature/initials issue</p>
+<p>Fix for issue where some forms were misplaced on the page</p>
+<p>15024: Images with FlateDecode compression</p>
+<p>Fixed</p>
+<p>15073: Form field height and width is incorrect</p>
+<p>Fixed issue where forms are incorrectly sized due to miscalculation of offsets</p>
+<p>14861: Lock out rotation on pageflow</p>
+<p>Locked out rotation from pageturn mode and page flow mode.</p>
+<p>14399: Add rollover to XFA checkboxes and radio buttons</p>
+<p>Now works as in acrobat</p>
+<p>14838: cannot togle mouse mode on the menu</p>
+<p>Text select and pan mode menu items are now checked menu items that show which is currently selected</p>
+<p>14839: Inconsistent shortcuts</p>
+<p>Updated viewer interface so that navigation shortcuts are consistent</p>
+<div></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>30th August 2013&nbsp;</b>(5.04b30)</p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Moved Display classes into org.jpedal.display and sub packages</li>
+<li>Improved way Annotations displayed</li>
+<li>Enhancements to XFA support</li>
+<li>Code tidy &nbsp;to make JavaFX enhancements easier to add</li>
+<li>General fixes for customer files</li>
+</ul>
+<div>
+<p>12944: Print in Lanscape mode&nbsp;</p>
+<p>Added default printer orientation support.</p>
+<p>13482: Move JAI and ImageIO into 2 classes for easier suppport or change in future</p>
+<p>Done</p>
+<p>14231: [bug] Values not displayed in flatten forms mode</p>
+<p>Fixed</p>
+<p>14586: Ink Annotation Z-Order reversed</p>
+<p>Fixed</p>
+<p>14639: Removed unused tablezoner, pdfhelp and contentextractor files</p>
+<p>Removed unused preferences files</p>
+<p>14642: [bug] File with empty DecodeParams option fails to open</p>
+<p>Fixed</p>
+<p>14645: [bug] clippedtext on some PDF files incorrect</p>
+<p>Fixed</p>
+<p>14682: Issue in CCITT encoding</p>
+<p>Improve handling of unusual EOL codes in CCITT</p>
+<p>14745: Side tab bar width setting needs improvement</p>
+<p>Side tab bar has become more intuitive with the expanded width being remember when opening and closing the side tab</p>
+<p>14746: Create properties file descriptive document</p>
+<p>The properties file now contains comments to explain the use of the values</p>
+<p>14755: digital signature field on wrong page</p>
+<p>Fixed</p>
+<p>14763: Text incorrectly placed on customer PDF</p>
+<p>Fixed</p>
+<p>14801: Ensure popups appears ontop of other forms</p>
+<p>Done</p>
+<p>14824: JavaFX converter output directory argument no longer needs to end with a path seperator</p>
+<p>The output path, passed via command line, for the JavaFX converter no longer needs to end in a separator (e.g. "\" for windows).</p>
+<p>14832: Exception thrown in PageFlow if page mode changed while drawing</p>
+<p>Fixed</p>
+<p>14723: Some examples are not closing when reaching it's end.</p>
+<p>Fixed, examples should correctly dispose of all threads to prevent certain examples remaining open.</p>
+<p>14399: Add rollover to XFA checkboxes and radio buttons</p>
+<p>Now works as in acrobat</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>26th July 2013&nbsp;</b>(5.03b26)</p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Improvments to server mode</li>
+<li>Fix for odd image issues</li>
+<li>Improvements to documentation</li>
+<li>Reduce usage of Swing internally and imrove rendering of flattened forms</li>
+<li>Improvements to Marked content extraction and no longer fails on very large files</li>
+<li>General fixes for customer files</li>
+</ul>
+<div>
+<p class="p3">Specific issues</p>
+</div>
+<div>
+<p>14252: [bug] Image upside down in viewer from Ghostscript PDF</p>
+<p>Fixed</p>
+<p>14265: [bug] CCITT Image not correctly displayed</p>
+<p>Fix for odd number in CCITT encoding parameter</p>
+<p>14315: Jpedal Image size question in Version 5.02b21a</p>
+<p>Removed rounding issue with image extraction.</p>
+<p>14475: Add option to extract XForms as images as well as images</p>
+<p>Now default option</p>
+<p>14566: Allow for 000000000000000 as xref in file</p>
+<p>Fixed</p>
+<p>14272: Annotations are not being removed when navigating to pages without forms</p>
+<p>Added fix to ensure forms are always removed when navigating to a new page</p>
+<div></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>21st June 2013&nbsp;</b>(5.02b21)</p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Improvements to viewer</li>
+<li>Ability to disable JavaScript</li>
+<li>General fixes for customer files</li>
+<li>New JPedalXFA version</li>
+</ul>
+<div>
+<p class="p3">Specific issues</p>
+</div>
+<div>
+<p>14130: [bug] Line in B() command not correctly drawn</p>
+<p>Fixed</p>
+<p>14250: Broken xref table in customer PDF but still opens in Acrobat</p>
+<p>Now works</p>
+<p>14267: PDF from HotPDF creation library does not open</p>
+<p>Fixed</p>
+<p>14269: Exception thrown in Headless mode on some PDF files from server</p>
+<p>Fixed</p>
+<p>14230: [feature] Add easy way to disable JavaScript</p>
+<p>Added JavaScript.disableJavaScript();</p>
+<p>14163: Enable XFA only on pure XFA documents</p>
+<p>new JPedalXFA release with XFA support</p>
+<p>14135: click on camera and drag area in viewer - no visible outline</p>
+<p>Fixed, drag area for snapshot functionality appears correctly</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">&nbsp;</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>31th May 2013&nbsp;</b>(5.01b31)</p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Improvements to viewer</li>
+<li>Remove System.exit() is Viewer</li>
+<li>Enhancements to print options</li>
+<li>Improvements to new XFA handling (Still disabled by default)</li>
+<li>General fixes for customer files</li>
+<li>More robust handling of 'bad' PDF files</li>
+</ul>
+<div>
+<p class="p3">Specific issues</p>
+</div>
+<div>
+<p>13920: [bug] Text outside page boundary not extracted correctly</p>
+<p>Fixed issue where text that overlaps the page boundary was not being extracted correctly.</p>
+<p>13958: [bug] layers window does not update if you open other layers file (lots in handtest/layers)</p>
+<p>Fixed issue where layers tab would not be reinitialized when opening a second file</p>
+<p>13965: [bug] Nav buttons not disappearing when loading image</p>
+<p>Navigation buttons are now disabled when an image is loaded if they are not needed.</p>
+<p>13975: [bug] Inconsistent Display objects stored in Commands</p>
+<p>Removed local Display object from Commands, we now only use the version stored in PdfDecoder to ensure the Display object is kept consistent.</p>
+<p>13990: [bug] Make code handling compressed object stream to allow for corrupt entry</p>
+<p>Fixed</p>
+<p>14006: [bug] Issue displaying multi line search results</p>
+<p>Fixed issues with multiline search results with menu bar searching</p>
+<p>14014: [Issue] PDF with corrupted Compressed stream data does not open</p>
+<p>Fixed</p>
+<p>14020: [bug] Type3 Fonts not correctly displayed in Customer PDF</p>
+<p>Fixed</p>
+<p>14029: [bug] Win encoded font data not correctly mapped to Mac encode font</p>
+<p>Added fix</p>
+<p>14056: [bug] deeply nested xforms in customer PDF not correctly decoded</p>
+<p>Fixed</p>
+<p>14058: [bug] Handle Pattern object in broken PDF more robustly</p>
+<p>Fixed</p>
+<p>14059: [Issue] Customer PDF with incorrect GS state not displaying correctly</p>
+<p>Fixed</p>
+<p>14061: [forum question] PdfDecoder clipping annotation popups</p>
+<p>Added a fix to ensure insets are always applied to both the page and the form components at the same time.</p>
+<p>14070: {Issue] pdfDecoder.setPDFBorder() behaviour</p>
+<p>Prevent thick borders from overlapping the edge of the pdf page.</p>
+<p>14074: [bug] AcroRenderer method only returns Form if page decoded</p>
+<p>Now decodes other pages if not found</p>
+<p>14084: [bug] Ensure scaling is not set to zero in ConvertPagesToHiRes</p>
+<p>Fixed</p>
+<p>14096: [Issue] Forms with no appearance object not displayed in flattenForm mode</p>
+<p>Fixed</p>
+<p>14129: [API change] Split the autoRotateAndCenter flag</p>
+<p>The Boolean flag SwingPrinter.isPrintAutoRotateAndCenter has been replaced by SwingPrinter.setCenterOnScaling(Boolean) and SwingPrinter.setAutoRotate(Boolean)</p>
+<p>14017: [bug] SMask not correctly applied on customer PDF</p>
+<p>Fixed</p>
+<p>13790: [bug] Text popup annotations not appearing when using renderToG2</p>
+<p>RenderToG2 now correctly displays popup text elements correctly.</p>
+<p>13846: [Issue] Remove System.exit()</p>
+<p>Tidied up the amount of uses of System.exit</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<span style="font-size: 13px;">&nbsp;</span></td>
+</tr>
+</tbody>
+</table>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>26th April 2013&nbsp;</b>(5.00b26)</p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>New version jbig2 decoder</li>
+<li>JavaScript support upgraded to use either Rhino or Nashorn and large number of fixes&nbsp;&nbsp;(still in testing so disabled by default)</li>
+<li>New XFA engine to display &nbsp;XFA pages and forms (still in testing so disabled by default)</li>
+<li>Major rewrite of Forms code for XFA and simplification/extension of API. ExtractFormDataAsObject example rewritten</li>
+<li>New PdfDecoderServer class to provide 'server' version of PdfDecoder without Swing (no printing, viewing or render ontoG2). Some changes to PdfDecoder API and static variables moved into DecoderOptions</li>
+<li>Tidy up of threads in Viewer.&nbsp;</li>
+<li>General fixes for customer files</li>
+</ul>
+<div>This is a big releease and we will be following up with updated documentation and more feature releases over the next few months,especially for XFA and JavaScript.</div>
+<div></div>
+<div></div>
+<div></div>
+<div><b>Specific cases</b></div>
+<div><b><br></b></div>
+<p>11453: General viewer improvements</p>
+<p>Made various improvements to the viewers appearance.</p>
+<p>13275: Mouse Pan (Middle Button) is sluggish in some display Mode</p>
+<p>Improved performance of panning in continuous facing and facing display modes.</p>
+<p>13341: JBIG2 renderer does not support custom Huffman tables</p>
+<p>Implemented</p>
+<p>13774: Clipping wrong on Customer PDF</p>
+<p>Fixed</p>
+<p>13851: Remove GUI properties options for elements removed during build</p>
+<p>The properties windows options to alter visible gui elements will only show those elements that are present in the given build.</p>
+<p>13900: Investigate thread usage</p>
+<p>Removed thread as its use was no longer needed.</p>
+<p>13769: JBIG2 Optimisations</p>
+<p>Implemented</p>
+<p>13855: Remove focus border from GUI buttons</p>
+<p>The dotted line border that appears after using a button on the user interface no longer appears, leaving the interface cleaner.</p>
+<p>13862: Add search results message to search menu items</p>
+<p>Menu bar buttons are always visible, disabled when no search text is present and enabled when text is typed. If a search should find no results, a message is displayed informing the user that the search term failed to find a result.</p>
+<p>13863: Scroll broken when swapping display modes</p>
+<p>The scroll bar is now consistent so when display mode changes the scroll bar is at the correct position.</p>
+<p>13864: Page Counter broken when changing display mode</p>
+<p>Fixed bug where page counter was not updated when changing from a facing display mode to single page mode.</p>
+<p>13865: Form buttons should not display form edited message</p>
+<p>Removed message popup that is displayed when a user clicks on a form component.</p>
+<p>13867: Add delay to arrow key shortcuts in case key is pressed many times</p>
+<p>The arrow keys have a minor delay added so continuous pressing of the key will decode decode each page in sequence but track the page we should be on and only loading the page required.</p>
+<p>13868: Allow left right keys to changes pages as well as up and down</p>
+<p>Keyboard arrow keys functionality improved. Left/Right arrows navigate pages. Up/Down will navigate page if entire page is visible or at the top or bottom of the page, otherwise it will scroll up or down the page.</p>
+<p>13869: Ensure scroll bar is updated when using keyboard shortcuts</p>
+<p>Scroll bar updated correctly when page changes regardless of the method used to change the page.</p>
+<p>13881: Scroll broken with large file</p>
+<p>Fixed an issue where files containing over 250 would in some cases scrolling down on the mouse wheel does not change the page to the next.</p>
+<p>13798: Method compData.getRawForm(String ref) changed to DefaultAcroRenderer getFormObject()</p>
+<p>(PdfObject) compData.getRawForm(parentRef) becomes (PdfObject) getFormObject(parentRef);</p>
+<p>13658: Add support for Ink Annotation</p>
+<p>Support for ink annotations added</p>
+<p>13463: SimpleViewer does not terminate</p>
+<p>Added fix to ensure autoscroll thread closes correctly when no longer required.</p>
+<p>13167: Check Bookmarks on Win7</p>
+<p>Fixed issue where bookmarks were not correctly navigating to the correct page</p>
+<div></div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>15th March 2013&nbsp;</b>(4.93b15)</p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Fixes for jbig2</li>
+<li>Lots of work under hood for new 5.0 release - low level Data, AcroRenderer and FormFactory classes heavily refactored</li>
+<li>Improvements to Annotation handling</li>
+<li>General fixes for customer files</li>
+</ul>
+<b>13654: DecodeParmsArray not being read</b>
+<p>Fixed</p>
+<b>11684: Documents that fail to render</b>
+<p>Fixed issue where some images and image masks are not aligned.</p>
+<b>13627: Runtime Exception for OpenOffice Files with forms</b>
+<p>Fixed issue where document properties window would throw an exception in file containing certain forms.</p>
+<b>13650: Opt hex encoded strings not correctly converted</b>
+<p>Fixed</p>
+<b>13688: InkList data type incorrect</b>
+<p>Fixed</p>
+<b>13718: Add reader option for Using local Adobe fonts</b>
+<p>Added</p>
+<b>13725: Add getPopupComponent method to FormFactory to make it easy to replace</b>
+<p>New method added to FormFactory</p>
+<b>13727: move javadoc to&nbsp; javadoc.idrsolutions.com</b>
+<p>Done</p>
+<b>13730: Put in swingMouseHandler in Commands and remove updateCordsFromFormComponent</b>
+<p>The SwingMouseHandler external handler type has been removed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">&nbsp;</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>23rd February 2013</b> (4.92b23)</p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Improvements to printing</li>
+<li>Lots of work under hood for new 5.0 release</li>
+<li>General fixes for customer files</li>
+</ul>
+<p>13362: Alternative color functionality not working in image extraction - Alternative color functionality now works in image extraction.</p>
+<p>13363: Fwd: JPedalSettings.CHANGE_LINEART - Fix for line art colour change code not changing color</p>
+<p>13365: Misaligned print output in fit to page mode - Fixed alignment of print output when using the fit to printer margins option.</p>
+<p>13426: Image not correctly displayed - Fixed</p>
+<p>13574: CMAP not read correctly if values not in hex - Fixed</p>
+<p>13486: PageFlow throwing exception when page is clicked on - Fixed</p>
+<p>13488: Fix shading with multiple Shading functions -Fixed</p>
+<p>&nbsp;</p>
+<div></div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>21st January 2013</b></p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>JavaFX PageFlow mode</li>
+<li>Improvements to Viewer</li>
+<li>Make better use of fonts on Windows machines for substitutions if not embedded</li>
+<li>General fixes for customer files</li>
+</ul>
+<div></div>
+<div>
+<p>13250: Glyph incorrectly drawn in customer PDF - Fixed</p>
+<p>13263: Regression in Middle click panning - Fixed</p>
+<p>13269: 1bit separation Jbig image inverted - Fixed</p>
+<p>13276: Provide better feedback if JPEG 2000 used - Viewer now displays popup window</p>
+<p>13152: Images in customer PDF not correctly displayed convert to image - Fixed</p>
+<p>12744: Completed change of PageFlow Java3D to JavaFX - Added</p>
+<p>13183: Provide message in Viewer if bouncycastle jar needed -Viewer now displays message with link to web page</p>
+<p>13184: When using scroll wheel in viewer, pages take a long time to load - Fix for single page mode scroll bar not updating correctly.</p>
+<p>13242: unicode table not being read correctly in some cases - Fixed</p>
+<p>13290: NullPointer Exception in pdf file - Fixed</p>
+<p>13320: songST not correctly displayed if not embedded - Fixed</p>
+<p>13371: Use any local fonts installed by Adobe on Windows - Added code to detect if any local fonts</p>
+<div></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>20th December 2012</b></p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Remove dependency on Java3D</li>
+<li>Improvements to Forms code</li>
+<li>General fixes for customer files</li>
+</ul>
+<div></div>
+<div>
+<p>13155: Customer PDF throws exception Fixed</p>
+<p>13075: Bug in XForm code throws exception Fixed</p>
+<p>13082: Missing sig Fixed</p>
+<p>13084: bookmarks work in single page mode but not others Fix for bookmark navigation failing on some operating systems</p>
+<p>12435: clipped image extraction Added merge code</p>
+<p>13100: Freetext annotation not displayed Fixed</p>
+<p>13130: Scrolling Add a method to inform the user when a command has completed execution.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="t1" style="width: 960px;">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>30th November 2012</b></p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Improvements to image handling</li>
+<li>Improvements to Forms code</li>
+<li>General fixes for customer files</li>
+</ul>
+<div></div>
+<div>
+<p>12851: SMask not correctly handled if image rotated Fixed</p>
+<p>12996: Transparent colour not rendered correctly in PDF Fixed</p>
+<p>13012: null object incorrectly handled Fixed</p>
+<p>13019: Indexed 4 bit image not correctly displayed Fixed</p>
+<p>13051: 1x1 index white pixel not correctly displayed Fixed</p>
+<p>12975: Images not correctly clipped on customer PDF Fixed</p>
+<p>12991: Tidy up LogWriter class and remove unused code Changed method to LogWriter.setupLogFile("v");</p>
+<p>12663: Remove PdfDecoder.dpi as not actually used Done</p>
+<p>12950: Image details not saved in hires mode Fixed</p>
+<p>&nbsp;</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">&nbsp;</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>30th October 2012</b></p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Improvements to image handling</li>
+<li>Improvements to Forms code</li>
+<li>General fixes for customer files</li>
+</ul>
+<div></div>
+<div>
+<p>12716: 4 channel JPEG2000 ICCColorspace image not correctly displayed - Fixed<br>12731: CCITT image not decoded correctly in customer PDF - Fixed<br>12753: ConvertPageToHiRes does not factor in page rotation when setting desired height/width - Fixed<br>12826: Form text correctly scaled - Fixed<br>12888: /Off Ap values not correctly handled in customer PDF - Fixed<br>12914: Fix issue with clipping on images in Form - Fixed</p>
+<div></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>21th September 2012</b></p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Improvements to mapping of Chinese characters</li>
+<li>Fixed issue with Customer image not correctly decoded</li>
+<li>Greater control of Viewer colors</li>
+<li>Fixed issue where some printed pages were displaced by the size of the area around the imageable area.</li>
+<li>Fixed Issue with comment in Array in Customer PDF (12697)</li>
+<li>Allow user to set Rendering Hints in viewer with static variable&nbsp;<b>SwingDisplay.userHints</b>&nbsp;(12607)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="t1">
+<tbody>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p1"><b>4th September 2012</b></p>
+</td>
+</tr>
+<tr>
+<td class="td1" valign="baseline">
+<p class="p3"><b>Summary</b></p>
+<ul>
+<li>Fix screen glitch if thumbnail tab clicked in Viewer.</li>
+<li>Fix for customer file issue due to Crea tags in Dictionary</li>
+<li>Allow user to set RenderingHints in Viewer</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.78b30 (30th August 2012)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Improve handling of forms internally to avoid potential thread issue in background usage cases</li>
+<li>Fixes for customer files</li>
+<li>Add additional options to allow user to configure all GUI colours in viewer</li>
+<li>Add option to group images in Clipped Image extraction example</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>12446: Issue with customer PDF with duplicate font name and different encodings on same page<br>Fixed</li>
+<li>12505: Issue with 4bit image<br>Fix for 4bit image not displayed</li>
+<li>12547: PDF create with TXT2PDF throws exception<br>Fixed</li>
+<li>12548: Text not displayed on customer PDF<br>Fixed</li>
+<li>12549: Temporary images created when running the viewer<br>Prevent images from pdf being saved in temporary folder when using memory mode (-Dorg.jpedal.memory=true)</li>
+<li>12440: bug in expiry<br>Fixed</li>
+<li>12441: Transparency wrong on CMYK image<br>Fixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.77b26 (26th July 2012)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Improvements to handling of Linearized PDF files</li>
+<li>Tidy up on jar usage</li>
+<li>Fixes for specific files</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>12360: Use of /SA as /AP key throws exception<br>Fixed</li>
+<li>12375: Type3 Text Appearing Black Instead of White<br>Fixed</li>
+<li>12289: Text on customer PDF not displayed<br>Fixed</li>
+<li>12310: Add custom interface to allow user to control custom icons<br>Added new Custom interface UniqueAnnotationHandler and example code</li>
+<li>12282: Reduce size of option jar cid.jar<br>Done. Now much smaller</li>
+<li>12405: Remove use of l2fprod in library<br>Replace properties code that required an external jar to use standard swing code.</li>
+<li>12406: Bug in SilentPrinting code<br>Add fix for silent print to prevent issue when using the constructor instead of the main.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.76b28 (28th June 2012)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Change names of 3 examples to make usage cleaer</li>
+<li>2 images examples changed.&nbsp;<b>ExtractPagesAsThumbnails</b>&nbsp;to&nbsp;<b>ConvertPagesToImages</b>&nbsp;and&nbsp;<b>HiResThumbnailExtractor</b>&nbsp;to<b>ConvertPagesToHiResImages</b>&nbsp;to make usage clearer</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>11542: /ActualText attribute support<br>Corrected word extraction where in some cases the final character would be outside of the returned text area.</li>
+<li>12100: Stream opened with openPdfFileFromStream(Object filename,String password) is not closed by JPedal - responsibilty of user<br>Changed to provide flexibility with new method</li>
+<li>12113: Layer key in FormObject not correctly handled<br>Fixed</li>
+<li>12138: Allow for Smask of value /None<br>Fixed</li>
+<li>12139: negative stroke width<br>Fixed</li>
+<li>12007: bug in CCITT decoder<br>Fixed</li>
+<li>12062: Remove Vector and Hashtable from codebase<br>Done</li>
+<li>12203: Improve messages on Structured text<br>Improved error message</li>
+<li>11970: Print question<br>Fix for silent print always using default paper size</li>
+<li>11981: No option to open password protected file InputStream<br>New method openPdfFileFromURL(String pdfUrl, boolean supportLinearized, String password) and openPdfFileFromInputStream(InputStream is, boolean supportLinearized, String password) in PdfDecoder</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.76b18 (18th June 2012)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Replace Vector and Hashtable usage with faster classes</li>
+<li>Improvements to CCITT decoder</li>
+<li>Improvements to printing</li>
+<li>Renamed examples&nbsp;<b>ExtractPagesAsThumbnails</b>&nbsp;to&nbsp;<b>ConvertPagesToImages</b>&nbsp;and&nbsp;<b>HiResThumbnailExtractor</b>&nbsp;to<b>ConvertPagesToHiResImages</b>&nbsp;to make usage clearer</li>
+<li>Fixes for customer files</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>11542: /ActualText attribute support<br>Corrected word extraction where in some cases the final character would be outside of the returned text area.</li>
+<li>12100: Stream opened with openPdfFileFromStream(Object filename,String password) is not closed by JPedal - responsibilty of user<br>Changed to provide flexibility with new method</li>
+<li>12113: Layer key in FormObject not correctly handled<br>Fixed</li>
+<li>12138: Allow for Smask of value /None<br>Fixed</li>
+<li>12139: negative stroke width<br>Fixed</li>
+<li>12007: bug in CCITT decoder<br>Fixed</li>
+<li>12062: Remove Vector and Hashtable from codebase<br>Done</li>
+<li>12203: Improve messages on Structured text<br>Improved error message</li>
+<li>11970: Print question<br>Fix for silent print always using default paper size</li>
+<li>11981: No option to open password protected file InputStream<br>New method openPdfFileFromURL(String pdfUrl, boolean supportLinearized, String password) and openPdfFileFromInputStream(InputStream is, boolean supportLinearized, String password) in PdfDecoder</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.75b25 (25th May 2012)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Update code base to utilise java5 functionality (boxing, unboxing, foreach)</li>
+<li>Improvements to CCITT decoder to allow for files ignoring endofLine</li>
+<li>Improvements to printing</li>
+<li>Fixes for customer files</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>11864: Customer PDF with data size too small does not display<br>Fixed</li>
+<li>11871: CCITT data not decoded<br>Fixed handling of certain corrupted CCITT data</li>
+<li>11873: ReadOnly text blurry on image<br>Fixed. Added static variable SwingData.readOnlyScaling (set to 4 or 8 if image needs improving)</li>
+<li>11890: Layer object in customer PDF throw exception<br>Fixed</li>
+<li>11906: 1bit smask displayed with shadow<br>Fixed</li>
+<li>11924: Error dropping pdf from temp dir (java.io.tmpdir)<br>Fix for deletion of unrelated pdf files from java temp folder</li>
+<li>11929: Image corrupted when page rescaled in viewer<br>Fixed</li>
+<li>11930: Composite unicode value not correctly read from Unicode CMAP<br>Fixed</li>
+<li>11812: Page layouts problem in viewer for customer PDF<br>Fixed handling of rotated pages in continuous and continuous facing modes</li>
+<li>11892: Remove use of deprecated jpeg classes<br>Changed to ImageIO code</li>
+<li>11896: PDF created with AntennaHouse PDF creation tool does not open<br>Fixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.74b27 (27th April 2012)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Make control over down-sampling non-static</li>
+<li>Improvements to Font and jbig2 libraries</li>
+<li>Improvements to image handling on less common combinations</li>
+<li>Allow viewer to use properties file on URL and optimise code</li>
+<li>Printing improvements</li>
+<li>Fixes for customer files</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>11773: Allow for invalid negative paramter on g command<br>Fixed</li>
+<li>11774: PdfObject getID() sometimes returns -1<br>Fixed</li>
+<li>11787: ArrailNarrow Bold not substituted by default<br>Added</li>
+<li>11788: Spurious image appears on rescale if high res grayscale mask<br>Fixed</li>
+<li>11837: Next position wrong if TFS negative<br>Fixed</li>
+<li>11838: Text not shown<br>Fixed</li>
+<li>11840: Customer PDF file hangs<br>Fixed</li>
+<li>11854: 2bit grayscale image not displayed in customer PDF<br>Fixed</li>
+<li>11842: OTF CIDTYPE2 font not correctly handled<br>Fixed</li>
+<li>11761: Load properties.xml file from url<br>Properties file can now also be specified as a URL.</li>
+<li>11799: Thin fill Lines do not appear in PDF<br>Fixed</li>
+<li>11814: jbig2 bug<br>fixed</li>
+<li>11826: transparent Grayscale Smask not correctly shown on customer file<br>Fixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.73b26 (26th March 2012)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Make control over down-sampling non-static</li>
+<li>Fix printing issues and regressions</li>
+<li>Ongoing internal code tidy</li>
+<li>Fixes for customer files</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>11542: JPedal Bug Report<br>Corrected word extraction where in some cases the final character would be outside of the returned text area.</li>
+<li>11592: Print performance issue<br>Fix print performance on type3 by avoiding transparency</li>
+<li>11716: PDF file with brokenxref pointer not manually parsed properly<br>Fixed</li>
+<li>11717: JPedal throws NPE if unable to create temp file on openArray<br>Throw more meaningful RTE instead</li>
+<li>11642: Fix regression in duplex printing<br>Fixed</li>
+<li>11697: Allow user to set down-sampling for each instance<br>User can now use PdfDecoder method modifyNonstaticJPedalParameters(Map values) with Map key JPedalSettings.DynamicSampling and values from SamplingFactory (unset, high, medium, none)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.73b01 (1st March 2012)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Fix regression on linear file read</li>
+<li>Improve spacing</li>
+<li>Fix missing spaces on text file</li>
+<li>Fix performance issue on a customer file</li>
+<li>Fixes for customer files</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>11605: Radial Shading in PDF broken on Mac<br>Fixed</li>
+<li>11613: Spacing missing in PDF file text extraction<br>Fixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.72b17 (28th February 2012)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Add support for AESv3 encryption</li>
+<li>API changes to tidy up PdfDecoder class</li>
+<li>Make Text extraction mode non-static</li>
+<li>Fixes for specific client files</li>
+<li>Speed improvements for CMYK to RGB conversion</li>
+<li>Fixes for customer files</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>11443: AESv3 not correctly supported<br>Fixed</li>
+<li>11475: Allow for CIDtoGID as identity<br>Fixed</li>
+<li>11488: Allow for MediaBox smaller than CropBox<br>Fixed</li>
+<li>11489: Layer content incorrectly hidden<br>Fixed</li>
+<li>11495: Potential speed issue on large forms documents<br>Fixed</li>
+<li>11501: CourierNewPSMT not mapped onto Courier on Windows<br>Fixed</li>
+<li>11548: ASCII85Decode throws error on PDF file<br>Fixed</li>
+<li>11560: Tiny dash values cause segmentation error in JVM<br>Added work around. Description on&nbsp;<a href="https://web.archive.org/web/20130928050238/http://www.jpedal.org/PDFblog/2012/01/interesting-pdf-bugs-tiny-image-with-a-big-smask">blog</a></li>
+<li>11581: API change - make PdfDecoder methods isXMLExtraction(), useTextExtraction(), useXMLExtraction() non-static<br>Changed</li>
+<li>11473: API change to PDFDecoder<br>getFormDataForField(nextCompName) removed. Replace&nbsp;<b>decodePdf.getFormDataForField(nextCompName)</b>with<b>decodePdf.getFormRenderer().getFormDataForField(nextCompName)</b></li>
+<li>11474: API change in PdfDecoder<br>getNamesForAllFields() replaced with&nbsp;<b>decoder.getFormRenderer().getComponentNameList();</b></li>
+<li>11434: Mask not always correctly applied if slight rotation on image<br>Fixed</li>
+<li>11442: Correct navBar in rotated page in javaFx<br>Fixed</li>
+<li>11387: Tiny image with large Smask not drawn correctly<br>Fixed. Description on&nbsp;<a href="https://web.archive.org/web/20130928050238/http://www.jpedal.org/PDFblog/2012/01/interesting-pdf-bugs-tiny-image-with-a-big-smask">blog</a></li>
+<li>11399: Text not correclty extracted if last line ends with &lt;<br>Fixed</li>
+<li>11423: API change PdfDecoder method setPageRotation(int newRotation) now private<br>API change</li>
+<li>11424: PdfDecoder unused variable static boolean isDraft removed<br>Fixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.70b22 (20th January 2012)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Tidy up PdfDecoder and remove some unused methods</li>
+<li>Fix issues with inline images</li>
+<li>General fixes and improvements for customer PDF files</li>
+<li>Internal changes for HTML5 and javafx conversion</li>
+<li>Improvements to PDF to JavaFx conversion</li>
+<li>Some API changes, internal code tidy and removal of old examples</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>11248: size on form font size wrong on Customer PDF<br>Fixed</li>
+<li>11264: 360 degree rotation not converted to 0<br>Fixed</li>
+<li>11275: API change<br>Changed to tidy up code</li>
+<li>11276: removed PdfDecoder method .disableBorderForPrinting()<br>API change</li>
+<li>11290: API change PdfDecoder method setPageDecodeStatus and Timeout removed<br>Changed</li>
+<li>11291: remove old extractHeadlines example<br>Removed</li>
+<li>11297: pdfDecoder.getPDFflag(i) method removed<br>pdfDecoder.getIO().getObjectReader().getPDFflag(i)</li>
+<li>11320: Customer Indexed CMYK image not correctly displayed<br>Fixed</li>
+<li>11346: Some inline Images not correctly displayed<br>Fixed</li>
+<li>11349: PDF names with spaces messing up packagename in javafx<br>Fixed. Replaced with underscores.</li>
+<li>11363: Add leading zeros to name so output sorts correctly.<br>Changed output</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.62b14 (21st December 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Tidy up PdfDecoder and remove some unused methods</li>
+<li>Changes for JavaFX and HTML5 conversion</li>
+<li>General fixes and improvements for customer PDF files</li>
+<li>Fix regression in code which made some forms read-only</li>
+<li>Some API changes</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>11168: Incorrect font subsitution on customer file<br>Fixed</li>
+<li>11178: jpeg data prefixed with bum data<br>Now ignored</li>
+<li>11181: JPEG2000 not correctly handled in customer PDF<br>Fixed</li>
+<li>11194: Truetype font data stored in FontFile object<br>Fixed</li>
+<li>11214: PDF file throws exception<br>Fixed</li>
+<li>11240: Text missing on MSword PDF<br>Fixed</li>
+<li>11192: setFontDirs(String[] fontDirs) moved from PdfDecoder to FontMappings<br>API change</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.60b23 (29th November 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Add support for freehand annotations</li>
+<li>IMprove printing by minimising transparency</li>
+<li>Code tidy to move some peripheral functionality from main PdfDecoder class</li>
+<li>Improvements to Layer handling</li>
+<li>New example for PDF2JavaFX conversion</li>
+<li>General fixes and improvements for customer PDF files</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>10890: JPedal Bug Report (3 annotations to add)<br>Added Highlight, Strike Out and Underline annotation support</li>
+<li>10897: Scaling Tiff makes image disappear in displaying multi-tiff file<br>Fixed</li>
+<li>10525: Bug in Draw code creates black shape on customer PDF<br>Fixed</li>
+<li>11051: Printing slow due to excessive transparency<br>Fixed</li>
+<li>10982: Colorspace settings incorrectly read from customer PDF<br>Fixed</li>
+<li>11098: Layers not correctly handled on PDF file<br>Fixed</li>
+<li>10961: Add mappings for CourierStd<br>Fixed</li>
+<li>10981: Flatten forms crashes if no content on page<br>Fixed</li>
+<li>11104: API change PdfDecoder.setFontReplacements(PdfDecoder decode_pdf) becomes FontMappings.setFontReplacements()<br>Change to clarify usage</li>
+<li>11104: API change PdfDecoder.setFontSubstitutionMode(int mode) becomes FontMappings.setFontSubstitutionMode(mode)<br>Change to clarify usage</li>
+<li>11117: Move peripheral mouse functions from PdfDecoder into new MouseMode class<br>Altered to tidy up code</li>
+<li>11004: Black background removed on image in PDF<br>Fixed</li>
+<li>11078: PDF page incorrectly clipped in latest version<br>Fixed</li>
+<li>10958: Refactor TextLine methods<br>API tidied up</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.54b22 (28th October 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Improved YCCK to sRGB conversion. Removed JVM option&nbsp;<b>org.jpedal.useICC</b></li>
+<li>Improvements to viewer and 3D display mode</li>
+<li>Truetype hinting now on by default and enhancements</li>
+<li>Improvements to search</li>
+<li>Fixes for customer PDF files/issues</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>9635: Chinese page - glyphs not quite right<br>Fixed issue in Glyph rendering</li>
+<li>10759: Outline annotation not correctly read and paths on Linux not handed correctly in Customer PDF<br>Fixed</li>
+<li>10760: Management of multi highlight seems to not work properly<br>Fixed</li>
+<li>10858: Customer Pdf does not render correctly<br>Fixed</li>
+<li>10864: PDF uses startref in place of startxref<br>Fixed</li>
+<li>10886: Customer text search bug<br>Fixed</li>
+<li>10888: Clipping wrong on customer PDF<br>Fixed</li>
+<li>10926: Issue with embedded png file object in Customer PDF<br>Fixed</li>
+<li>10936: /N null value not correctly handled<br>Fixed</li>
+<li>10939: Add preferences panel to LGPL viewer<br>Done</li>
+<li>10940: Font hinting now enabled by default<br>Enabled</li>
+<li>10893: Various viewer improvements<br>Improvements to scrolling, zooming, previews and more.</li>
+<li>10899: Change ScreenDisplay to SwingDisplay<br>Change to make class clearer</li>
+<li>10917: Add new method to PdfDecoder to return enum showing Encryption type used on file<br>final public EncryptionUsed getEncryptionType() added</li>
+<li>10867: Multi-tiff not correctly displayed in viewer<br>Fixed</li>
+<li>10836: Multi-page Tiffs not appearing correctly<br>Fixed</li>
+<li>10839: Control Mouse pointer changing on links<br>added code to prevent cursor changing if flag is set</li>
+<li>8515: File with odd pages sizes breaks in Facing mode<br>Fixed</li>
+<li>8991: Black Page Bug<br>Fixed</li>
+<li>9550: Search interrupted by page navigation<br>Fixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.53b40 (28th September 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>New CCITT decoder</li>
+<li>Improvements to Truetype hinting font engine</li>
+<li>Improvements to 3D pageflow</li>
+<li>Improvements to SMask and Image handling</li>
+<li>Fixes for customer PDF files/issues</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>10488: Text misplaced when located via multiple Tj/Td commands<br>Fixed</li>
+<li>10483: Type1c glyphs not correctly displayed<br>Fixed</li>
+<li>10681: String with zero bytes not read correctly<br>Fixed</li>
+<li>10766: ICC JPEG2000 image not correctly decoded<br>Fixed</li>
+<li>10737: Grayscale JPEG image not inverted in customer PDF<br>Fixed</li>
+<li>10771: Recode CCITT<br>Done</li>
+<li>10715: Pattern not correctly displayed on PDF page<br>Fixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.52b88 (9th September 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Speed, memory and stability improvements to 3D coverflow display mode</li>
+<li>HTML example code no longer calls FormFactory - hidden from user by default</li>
+<li>Improvements to PDF2HTML conversion process</li>
+<li>Large number of PDF2HTML issues investigated</li>
+<li>Fixes for rotated pages when converted to HTML</li>
+<li>Fixes for customer PDF files/issues</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>10488: Text misplaced when located via multiple Tj/Td commands<br>Fixed</li>
+<li>10609: hyperlinks issue in continuous mode<br>Fixed</li>
+<li>10640: Some outline pages not correctly read<br>Fixed</li>
+<li>10670: PageFlow3D enhancement<br>Various Pageflow3D improvements including better use of memory and increased stability</li>
+<li>[HTML] 10671: Remove HTMLFormFactory from default<br>Fixed</li>
+<li>10621: Image not displayed on customer PDF<br>Fixed</li>
+<li>10639: Hyperlinks issue<br>Fixed</li>
+<li>10617: bug in coverflow mode in 270 degree rotation<br>Fixed</li>
+<li>9176: Page Flow Bug<br>Fixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.52b54 (25th August 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Rewrite of highlighting code to improve robustness in all modes</li>
+<li>First release of PDF2HTML application - lots of general improvements</li>
+<li>Ability to scale size of HTML pages in PDF conversion</li>
+<li>Improvements to viewing modes</li>
+<li>Regex searching of PDF files now available!</li>
+<li>Bug fixes and Improvements to CCITT decoder</li>
+<li>Fixes for specific customer PDF files</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>10420: Text Missing on Page 1 in customer PDF<br>Fixed</li>
+<li>10496: Inputstream temp files not deleted<br>Fixed</li>
+<li>[HTML] 10566: Allow scaling of HTML page<br>Added scaling value</li>
+<li>8887: Alter facing modes<br>Allow facing modes to appear with page 1 on left</li>
+<li>10552: Allow user to disable 3d test<br>Set static PdfDecoder flag java3DTested to true</li>
+<li>10470: SilentPrint example fails on directory of files<br>Fixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.51b32(29st July 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Rewrite of highlighting code to improve robustness in all modes</li>
+<li>Rewrite of print code and update examples/tutorials to fix issues reported by customers</li>
+<li>New release of PDF2HTML convertor in respone to beta tester feedback and with improvments to text, forms and use configuration.</li>
+<li>Add ability to open PDF files encrypted with Encryption</li>
+<li>Fixes for specific customer PDF files</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>9913: Open an encrypted PDF with a certificate<br>Added new method</li>
+<li>[HTML] 9946: Image transparency not shown<br>Added in HTML support for alpha transparency on images</li>
+<li>10295: FlattenForms not correctly resolved on rotated page<br>Fixed</li>
+<li>10377: SMask image not correctly displayed<br>Fixed</li>
+<li>10413: Parser hangs on PDF<br>Fixed and blog article&nbsp;<a href="https://web.archive.org/web/20130928050238/http://www.jpedal.org/PDFblog/2011/07/why-writing-a-pdf-parser-is-such-a-challenging-task-part-234/">write-up</a></li>
+<li>10423: Color incorrect on shape in PDF file<br>Fixed</li>
+<li>[HTML] 10426: Watermarks missing in PDF file<br>Fixed</li>
+<li>[HTML] 10439: Make file numbers start 00 as needed<br>Added</li>
+<li>8044: If text highlighted on page in viewer, should appear in find box<br>Added</li>
+<li>8797: Paper Source by PDF page size issue<br>Fixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.50b78(20st July 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Changes for PDF 2 HTML conversion usage</li>
+<li>Fixes for various print issues</li>
+<li>Fixes for specific customer issues</li>
+<li>New release of PDF2HTML convertor</li>
+<li>Update Applet documentation</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>10180: PDF form document does not render<br>Fixed</li>
+<li>10318: PDF file throws exception<br>Fixed</li>
+<li>10352: Some cases of SMask not correctly handled<br>Fixed</li>
+<li>10371: Table Text extraction hangs on PDF file<br>Fixed</li>
+<li>10390: Factor page rotation into HTML output<br>Added in</li>
+<li>8772: Update&nbsp;<a href="https://web.archive.org/web/20130928050238/http://www.idrsolutions.com/how-to-view-pdf-files-in-a-browser/">applet tutorial</a>&nbsp;<br>Updated</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.50b58(30th June 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Rewrite of low level parser to improve speed and robustness</li>
+<li>Improvements to image handling</li>
+<li>Fixes for JBIG2 and CCITT decoders</li>
+<li>New release of PDF2HTML convertor</li>
+<li>Improvements to Forms handling</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>9902: No access to fully qualified form names<br>New PDFDecoder method getFullyQualifiedNameList()</li>
+<li>9909: ExtractTextAsWorldist example returns incorrect values in some cases<br>Fixed (change new PDFDecoder(false) to PDFDecoder(true)</li>
+<li>9920: 16bit RGB image not correctly displayed<br>Fixed</li>
+<li>9923: Allow larger Grayscale images to be rescaled<br>Allow larger images which we rescale in viewer to balance memory/quality</li>
+<li>9956: Indexed ICCcolorspace with alt DeviceGray not correctly handled<br>Fixed</li>
+<li>9967: Avoid throwing runtime exception on badly deformed file<br>Removed exception code</li>
+<li>9986: CCITT file does not open<br>Fixed</li>
+<li>9993: PDF Orientation over 360 not correctly handled<br>Fixed</li>
+<li>10277: PdfPageData can return incorrect values in some cases<br>Fixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.49b22(30th May 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Ongoing Improvements</li>
+<li>Beta release of new HTML to PDF conversion application</li>
+<li>Low level refactoring to tidy up classes and reduce size</li>
+<li>Fixes for customer issues</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>9595: CR/LF before leading not correctly ignored<br>Fixed</li>
+<li>9692: random exception ArrayIndexOutOfBoundsException when opening URL<br>Fixed</li>
+<li>9695: page content lost when scaling/zooming<br>Fixed</li>
+<li>9757: Timer resource leak in PdfDecoder<br>Found and fixed by Niklas Matthies</li>
+<li>9760: Search fails on PDF due to partial match<br>Fixed</li>
+<li>9804: Xref table not correctly setup in PDF<br>Added code to allow for</li>
+<li>9834: Allow for single value, numeric values in Type3 differences table<br>Fixed</li>
+<li>9845: Stack underflow corrupts PDF<br>Fixed</li>
+<li>9854: Corrupted font needs replacing with System font<br>Fixed</li>
+<li>9746: Unexpected FS value causes exception<br>Fixed</li>
+<li>9744: Exception thrown by OpenAction dictionary key is PDF file<br>Fixed</li>
+<li>7002: CYMB not correctly mapped to CMYK in DeviceN<br>Fixed</li>
+<li>8707: Incorrect x2 coords in text extraction<br>Text extraction as wordlist updated to fix issue where x2 coordinate was the same as x1 coordinate</li>
+<li>9723: Transparent pattern not correctly displayed<br>Fixed</li>
+<li>9735: Improved handling of corrupt Flate streams<br>More robust handling</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.48b55(21st April 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Improvements to image handling, font processing, ccitt and jbig2 decoder</li>
+<li>Speed improvements</li>
+<li>Low level refactoring to tidy up classes and reduce size</li>
+<li>Improve rotation on continuous page modes</li>
+<li>Fixes for customer issues</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>7734: Shading now correctly drawn if inverted<br>Fixed</li>
+<li>9544: Limit resampling of huge image files<br>Add limits due to PDFs with huge images causing memory issues</li>
+<li>9549: Customer PDF throws exception<br>Fixed</li>
+<li>9589: jbig2 image throws exception<br>Fixed</li>
+<li>9615: 1bit ICCcolorpsace not correctly handled<br>Fixed</li>
+<li>9616: font static initialisation called repeatedly in PdfDecoder init()<br>Moved to static initialiser</li>
+<li>9618: Allow user to validate that temp_dir created<br>Added to ObjectStore&nbsp;<b>public static boolean verifyFilesSaved</b></li>
+<li>9627: PDF page layer incorrectly hidden in MSword created PDF file<br>Fixed</li>
+<li>9650: Euro symbol not properly displayed due to corrupt CMAP<br>Fixed</li>
+<li>9660: Indirect OpenAction in PDF file throws exception<br>Fixed</li>
+<li>9564: API change currentThreshold moved from PdfStreamDecoder to TextDecoder<br>Move public static value</li>
+<li>9633: Embedded Diff table in PDF file created with Creo not decoded<br>Fixed</li>
+<li>9553: API change public BufferedImage processImageData(GraphicsState gs, PdfObject XObject) {<br><b>public BufferedImage processImageData(GraphicsState gs, PdfObject XObject)</b>&nbsp;changed to&nbsp;<b>public BufferedImage processImageData(GraphicsState gs)</b></li>
+<li>9542: Viewer search box not cleared on new file loadFixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.47b53(22nd March 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Tidy up Find code</li>
+<li>Lots of fixes for customer issues</li>
+<li>Enhancements to image,jbig2 and JPEG2000 code</li>
+<li>Added optional speedup for PNG generated code</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>9387: Viewer goto page does not work<br>Fixed</li>
+<li>9401: missing images and unreadable text in customer PDF file<br>Fixed</li>
+<li>9469: File with incorrect ref does not open<br>Fixed</li>
+<li>9517: FS object throws exception in PDF file<br>Fixed</li>
+<li>9489: Text extraction fails on PDF created by MSword<br>Fixed</li>
+<li>9495: Stop images being access in XForm if not set in Render mode<br>Added</li>
+<li>9496: Double-buffering disabled in printing causes flickering<br>No longer turned off</li>
+<li>9503: New org.jpedal.fasterPNG for faster PNG generation<br>Added</li>
+<li>9505: Bug in clipping on PDF stops page rendering<br>Fixed</li>
+<li>9507: JPEG2000 separation images not decoded<br>Fixed</li>
+<li>9516: Corrupted TrueType Loca table throws exception<br>Fixed</li>
+<li>9413: CIDFont0 not correctly displayed if FontFile3 does not set ROS<br>fixed</li>
+<li>9416: jbig2 data throws exception<br>Fixed</li>
+<li>9422: Missing use of locale class (Messages) in SwingGUI<br>Added</li>
+<li>9429: Encrypted file does not open<br>Fixed</li>
+<li>9438: Customer Linearized file does not open<br>Fixed</li>
+<li>9445: Endless zoom / infinite loop<br>Fixed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.46b42 (17th February 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Speed-up scrolling in MultiDisplay modes and fix excessive CPU usage.</li>
+<li>Fix co-ordinates display in mult-page mode and add to continuous</li>
+<li>Improve handling of Readonly text fields</li>
+<li>Fix for various 'unusual' customer PDF files</li>
+<li>Fix issue in Linearized PDF mode on some files</li>
+<li>Lots of internal changes for new product</li>
+</ul>
+<b>Change log for specific customer issues</b>
+<ul>
+<li>7685: Compressed table not correctly read<br>Fixed</li>
+<li>8566: Text not correctly extracted from Ghostscript file<br>Fixed</li>
+<li>9329: Indexed JPX CMYK images not correctly handled<br>Fixed</li>
+<li>9375: PDF does not display<br>Fixed</li>
+<li>9280: Lines using 12 digit decimal scaling not drawn correctly<br>Fixed</li>
+<li>9306: JPedal multi-display modes sluggish and hog CPU<br>Fixed</li>
+<li>9200: Ensure viewer.setupViewer(); called before executeCommands<br>User now warned by runtime exception</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td><b>4.45b105 (18th January 2011)</b></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><b>Summary</b>
+<ul>
+<li>Major rewrite of Image handling code to tidy up, improve speed and prepare for new product.</li>
+<li>Fixes for several customer issues</li>
+<li>Options to set page colour in Viewer</li>
+<li>Option to flatten form in display</li>
+</ul>
+<b>Change log</b>
+<ul>
+<li>8954: Improve resampling of hires imagemask to improve zooming<br>Fixed</li>
+<li>8969: Flattened Forms option<br>Forms can be converted to images in display</li>
+<li>8970: Full name of form on PDF file not resolved<br>Fixed</li>
+<li>9034: PDF file throws exception<br>Fixed</li>
+<li>9043: PDF File does not open<br>Fixed</li>
+<li>9076: Large RGB jpeg does not open<br>Altered image strategy so less memory needed</li>
+<li>9081: JPedalSettings.UNDRAWN_PAGE_COLOR<br>Now settable via executeCommand</li>
+<li>9085: Add flag to control box onscreeen<br>New feature</li>
+<li>8546: Itext file containing dodgy CCITT data does not open<br>Added more error handling code</li>
+<li>9089: Some Linearized PDF files do not open in Linearized mode if Linearized refs in Compressed object<br>Fixed</li>
+<li>9093: Page with lots of inline images renders slowly<br>Recoded to improve speed</li>
+<li>8934: Wrong findMultipleTermsInRectangle results when using *multiple* terms and WHOLE_WORDS<br>Fixed</li>
+<li>9015: Deprecated PdfDecoder method getPageAsThumbnails removed<br>Use getPageAsImage()</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</table>
+<tbody>
+          <tr>
+            <td><h2>3.92b40 (15th January 2010)</h2></td>
+          </tr>
+	<tr><td>Additional features and Bugfixes for clients. Preparation for major new feature in next release.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Fixes for client files</li>
+					<li>Major rewrite of links code</li>
+					<li>Ongoing Improvements</li>
+					<li>Changes under the hood for major new feature</li>
+					<li>Removal of some deprecated methods</li>
+					
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+					<li>7380: Incorrect colour on non-linear indexed colourspace<br>Fixed</li>
+					
+					<li>7385: Type3 font using embedded CCF font not displayed<br>Fixed</li>
+					
+					<li>7386: PDF created with FPDF 1.53 not correctly displayed<br>Fixed</li>
+					
+					<li>7405: Outline data not correctly read in encrypted file if metadata unencrypted but Strings encrypted<br>Fixed</li>
+					
+					<li>7406: ICC colours wrong on file<br>Use CMYK if alternate as gives better image</li>
+					
+					<li>7432: Colorspace with embedded %comment not correctly handled<br>Fixed</li>
+					
+					<li>5569: Some Dest links not working<br>Fixed</li>
+					
+					<li>7139: Changing page opens any closed bookmark folders<br>Fixed</li>
+					
+					<li>7379: Method getPageViaNodeNumber() in SwingOutline removed<br>Removed</li>
+					
+					<li>7390: Bookmarks code rewritten to fix some issues with links<br>Fixed</li>
+					
+					<li>7404: No values for getPageAsHiRes generates error on some files<br>Fixed</li>
+					
+					<li>7441: PDF containing single images not correctly displayed if seconds copy opened<br>Fixed</li>
+					
+					<li>7416: Tweak heuristics for WIN encoded Truetype font to fix issue on file<br>Fixed</li>
+					
+					<li>7421: Rotated shade on file not correctly shown<br>Fixed</li>
+					
+					<li>7428: Forms not correctly drawn in left Display mode<br>Fixed</li>
+
+				</ul></td>
+          </tr>
+        </tbody>
+</table>
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.91b80 (7th December 2009)</h2></td>
+          </tr>
+	<tr><td>Speed enhancements to image printing, optimisations for PDFs reusing XObjects and general improvements.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Much faster printing of pages with transparent images</li>
+					<li>Performance improvements on PDFs where images reused.</li>
+					<li>Ongoing Improvements</li>
+					<li>Customer fixes for reported issues</li>
+					
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+			<li>7164: Much faster printing of pages with multiple transparent images<br>Improved performance on printing</li>
+
+			<li>7204: Shading using tiny pixel increments causes memory error<br>Fixed</li>
+			
+			<li>7256: Custom page formats not correctly set if pageRange<br>Fixed</li>
+
+			<li>7236: Space missing in extracted PDF text<br>Fixed</li>
+			
+			<li>7257: Improved performance where images reused.<br>Caching strategy enables better performance where DO object reused</li>
+			
+			<li>7212: cliptext in non-embedded font not correct in new draw code<br>Fixed</li>
+			
+			<li>7221: org.jpedal.suppressViewerPopups to stop initial popups in Viewer<br>Added</li>
+
+				</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.91b60 (20th November 2009)</h2></td>
+          </tr>
+	<tr><td>Enhancements to SideScroll mode and fixes for client files.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Faster SIDESCROLL mode and improved reflection</li>
+					<li>Non-embedded text rendered much faster</li>
+					<li>Improvements to Javascript parser</li> 
+					<li>Applet regression fixed</li>
+					<li>Customer fixes for reported issues</li>
+					
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+			<li>7049: Spurious leading on end of text line results in zero length char<br>Fixed</li> 
+
+			<li>7135: 1 bit indexed RGB images mis-decoded as black and white<br>Fixed</li> 
+
+			<li>7156: PDF file with TR [/Identity/Identity/Identity/Identity] does not display properly<br>Fixed</li> 
+			
+			<li>7178: Catalog not read correctly if PieceInfo key in Catalog<br>Fixed</li> 
+			
+			<li>5733: Faster renderer of non-embedded fonts<br>Improved speed and memory usage</li> 
+			
+			<li>7174: Regression - applet version broken<br>Fixed</li> 
+			
+			<li>7176: Some glyphs not displayed correctly when using TheSansoffice.ttf as substitute font<br>Improve handling of format 4 fonts by allowing for zero entry. Fixes issue</li> 
+			
+			<li>7184: Issue with transparency on PDF page<br>Not possible to implement full Adobe model but workaround replicates functions and does not break existing files.</li> 
+			
+			<li>7205: Update IText method calls to work with latest 2.1.7<br>Fixed</li> 
+						
+				</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.91b15 (4th November 2009)</h2></td>
+          </tr>
+	<tr><td>Enhancements to SideScroll mode and fixes for client files.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>SIDESCROLL mode improved with bug fixes, speed improvements and reflection</li>
+					<li>Updates to printing and viewing examples</li>
+					<li>Bug fixes for reported issues</li>
+					
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+			<li>6743: Mask not correctly handled if GrayColorspace and JPEG2000<br>Fixed</li> 
+
+			<li>6970: Embedded non-WIN/MAC glyphs not handled correctly if embedded<br>Fixed</li> 
+			
+			<li>7087: Use of , an . in some number values by a PDF creation tool<br>Fixed</li> 
+			
+			<li>7056: Allow for custom unknown Dictionary tags with (TextStream)<br>Fixed</li> 
+			
+			<li>7115: Issue with F key in Names Dictionary<br>Fixed</li> 
+			
+			<li>7124: Changing screen modes from SimpleViewer View-pagelayout broken<br>Fixed</li> 
+			
+			<li>7069: PDF file hangs due to second wrong /Prev key in object<br>Fixed</li> 
+			
+			<li>7082: Forms can disappear after printing until component resized<br>Fixed</li> 
+			
+			<li>7091: Allow setting pdf decoder insets<br>Changed insets value from being static final to just static. Added a properties file value that will allow setting of the insets value. Added an option to allow this value to be changed in the preferences window and updated the properties / preferences tutorials on the web site.</li> 
+			
+			<li>7092: Allow adding custom toolbar buttons<br>add method to swingGui called getDisplaySettingsBar() which returns a JToolBar</li> 
+			
+			<li>7093: Allow adding custom menu items<br>added new method getMenuBar() to swingGui which returns a JMenuBar</li> 
+			
+			<li>7094: Add removal of obsolete separators in menus<br>Whilst removing some options from the gui separators have remained and have become redundent. Now the remove code will handle his to ensure we have to redundent separarators.</li> 
+			
+			<li>7023: SilentPrint throws exception if one 1 parameter passed in<br>Fixed and more useful error messages added</li> 
+			
+			<li>7040: Forms sometimes disappear after printing<br>Fixed</li> 
+				</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.90b18 (7th October 2009)</h2></td>
+          </tr>
+	<tr><td>Viewer solution enhanced with panning and new 'coverflow' viewing mode, rewrite of search and highlighting functions, improvements for image handling, fixes for client files.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Viewer solution enhanced with panning and new 'coverflow' viewing mode</li>
+					<li>Rewrite of search and highlighting functions. Old methods deprecated.</li>
+					<li>Improvements for image handling</li> 
+					<li>Changes for specific client files</li>
+					<li>Add improvements to handling of PDFs created with PDFlib</li>
+					
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+			<li>6889: JPEG images not correctly resample in hires modes<br>Fixed</li> 
+
+<li>6959: PDF created with SolidConvertor does not open<br>Fixed</li> 
+
+<li>6978: rotation wrongly multiplied by scaling in imaging code (Thanks to notarius for spotting)<br>Fixed</li> 
+
+<li>7004: PDF file does not open<br>Fixed</li> 
+
+<li>6993: JPedal does not allow for non-standard use of tab,CR, LR in non-embedded fonts created by PDFlib<br>Fixed</li> 
+
+<li>6895: Highlights Rewrite<br>The rewrite of the highlgihts has been completed. The methods setMouseHighlightArea(Rectangle), setMouseHighlightAreas(Rectangle[]), setSearchHighlightArea(Rectangle), setSearchHighlightAreas(Rectangle[]),setFoundTextPoints(Point, Point) have been deprecated in favor for the new methods addHighlgihts(Rectangle[], boolean) and clearHighlights()
+
+<br>addHighlights(Rectangle[], boolean) will add the array of rectangles to the current highlights, the boolean will add the rectangle to the list if true or match the rectangle to the line areas if false
+
+<br>clearHighlights() will remove all currently highlighted areas</li> 
+
+<li>6920: Search doesn't like existing in a tab<br>Fixed issue where the search tab was appearing as an empty panel.</li> 
+
+<li>6987: Allow for mixed hex and non-hex strings in String Array<br>Fixed</li> 
+
+<li>6997: Allow user to set JPeg image quality in thumbnails<br>Flag org.jpedal.compression_jpeg can now be set for both  Hires and thumbnail page rasterizing</li> 				
+					
+				</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.85b15 (23th September 2009)</h2></td>
+          </tr>
+	<tr><td>Latest update improves JPEG image handling, adds new configuration options and enhancements to SimpleViewer application and fixes several client issues.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Allow timeout if decoding takes too long</li>
+					<li>Enhancements to search fucntionality</li>
+					<li>Improved scaling options for users</li>
+					<li>Improvements to handling large JPegs</li> 
+					<li>Fixes for customer issues and specific files</li>
+					<li>Additional options on hires image extraction if image smaller than page</li>
+					<li>PDF Java Ebook solution launched</li>
+					
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+				<li>6793: Allow Timeout if JPedal takes too long on page<br><a href="https://web.archive.org/web/20100131080837/http://www.jpedal.org/gplSrc/org/jpedal/examples/images/HiResThumbnailExtractor.java.html#timeout">Details</a></li> 
+
+				<li>6808: File with encrypted info streams does not open correctly<br>Fixed and improved Encryption handling</li>
+
+<li>6827: Include version in jar manifest<br>Added</li>
+
+<li>6828: latest version of Abby PDF creation tool prefixes xref table with spaces<br>Previous JPedal versions regarded ref table as invalid and manually scanned file, making loading of file slower</li>
+
+<li>6833: Allow user to control if large files cached in memory with PdfFileReader.alwaysCacheInMemory<br>Open byte[] cached if over 16384 - user can now force PDF to be kept in memory whatever the size</li>
+
+<li>6837: FIle containing VP key in Root Dictionary does not open<br>Fixed</li>
+
+<li>6866: Widget incorrectly rotated if page also rotated<br>Fixed</li>
+
+<li>6561: Huge JPEGs cause memory error<br>Now down-sampled to sensible size</li>
+
+<li>6702: scaling enhancement<br>Scaling can be altered via code using Commands.execute(Commands.SCALING, new Object[]{"300"});  With the 300 being the scaling value.</li>
+
+<li>6703: search enhancement<br>The highlight functionality has been re written and a new method has been added called clearHighlights() to pdfPanel. This method will remove all on screen highlights. All highlights in the new re write will remain on screen untill this method is called.</li>
+
+				
+					
+				</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.84b05 (8th September 2009)</h2></td>
+          </tr>
+	<tr><td>Latest update improves JPEG image handling, adds new configuration options and enhancements to SimpleViewer application and fixes several client issues.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>JPEG down-sampling now uses less memory and makes most images sharper - almost works around bugs in various Linux JVMs</li>
+					<li>Improve SimpleViewer with option to customise and ensure configuration saved in same location</li>
+					<li>Allow for combo-boxes linked across muliple pages to synchronize each other</li>
+					<li>Add support for background print colour in Comboboxes</li>
+					<li>Improve ExtractPagesAsThumbnails so output easily configured</li>
+					<li>Fixes for various customer files</li>
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+				<li>6747: Improve message options in Viewer<br>Added new custom interface</li>
+				<li>6805: LUV image incorrectly identified as RGB<br>Fixed</li>
+<li>6822: Rewrite ExtractPagesAsThumbnails to allow easy setting of  output directory<br>Added</li>
+<li>6748: Kid Combobox values not aligned across multiple pages<br>Fixed</li>
+<li>6643: .properties file created in multiple directories<br>.properties.xml file is no longer saved where the application is run from. The file will now be saved in the same folder as the jar file that is run.</li>
+<li>6718: Flags not set correctly if isDecoding thread incorrectly interrupted<br>Fixed</li>
+<li>6740: PDF with spurious spaces in indirect object fails<br>Fixed</li>
+<li>6742: Text Encoding wrong on CID font file with CFF embedded font<br>Fixed</li>
+
+
+					
+				</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.83b38 (18th August 2009)</h2></td>
+          </tr>
+	<tr><td>Improved printing options, speed enhancements and features for clients, low levels changes for major new feature in next major release.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Improved printing options and print tutorials updated</li>
+					<li>Speed improvements to color and shading code</li>
+					<li>low levels changes for major new feature in next release</li>
+					<li>Fixes for specific client issues/PDFs</li>
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+					<li>6561: Encypted file containing byte 10 or 13 in ID does not open<br>Fixed.</li>
+
+					<li>6623: Change breaks rotation changes in viewer<br>Rotation has been altered to match adobe when in a multi page view. When in single page mode the rotation is reset to page default upon new page displayed.</li>
+
+					<li>6652: Background colour does not correctly show in ComboBox dropdown if set<br>Fixed</li>
+					
+					<li>6655: Rasterized Pages with no images if BMC/EMC layers used<br>Fixed in rasterizer (always worked in Viewer)</li>
+					
+					<li>6672: Double clicking on page with no text causes exception in text highlights <br>double and triple click on a page without text no longer throws a null pointer exception.</li>
+					
+					<li>6680: New JVM flag -Dorg.jpedal.faster_color_decoding=true<br>Uses faster but slightly less accurate method to provide colour shading</li>
+					
+					<li>6684: Some encrypted PDF files throw exception in new color code<br>Fixed</li>
+					
+					<li>6687: Improve performance where ICC colorspace repeatedly used<br>Recode and improve speed</li>
+
+
+					
+				</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.82b36 (30th July 2009)</h2></td>
+          </tr>
+	<tr><td>Improved form printing, fix TableZoner, several enhancements and features for clients, low levels changes for major new feature in next release.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Improved form printing</li>
+					<li>fix TableZoner</li>
+					<li>low levels changes for major new feature in next release</li>
+					<li>Fixes for specific client issues/PDFs</li>
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+					<li>6192: TableZoner broken by preferences changes<br>Fixed</li>
+					
+					<li>6515: Position not correct in hires thumbnails for 90 degree rotated images with CropX<br>Fixed</li>
+					
+					<li>6574: Image not correctly rotated<br>Fixed. Allow for unusual CTM matrix combination</li>
+					
+					<li>6597: Remove unused flag JPedalSettings.EXTRACT_AT_BEST_QUALITY<br>Removed</li>
+					
+					<li>6607: Stroked lines not appearing on some text when used to generate drop shadows<br>Fixed</li>
+					
+					<li>6610: StructuredText example does not work if wrong path separator used<br>Fixed</li>
+					
+					<li>6612: Space after stream keyword causes problem with FlateDecode<br>Fixed</li>
+					
+					<li>6617: Stroke line outline not shown if width 1<br>Fixed</li>
+					
+					<li>6526: Switch to choose default scaling in Viewer<br>-Dorg.jpedal.defaultViewerScaling="25" will set default scaling to 25 (value must be a scaling option)</li>
+					
+					<li>6550: Blank sig buttons change color when clicked on<br>Fixed</li>
+					
+					<li>6558: Sig object not read correctly if /Reference key present<br>Fixed</li>
+					
+					<li>6491: Show empty Sig objects as transparent blocks like Acrobat<br>Added</li>
+					
+					<li>6492: Allow for /Contents key defined as empty spaces string<br>Added</li>
+					
+					<li>6501: Improve printing of Form objects using AP images<br>Now printed at higher resolution</li>
+					
+				</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.81b35 (12th June 2009)</h2></td>
+          </tr>
+	<tr><td>Bugfix for FileChannel issue  and new File open method.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Bugfix for FileChannel File issue</li>
+					<li>New method openPdfFile( InputStream in)</li>
+					<li>Additions for specific client files</li>
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+					<li>6452: Font name with space as number not handled correctly<br>Fixed</li>
+
+					<li>6454: JPedal creating bin files in temp directory<br>Recoded to work around memory leak in Java FileChannel</li>
+
+					<li>6462: PDF with image created by Pixel Translations (PIXPDF Ver.4.2.48) does not open<br>Fixed</li>
+
+					<li>6467: Non-embedded font courbd not correctly substituted on Windows<br>Fixed</li>
+
+					<li>6468: New PdfDecoder  method openPdfFile( InputStream in)<br>Added</li>
+
+					<li>6471: black/white image not appearing in hires extraction<br>Fixed</li>
+
+					<li>6477: Odd encoding issue in PDF created by MS word<br>Fixed</li>
+					
+				</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.81b21 (5th June 2009)</h2></td>
+          </tr>
+	<tr><td>Incremental improvements to image extraction, Viewers and core engine.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>HiRes extraction now has same functionality as standard ExtractPageAsThumbnails</li>
+					<li>Image extraction atomatically detects grayscale only and reduces filesize</li>
+					<li>Viewer now has mode to reopen last document used on page being viewed when shut down.</li>
+					<li>Improvements to core engine to handle various issues found in customer files</li>
+					<li>New methods in PdfDecoder to provide additional information on PDF file</li> 
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+					<li>6304: Missing spaces in PDF file<br>Fixed</li>
+					
+					<li>6328: Non-JPEG CMYK images do not work correctly if OPM set to 1<br>Fixed</li>
+					
+					<li>6397: /StructTreeRoot entry in corrupt reference table stops program working<br>Fixed</li>
+					
+					<li>6443: Enhance HiResThumbnailExtractor<br>Add support for Tiff compression and multiple images in single file</li>
+					
+					<li>6333: Patterns wrong on PowerPoint created PDF<br>Fixed</li>
+					
+					<li>6306: Alter modifyNonstaticJPedalParameters(Map values) to take static values as well<br>modifyNonstaticJPedalParameters(Map values) will pass static values down rather than throwing exception</li>
+					
+					<li>6229: Content missing on page with multiple nested Xform values<br>Fixed</li>
+					
+					<li>5735: Not all text selected on ctrlA<br>Highlighting has been improved to ensure that highlights are not overdrawn by other objects.</li>
+					
+					<li>6321: Form text field image not displayed if field disabled<br>Fixed</li>
+					
+					<li>6342: Problem with Pattern on Powerpoint file<br>Fixed</li>
+					
+					<li>6384: Issues with compressed tifs from ExtractPageAsThumbnails<br>Changed from TIFFEncodeParam.COMPRESSION_DEFLATE to TIFFEncodeParam.COMPRESSION_PACKBITS</li>
+					
+					<li>6387: HiResThumbnailExtractor does not take an input directory of PDFs<br>It does now.</li>
+					
+					<li>6447: New method in PdfDecoder getHiResUpscaleFactor()<br>returns scaleup factor applied to last Hires image of page generated negative values mean no upscaling applied and should be ignored</li>
+					
+					<li>6406: Encoding in Type1 of format dup 8#40  /space  put %032 space not handled<br>Fixed</li>
+					
+					<li>6425: Improve compression on grayscale only images<br>Improved compression on thumbnails</li>
+					
+					<li>6426: New PdfDecoder method getPageInfo(int) to provide info on last page decoded<br>
+					<pre>/**
+* return details on page for type 
+* (defined in org.jpedal.constants.PageInfo) 
+* or null if no values
+* Unrecognised key will throw a RunTime exception
+*/
+public Iterator getPageInfo(int type)
+					</pre></li>
+					
+					<li>6438: properties file not updating with new flag<br>the properties file will now update correctly when new flags are introduced by idrsolutions. If the properties files are missing any values they will be added to the properties.xml files again.</li>
+				</ul></td>
+          </tr>
+        </tbody>
+      </table>
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.80b12 (1st May 2009)</h2></td>
+          </tr>
+	<tr><td>Multiline text searching and a large number of other enhancements and improvements.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Text searching across multiple lines</li>
+					<li>JBIG2 update</li> 
+					<li>Eclipse and NetBeans plugins updated</li>
+					<li>Improved memory usage</li>
+					<li>Large number of updates and improvements for specific issues raised by customers</li>
+					<li>Update Eclipse and NetBeans plugins</li>
+					<li>Ensure Hires extraction has sensible defaults if not all parameters set</li>
+					<li>General bug fixes</li>
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+					<li>6104: File created with PScript5 does not display<br>Fixed</li>
+
+					<li>6272: File throws exception as escaped char misidentified as octal<br>Fixed</li>
+
+					<li>6277: #2323 glyph name needs truncating to #23 if used<br>Fixed</li>
+
+					<li>6282: Add work around to allow for bug in JAI 1.1.1 with JPEG2000 images<br>Done</li>
+
+					<li>6123: Multi-line search<br>Multi line search has been updated so that a string containing multiple words can be found across multiple lines.</li>
+
+					<li>6241: Make opening PDF from byte[] more memory efficient<br>Recoded so larger files now use MemoryMap</li>
+
+					<li>6273: Tweak TrueType heuristics to fix MAC encoded file wrongly identified<br>Done</li>
+
+					<li>6276: JBIG2 file does not open<br>Fixed and new version of JBIG2 library released</li>
+
+					<li>6297: Alter default case so 100% default scaling matches Acrobat 9.0 size<br>Done</li>
+
+					<li>6299: Sharpen black and white images<br>New mode to sharpen for downsampled black and white images now sharpened and improve display. We will develop this further in later releases - it is currently disabled as default. Enabled with, JVM flag -Dorg.jpedal.sharpendownsampledimages=false;</li>
+
+					<li>6279: File with direct Lab colorspace not displayed<br>Fixed</li>
+				</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.79b16 (9th April 2009)</h2></td>
+          </tr>
+	<tr><td>Image and printing improvements and general bugfixes.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Enhancements to handle some unusual image combinations from less common PDF tools</li>
+					<li>New print mode to improve printing on low resolution devices</li> 
+					<li>Bugfixes</li>
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+					<li>6139: 1bit DeviceRGB images inverted if down-sampled<br>Fixed</li>
+					
+					<li>6167: LUV image not correctly decoded on some files<br>Fixed on all examples and regression tested</li>
+					
+					<li>6174: HiRes extraction fails if page full of small images<br>Fixed</li>
+					
+					<li>6104: File created with PScript5 does not display<br>Fixed</li>
+					
+					<li>6187: File using Tabs as separator not properly displayed<br>Fixed</li>
+					
+					<li>6154: Inline image in PDF created by Microsoft does not work<br>Fixed</li>
+					
+					<li>6175: File handle not released if PDF file zero length<br>Fixed</li>
+					
+					<li>6194: New Text print mode PdfDecoder.STANDARDTEXTSTRINGPRINT<br>Use Java fonts for printing standard 14 font families - improved display on low resolution output devices and small spool filesize</li>
+				</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.78b10 (24th March 2009)</h2></td>
+          </tr>
+	<tr><td>Bugfix release and remove regression is ExtractPagesAsThumbnails example.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Fix regression in thumbnail code which would always write out images as tifs if JAI used</li>
+					<li>Improvements to Javascript (ie Adobe Hangman example file)</li> 
+					<li>Bugfixes</li>
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+<li>6057: Outline not picked up if object not aligned in compressed stream data<br>Fixed</li>
+
+<li>6052: ClipText not correctly displayed on thumbnails<br>Fixed</li>
+
+<li>6083: Allow for slightly non-standard object layout in PDF created by google<br>fixed</li>
+
+<li>6129: ExtractPagesAsThumbnails does not output pngs if JAI used<br>Fixed regression</li>
+
+<li>6130: Spurious profile error message in PDFHelp<br>Fixed</li>
+
+
+													</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.77b95 (13th March 2009)</h2></td>
+          </tr>
+	<tr><td>Ongoing improvements/fixes</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Minor improvements to Viewer application</li>
+					<li>Improved support for PDFs from Photoshop</li> 
+					<li>Lots of fixes for low-level issues on specific files</li>
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+<li>6057: Outline not picked up if object not aligned in compressed stream data<br>Fixed</li>
+
+<li>6040: Fonts with single Type 0 CMAP table do not work for substitution<br>Fixed</li>
+
+<li>6084: getOccupiedArea() method in DynamicVectorRenderer returns wrong value<br>Fixed</li>
+
+<li>6029: String in layer order causes Layer code to break<br>Fixed</li>
+
+<li>6030: Make shortcuts native to OS<br>Shortcuts now appear as if they are a native function call.<br>Windows / Linux will use control, Mac will use Meta key.</li>
+
+<li>6036: Exception if you run Jpedal from jar in empty directory<br>Fixed issue that occurs when the jpedal jar is run without itext on the class path.</li>
+
+<li>6060: New Options.GlyphTracker and Interface to allow user to track all glyphs created<br>New option accessible via PdfDecoder method addExternalHandler(Object newHandler, int type)</li>
+
+<li>6063: Base dictionary entry in URI breaks file<br>Fixed</li>
+
+<li>6068: Image on rotated page not correct if rectangular<br>Fixed</li>
+
+<li>6077: Change to SimpleViewer api<br>setupViewer(); is no longer needed for call and can be commented out.<br>setupViewer(String file) is depracted and users should call openDefaultFile(String defaultFile)</li>
+
+<li>6079: ClipText does not work on PDFs create in Photoshop<br>Fixed</li>
+													</ul></td>
+          </tr>
+        </tbody>
+      </table>
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.77b40 (25th February 2009)</h2></td>
+          </tr>
+	<tr><td>Improved support for high end print colour features and ongoing improvements/fixes</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Enhanced support for OPM options in ICC/CMYK colorspaces.</li>
+					<li>CMYK JPEG2000 images now correctly handled.</li>
+					<li>Fix for odd ICC JPEGs.</li>
+					<li>Fixed text search bug on some 90 degree rotated pages.</li>
+					<li>Treat tab as a space in non-substituted fonts.</li>	
+					<li>Minor enhancemets to Viewer and thumbnail examples.</li>
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+<li>6011: Indexed RGB not downsampled correctly<br>Fixed</li>
+
+<li>5962: Spaces not inserted in text on some 90 degree rotated pages<br>Fixed</li>
+
+<li>5969: Issue with softMask when RGB image used<br>Fixed</li>
+
+<li>5956: CMYK JPEG2000 images not correctly decoded<br>Fixed</li>
+
+<li>6004: Allow user to set size of Viewer<br>Added new JVM flag org.jpedal.startWindowSize
+
+<br>Added</li>
+
+<li>6005: ExtractThumbnails example will not display encrypted files<br>Added method ExtractPagesAsThumbnails(String file_name,String output_dir, String password); to allow user to pass in value or also possible 4th parameter if calling method directly.</li>
+
+Updated documentation
+
+<li>5960: Issue with text search<br>Fixed issue where type 3 fonts were not highlighted.</li>
+
+<li>5971: Black background on ICC images<br>Fixed</li>
+
+<li>5983: Indexed CMYK JPEG2000 image variant not properly displayed<br>Fixed</li>
+
+<li>5998: Text in TR2 mode printed with shadow on Mac due to bug in JVM<br>Fixed</li>
+
+<li>6003: Exception if image double-clicked on some PDFs<br>Fixed</li>
+													</ul></td>
+          </tr>
+        </tbody>
+      </table>
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.77b22 (13th February 2009)</h2></td>
+          </tr>
+	<tr><td>Improvements to Layers, Javascript, YCCK color handling, workaround for AIX java bugs and ongoing improvements/fixes</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Layers can now be accessed from JPedal API and issue with Layers not listed in properties fixed.</li>
+					<li>Ongoing impovements to Javascript engine.</li>
+					<li>YCCK colour handling improved and user messages now displayed in Viewers. New tutorial on color.</li>
+					<li>Enhancements to improve support for high end CMYK print modes</li>	
+					<li>JPedal now auto-detects AIX and uses workaround for transparency bug in some versions of AIX (giving black thumbnails).</li>
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+<li>5695: Type3 font not displayed if size 1<br>Fixed</li>
+
+<li>5882: Improve reporting on YCCK images<br>By default JPedal uses a fast approximation method to handle YCCK images. This can result in some colors coming out darker than desired.</li>
+
+JPedal has a JVM option to  use profiles instead for slower, more accurate translation. We have added a new value to PdfDecoder method <a href="https://web.archive.org/web/20100131080837/http://www.jpedal.org/javadoc/org/jpedal/PdfDecoder.html#getPageDecodeStatus(int)">getPageDecodeStatus(DecodeStatus.YCCKImages)</a> which will show if YCCK images present. Our viewers will now popup message to explain this to use if relevant.
+
+<li>5946: Layers not visible if undefined in Properties entry<br>Fixed</li>
+
+<li>5807: Issue with preferences values in old versions<br>Added check to prevent the loading of properties from older versions causing exceptions.</li>
+
+<li>5839: Improvements to handling of ICC and CMYK as transparencies in print modes<br>Added code to cover additional combinations</li>
+
+<li>5851: Missing message<br>Fixed the broken message when extracting images from pdf.</li>
+
+<li>5947: Bug in search<br>Missing search results are no longer lost</li>
+
+<li>5934: User trying to write own custom print and JPS does not allow for pages preceeding PDF<br>New PdfDecoder method <a href="https://web.archive.org/web/20100131080837/http://www.jpedal.org/javadoc/org/jpedal/PdfDecoder.html#useLogicalPrintOffset(int)">useLogicalPrintOffset(int pagesPrinted)</a> and updated tutorial</li>
+
+													</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.76b77 (23th January 2009)</h2></td>
+          </tr>
+	<tr><td>Bugfixes and ongoing improvements to JPedal and JBIG2 library.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>General improvements and bug fixes/workarounds added for specific files</li>
+					<li>Upgraded to latest version of JBIG2 library</li>
+					<li>Fixed issue with some older profiles when used with latest version</li>	
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+
+<li>5782: Problem with /TxFontSize key in file<br>Fixed</li>
+
+<li>5709: ClipText mode not correctly handled on embedded fonts<br>Fixed</li>
+
+<li>5766: Update JBIG2 to fix unknown data lengths issue<br>Fixed</li>
+
+<li>5774: Too many open files exception with larger number of files in thumbnailing<br>Fixed</li>
+
+<li>5787: Returns removed from JavaScript breaks some files<br>Fixed</li>
+
+<li>5790: Correctly Allow for null FormObjects in stream<br>Fixed</li>
+
+<li>5802: Dashed border not implemented on forms<br>Added</li>
+
+<li>5803: Unicode definition can contain values over 256 even on non-CID fonts<br>Fixed</li>
+
+<li>5808: setSearchHighlightArea throws exception if you pass in null<br>setSearchHighlightArea now resets highlight area when the input is null</li>
+													</ul></td>
+          </tr>
+        </tbody>
+      </table>
+
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.76b54 (06th January 2009)</h2></td>
+          </tr>
+	<tr><td>Support for substituting pfb fonts, bugfixes and ongoing improvements.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>Fixed regression in Dest code which broke bookmarks on some files</li>
+					<li>Improved font mapping of non-embedded standard fonts on Windows and Linux</li>
+
+					<li>Font substitution can now use Type1 pfb fonts</li>
+					<li>Ongoing Text selection improvements</li>
+					<li>Allow user to control printing of forms</li>
+					<li>Ongoing improvements to Javascript handler</li>
+					<li>StructuredText extraction now works with Struct Trees</li>
+					<li>Zapf correctly mapped if no Encoding set.
+					</li><li>Allow for malformed fonts with no required Type</li>
+					<li>Viewer co-ordinates now update when over Forms</li>
+					<li>Dest links now support /Fit tag</li>
+					<li>Additional tips added to Viewer</li>	
+					<li>Fixed regression in PdfGrouping from previous release</li>	
+					<li>Highlight Annotations now appear transparent</li>
+					<li>Encrypted files with ID as (text) now work correctly</li>			
+				</ul>
+              <b>Change log</b>                
+				<ul>	
+					
+<li>5624: RGB DCT image with flate Mask not correctly handled<br>Fixed</li>
+
+<li>5696: Allow font substitution to use Type1 fpb files<br>Now supported</li>
+
+<li>5535: ZapfDingbats not correctly handled if no encoding set<br>Fixed</li>
+
+<li>5663: BG form color not set correctly if CMYK<br>Fixed</li>
+													</ul></td>
+          </tr>
+        </tbody>
+      </table>
+<table padding="0" margins="0" width="100%">
+        <tbody>
+          <tr>
+            <td><h2>3.75b22 (9th December 2008)</h2></td>
+          </tr>
+	<tr><td>Major speed improvements with new Object reader and ongoing text selection enhancements.</td></tr>
+          <tr>
+            <td><b>Summary</b>
+                <ul>
+					<li>New PDFObject reading engine provides significant speed improvements</li>
+					<li>Text selection improvements</li>
+					<li>StructuredText extraction now works with Struct Trees</li>
+								</ul>
+              <b>Change log</b>                
+				<ul>	
+					
+					<li>5553: Old PdfAnnots, PdfFormData and redundant PDFReader methods removed from JPedal<br>Changed</li>
+					
+					<li>5554: XFA as direct stream not supported.<br>Now supported</li>
+					
+					<li>5626: Trailer keys /Prev and /XRefStm not picked up on some files<br>Fixed</li>
+					
+					<li>5638: Properties being replaced with default values<br>Fixed</li>
+					
+					<li>5645: NASA page broken in continuous<br>Fixed</li>
+
+					<li>5570: /Fit tag does not work on Dest links<br>Fixed</li>
+			
+			</ul></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+</body>
+</html>  

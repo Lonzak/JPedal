@@ -1,0 +1,1319 @@
+/**
+* ===========================================
+* Java Pdf Extraction Decoding Access Library
+* ===========================================
+*
+* Project Info:  http://www.jpedal.org
+* (C) Copyright 1997-2010, IDRsolutions and Contributors.
+*
+* 	This file is part of JPedal
+*
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+
+*
+* ---------------
+* PageFlow3D.java
+* ---------------
+*/
+package org.jpedal;
+
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
+import javafx.embed.swing.JFXPanel;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.event.EventHandler;
+import javafx.scene.CacheHint;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.PerspectiveTransform;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
+import org.jpedal.objects.PdfPageData;
+import org.jpedal.utils.LogWriter;
+import org.jpedal.utils.Messages;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
+
+public class PageFlowFX extends JFXPanel {
+
+	protected PdfDecoder pdf;
+    private boolean stopAddingPages;
+    private int pageCount;
+    private int displayRotation;
+    protected int pageNumber;
+    protected PdfPageData pageData;
+    private int pagesToGenerate = 21;
+
+    private static final int textureSize = 256;
+    private Page[] pages;
+    private double[] pageWidths;
+    private Scene scene;
+    private AnchorPane contents;
+
+    private Rectangle backgroundTop;
+    private Rectangle backgroundBottom;
+    private Line navLine;
+    private Circle navCircle;
+    private Line zoomLine;
+    private Circle zoomCircle;
+
+    private ActionListener pageListener, messageListener;
+    private Cursor defaultCursor, grabbingCursor, grabCursor;
+
+    private double sceneXOffset = 0, sceneYOffset = 0;
+
+    private boolean currentlyAddingPages = false;
+    private boolean memoryWarningShown = false;
+    private boolean pageFlowEnding = false;
+
+    private double scaling = 1.5;
+    private double pageFocus = 1;
+
+    private int currentZPosition = -1;
+
+    private boolean formsIgnoredStore = false;
+    private int pagesInMemory;
+    private long memoryLimit;
+    private final Runtime runtime;
+    private int pageLimit;
+    private boolean clickEvent = false, navBarDrag = false, zoomBarDrag = false, knobMoved = false;
+
+    public PageFlowFX(int pNum, PdfDecoder pdfDecoder) {
+
+        // JavaFX cannot be restarted after exiting, so turn off auto exit.
+        Platform.setImplicitExit(false);
+
+    	// Set current page
+        if (pNum < 1) // From PageFlow3D. Unsure of purpose.
+            pNum = 1;
+
+        // Setup PDF info
+        pdf = pdfDecoder;
+        pageData = pdf.getPdfPageData();
+        pageCount = pdf.getPageCount();
+        pageNumber = pNum;
+        pageFocus = pageNumber;
+
+        // Setup for memory management
+        pagesInMemory = 0;
+        runtime = Runtime.getRuntime();
+        long maxMem = runtime.maxMemory();
+        if(maxMem * 0.25f < 36000000)
+            memoryLimit = maxMem - 36000000;
+        else
+            memoryLimit = (long)(maxMem * 0.75f);
+
+        //Disable forms, but store whether they were on so we can restore on dispose()
+        if (pdf.formRenderer != null) {
+            formsIgnoredStore = pdf.formRenderer.ignoreForms();
+            pdf.formRenderer.setIgnoreForms(true);
+        }
+
+        pages = new Page[pageCount];
+        pageWidths = new double[pageCount];
+
+        // Create JavaFX scene
+        Platform.runLater(new Runnable() {
+            public void run() {
+                createScene();
+            }
+        });
+
+        pageLimit = 50;
+    }
+
+    private void createScene() {
+
+        contents = new AnchorPane();
+        ObservableList<Node> children = contents.getChildren();
+
+        scene = new Scene(contents);
+
+        setScene(scene);
+
+        sceneXOffset = getWidth()/2;
+        sceneYOffset = getHeight()/2;
+
+        // Create 2 tone background colours.
+        backgroundTop = new Rectangle(0,0,getWidth(), getHeight()/2);
+        backgroundTop.setFill(new Color(55/255f, 55/255f, 65/255f, 1));
+        backgroundBottom = new Rectangle(0,getHeight()/2,getWidth(), getHeight()/2);
+        backgroundBottom.setFill(new Color(28/255f, 28/255f, 32/255f, 1));
+
+        // Create nav bar
+        navLine = new Line();
+        navLine.setStrokeWidth(1.5);
+        navLine.setStroke(Color.WHITE);
+        navCircle = new Circle(5);
+        navCircle.setStrokeWidth(2);
+        navCircle.setStroke(Color.WHITE);
+        navCircle.setFill(Color.GRAY);
+        updateNavBar();
+
+        // Create zoom bar
+        zoomLine = new Line();
+        zoomLine.setStrokeWidth(1.5);
+        zoomLine.setStroke(Color.WHITESMOKE);
+        zoomCircle = new Circle(5);
+        zoomCircle.setStrokeWidth(2);
+        zoomCircle.setStroke(Color.WHITE);
+        zoomCircle.setFill(Color.GRAY);
+        updateZoomBar();
+
+        children.addAll(backgroundTop,backgroundBottom, navLine, navCircle, zoomLine, zoomCircle);
+
+        setupMouseHandlers();
+        setupWindowResizeListeners();
+
+        addPages();
+    }
+
+    // Listen out for window resizes to update the x,y,width,height of pages dynamically.
+    private void setupWindowResizeListeners() {
+        scene.widthProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
+                sceneXOffset = newSceneWidth.doubleValue()/2;
+                updateNavBar();
+                updateZoomBar();
+                Platform.runLater(new Runnable() {
+                    public void run() {
+                        backgroundTop.setWidth(scene.getWidth());
+                        backgroundBottom.setWidth(scene.getWidth());
+                    }
+                });
+                for (Page page : pages) {
+                    if (page!=null)
+                        page.update();
+                }
+            }
+        });
+        scene.heightProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, final Number newSceneHeight) {
+                sceneYOffset = newSceneHeight.doubleValue()/2;
+                updateNavBar();
+                updateZoomBar();
+                Platform.runLater(new Runnable() {
+                    public void run() {
+                        backgroundTop.setHeight(scene.getHeight());
+                        backgroundBottom.setHeight(scene.getHeight());
+                        backgroundBottom.setY(scene.getHeight()/2);
+                    }
+                });
+                for (Page page : pages) {
+                    if (page!=null)
+                        page.update();
+                }
+            }
+        });
+    }
+
+    // volatile fields because they get used across threads so we don't want optimisations like caching.
+    private volatile double x; //oldX is used so we know how far the mouse has been dragged since the last event.
+    private volatile boolean isAnimating, stopAnimating = false;
+    private boolean navClick = false;
+    private void setupMouseHandlers() {
+
+    	/********************************************************
+    	 * Handle with care please, especially releasedHandler. *
+    	 ********************************************************/
+
+        // If moving then clicked, stop moving
+        scene.setOnMousePressed(new EventHandler<MouseEvent>() {
+    		public void handle(MouseEvent mouseEvent) {
+
+                if(SingleDisplay.allowChangeCursor)
+                    setCursor(grabbingCursor);
+
+                if (mouseEvent.getY() > getHeight() - 30)
+                    navClick = true;
+
+    			// If we are currently scrolling, tell it to stopAnimating
+    			if (isAnimating) {
+    				stopAnimating = true;
+    			}
+
+    			//Reset all X positions to current pageFocus.
+    			x = mouseEvent.getSceneX();
+    		}
+    	});
+
+        // Move pages in the direction being dragged
+        scene.setOnMouseDragged(new EventHandler<MouseEvent>() {
+    		public void handle(final MouseEvent mouseEvent) {
+                navClick = false;
+
+                if (!navBarDrag && !zoomBarDrag) {
+
+                    // Move the pages by the amount the mouse was dragged.
+                    double newPosition = pageFocus - (((mouseEvent.getSceneX() - x) / getTotalWidth())*4*pageCount);
+                    if (newPosition > 1 && newPosition < pageCount) {
+                        isAnimating = true;
+                        reorderPages((int)(pageFocus +0.5), false);
+                        pageFocus = newPosition;
+                        updateNavBar();
+
+                        for (Page page : pages) {
+                            if (page!=null)
+                                page.update();
+                        }
+                        isAnimating = false;
+                    }
+
+                    pageNumber = (int)(pageFocus+0.5);
+
+                    addPages();
+
+                    // Set x positions for next mouse event to use.
+                    x = mouseEvent.getSceneX();
+                } else {
+                    navBarDrag = false;
+                    zoomBarDrag = false;
+                }
+    		}
+    	});
+
+        // Move to center of nearest page
+        scene.setOnMouseReleased(new EventHandler<MouseEvent>() {
+            public void handle(final MouseEvent mouseEvent) {
+                if(SingleDisplay.allowChangeCursor)
+                    setCursor(grabCursor);
+                //Reset cursor after delay
+                Timer t = new Timer(350, new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        if(SingleDisplay.allowChangeCursor)
+                            setCursor(defaultCursor);
+                    }
+                });
+                t.setRepeats(false);
+                t.start();
+                if (!clickEvent) {
+                    if (pageFocus < 1) {
+                        pageFocus = 1;
+                    } else if (pageFocus > pageCount) {
+                        pageFocus = pageCount;
+                    }
+                    if (navClick) {
+                        goTo((int)(1.5 + ((mouseEvent.getX() / (getWidth()-40)) * (pageCount - 1))));
+                    } else {
+                        goTo((int)(pageFocus+0.5));
+                    }
+                } else {
+                    clickEvent = false;
+                }
+
+            }
+        });
+
+        // Set default cursor when moving
+        scene.setOnMouseMoved(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent mouseEvent) {
+                if (!knobMoved) {
+                    if(SingleDisplay.allowChangeCursor)
+                        setCursor(defaultCursor);
+                } else {
+                    knobMoved = false;
+                }
+            }
+        });
+
+        // Listen for nav changes
+        navCircle.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent mouseEvent) {
+                double x = mouseEvent.getX();
+                navBarDrag = true;
+                if (x < 20) x = 20;
+                if (x > getWidth() - 20) x = getWidth() - 20;
+                if (x != navCircle.getCenterX()) {
+                    navCircle.setCenterX(x);
+                    double percent = (x - 20) / (getWidth() - 40);
+                    pageFocus = ((pageCount - 1) * percent) + 1;
+                    pageNumber = (int)(pageFocus+0.5);
+                    addPages();
+                    reorderPages((int)(pageFocus+0.5), false);
+                    for (Page page : pages) {
+                        if (page!=null)
+                            page.update();
+                    }
+                }
+            }
+        });
+
+        // Change cursor to grab if over nav knob
+        navCircle.setOnMouseMoved(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent mouseEvent) {
+                knobMoved = true;
+                if(SingleDisplay.allowChangeCursor)
+                    setCursor(grabCursor);
+            }
+        });
+
+        // Listen for zoom changes
+        zoomCircle.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent mouseEvent) {
+                double y = mouseEvent.getY();
+                zoomBarDrag = true;
+                double start = getHeight() * 0.2;
+                double end = getHeight() * 0.4;
+                if (y < start) y = start;
+                if (y > end) y = end;
+                if (y != zoomCircle.getCenterY()) {
+                    zoomCircle.setCenterY(y);
+                    double percent = (y - start) / (end - start);
+                    scaling = 1 + percent;
+                    for (Page page : pages) {
+                        if (page!=null)
+                            page.update();
+                    }
+                }
+            }
+        });
+
+        // Change cursor to grab if over zoom knob
+        zoomCircle.setOnMouseMoved(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent mouseEvent) {
+                knobMoved = true;
+                if(SingleDisplay.allowChangeCursor)
+                    setCursor(grabCursor);
+            }
+        });
+
+        // Left/right keyboard page change listener
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            public void handle(KeyEvent keyEvent) {
+                KeyCode key = keyEvent.getCode();
+
+                switch(key) {
+                    case RIGHT: {
+                        int dest = pageNumber+1;
+                        if (dest <= pageCount)
+                            goTo(dest);
+                        break;
+                    }
+                    case LEFT: {
+                        int dest = pageNumber-1;
+                        if (dest > 0)
+                            goTo(dest);
+                        break;
+                    }
+                }
+            }
+        });
+
+        // Scroll pages or scroll zoom if ctrl held.
+        scene.setOnScroll(new EventHandler<ScrollEvent>() {
+            public void handle(ScrollEvent event) {
+                double value = event.getDeltaY();
+
+                if (event.isControlDown()) {
+                    if (value < 0) {
+                        if (scaling < 2) {
+                            scaling = scaling + 0.1;
+                            if (scaling > 2) scaling = 2;
+                            updateZoomBar();
+                            for (Page page : pages) {
+                                if (page!=null)
+                                    page.update();
+                            }
+                        }
+                    } else if (value > 0) {
+                        if (scaling > 1) {
+                            scaling = scaling - 0.1;
+                            if (scaling < 1) scaling = 1;
+                            updateZoomBar();
+                            for (Page page : pages) {
+                                if (page!=null)
+                                    page.update();
+                            }
+                        }
+                    }
+                } else {
+                    if(value>0){
+                        int dest = pageNumber-1;
+                        if (dest > 0)
+                            goTo(dest);
+                    }else{
+                        int dest = pageNumber+1;
+                        if (dest <= pageCount)
+                            goTo(dest);
+                    }
+                }
+            }
+        });
+
+        // Double click to max zoom
+        scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.getClickCount() == 2 && scaling != 1) {
+                    scaling = 1;
+                    updateZoomBar();
+                    for (Page page : pages) {
+                        if (page!=null)
+                            page.update();
+                    }
+                }
+            }
+        });
+
+    }
+
+    private void updateNavBar() {
+        Platform.runLater(new Runnable() {
+            public void run() {
+                navCircle.setCenterY(getHeight() - 15);
+                navLine.setStartX(20);
+                navLine.setStartY(getHeight() - 15.5);
+                navLine.setEndX(getWidth() - 20);
+                navLine.setEndY(getHeight() - 15.5);
+                double percent = (pageFocus - 1) / (pageCount - 1);
+                double x = 20 + ((getWidth()-40)*percent);
+                navCircle.setCenterX(x);
+            }
+        });
+    }
+
+    private void updateZoomBar() {
+        Platform.runLater(new Runnable() {
+            public void run() {
+                zoomCircle.setCenterX(15);
+                zoomLine.setStartX(15.5);
+                zoomLine.setStartY(getHeight()*0.2);
+                zoomLine.setEndX(15.5);
+                zoomLine.setEndY(getHeight()*0.4);
+
+                double percent = 2 - scaling;
+                double start = getHeight()*0.2;
+                double end = getHeight()*0.4;
+                zoomCircle.setCenterY(end - ((end - start) * percent));
+            }
+        });
+    }
+
+    // Z positioning in JavaFX is based on the order nodes appear in the Node list/tree.
+    private void reorderPages(int position, boolean forceReorder) {
+
+        // Check if reorder is required
+        if (!forceReorder && (currentZPosition == position || position < 1 || position > pageCount))
+            return;
+
+        // Update the current page number in the viewer
+        if (pageListener!=null)
+            pageListener.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, String.valueOf(position)));
+
+        currentZPosition = position;
+        List<Node> newContents = new ArrayList<Node>();
+        // Add nodes behind the pages. e.g. background
+        newContents.add(backgroundTop);
+        newContents.add(backgroundBottom);
+
+        // Add pages to the right of the current page, then add those to the left.
+        int i = pageCount;
+        while (i > position) {
+            if (pages[i-1]!=null) {
+                newContents.add(pages[i-1]);
+                newContents.add(pages[i-1].getReflection());
+            }
+            i--;
+        }
+        i = 1;
+        while (i < position) {
+            if (pages[i-1]!=null) {
+                newContents.add(pages[i-1]);
+                newContents.add(pages[i-1].getReflection());
+            }
+            i++;
+        }
+        // Add main page
+        if (pages[position-1]!=null) {
+            newContents.add(pages[position-1]);
+            newContents.add(pages[position-1].getReflection());
+        }
+
+        // Add nodes appearing in front of pages e.g. nav/zoom controls.
+        newContents.add(navLine);
+        newContents.add(navCircle);
+        newContents.add(zoomLine);
+        newContents.add(zoomCircle);
+        final List<Node> newContentsFinal = newContents;
+
+        Platform.runLater(new Runnable() {
+            public void run() {
+                contents.getChildren().setAll(newContentsFinal);
+            }
+        });
+    }
+
+    public void setRotation(int displayRotation){
+
+        //Reload pages if rotation changes
+        if (this.displayRotation != displayRotation) {
+            this.displayRotation = displayRotation;
+
+            for (Page p : pages) {
+                if (p != null) {
+                    p.dispose();
+                }
+            }
+
+            stop();
+            stopAddingPages = false;
+            goTo(pageNumber);
+        }
+    }
+
+    private double getTotalWidth() {
+        double totalWidth = 0;
+        for (double d : pageWidths) {
+            totalWidth += d;
+        }
+        return totalWidth;
+    }
+
+    public void setCursors(java.awt.Cursor grab, java.awt.Cursor grabbing, java.awt.Cursor def) {
+        grabCursor = grab;
+        grabbingCursor = grabbing;
+        defaultCursor = def;
+    }
+
+    private int newDestination = 0;
+    private double speed = 0;
+    public void goTo(final int firstDestination) {
+        if (pageNumber != firstDestination && pages[pageNumber - 1]!=null)
+            pages[pageNumber - 1].setMain(false);
+
+        pageNumber = firstDestination;
+
+        if (pages[pageNumber - 1]!=null)
+            pages[pageNumber - 1].setMain(true);
+
+        if (pageListener!=null)
+            pageListener.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, String.valueOf(firstDestination)));
+
+        //update pdfdecoder's pagenumber (-100 flag to prevent loop)
+        pdf.setPageParameters(-100f, firstDestination);//From PageFlow3D. Unsure of purpose.
+
+        addPages();
+
+        //If already moving set variable to let thread know destination has changed
+        if (isAnimating) {
+            newDestination = firstDestination;
+            return;
+        }
+
+        Thread thread = new Thread("PageFlow-goTo") {
+            public void run() {
+                int destination = firstDestination;
+
+                while(!stopAnimating &&
+                        (pageFocus > destination + 0.0001 || pageFocus < destination - 0.0001 )) { //TODO || forceAnimate?
+
+                    //Pick up if destination changed
+                    if(newDestination !=0) {
+                        destination = newDestination;
+                        newDestination=0;
+                    }
+
+                    //accelerate
+                    if (pageFocus < destination) {
+                        if (speed < 0.2f)
+                            speed = 0.2f;
+                        speed = speed *1.15f;
+                    } else {
+                        if (speed > -0.2f)
+                            speed = -0.2f;
+                        speed = speed *1.15f;
+                    }
+
+                    //cap speed
+                    double maxSpeed = (destination-pageFocus)/4;
+                    if (Math.abs(speed) > Math.abs(maxSpeed))
+                        speed = maxSpeed;
+
+                    //update page positions
+                    pageFocus = pageFocus+speed;
+                    updateNavBar();
+//                    System.out.println(pageFocus);// TODO Optimise these figures
+                    reorderPages((int)(pageFocus +0.5), false);
+                    for (Page page : pages) {
+                        if (page!=null)
+                            page.update();
+                    }
+
+                    try {
+                        Thread.sleep(40); // 25fps
+                    } catch(Exception e) {
+                        //tell user and log
+                        if(LogWriter.isOutput())
+                            LogWriter.writeLog("Exception: "+e.getMessage());
+                    }
+
+                    //Pick up if destination changed
+                    if(newDestination !=0) {
+                        destination = newDestination;
+                        newDestination=0;
+                    }
+                }
+                stopAnimating=false;
+                isAnimating=false;
+            }
+        };
+        isAnimating=true;
+        thread.start();
+    }
+
+    public void setPageListener(ActionListener listener) {
+        this.pageListener = listener;
+    }
+
+    public void setMessageListener(ActionListener listener) {
+        this.messageListener = listener;
+    }
+
+    private synchronized Image getPageImage(int pageNumber, int rotation, int quality) {
+        //Only generate a hi res texture for the current page
+        if (pageNumber != this.pageNumber && quality > textureSize)
+            return null;
+
+//        System.out.println("Requested: " + quality);
+
+        int width = pdf.getPdfPageData().getCropBoxWidth(pageNumber);
+        int height = pdf.getPdfPageData().getCropBoxHeight(pageNumber);
+
+        float scale;
+        if (width > height) {
+            scale = (float)quality / width;
+        } else {
+            scale = (float)quality / height;
+        }
+//        System.out.println("Page: " + pageNumber + " Scale: " + scale + " Width: " + width * scale + " " + Math.round(width * scale) + " Height: " + height * scale + " " +  Math.round(height * scale));
+        try {
+
+            float currentScaling = pdf.scaling;
+            pdf.scaling = scale;
+            BufferedImage raw = pdf.getPageAsImage(pageNumber);
+            pdf.scaling = currentScaling;
+
+//            System.out.println("Given: Width: " + raw.getWidth() + " " + "Height: " + raw.getHeight());
+
+            BufferedImage result = new BufferedImage(quality,quality,BufferedImage.TYPE_INT_ARGB);
+            Graphics2D g2 = (Graphics2D)result.getGraphics();
+            g2.rotate((rotation/180.0)*Math.PI,quality/2,quality/2);
+            int x = (int)((quality - raw.getWidth()) / 2);
+            int y = quality - raw.getHeight();
+            g2.drawImage(raw,x,y,raw.getWidth(),raw.getHeight(), null);
+//            System.out.println("Scaled to: Width: " + result.getWidth() + " " + "Height: " + result.getHeight());
+
+//            ImageIO.write(result, "PNG", new File("C:/Users/lewy/Desktop/pdf2image/FX" + pageNumber + ".png"));
+
+            return SwingFXUtils.toFXImage(result, new WritableImage(result.getWidth(), result.getHeight()));
+
+        } catch (Exception e) {
+            //tell user and log
+            if(LogWriter.isOutput())
+                LogWriter.writeLog("Exception: "+e.getMessage());
+        }
+        return null;
+    }
+
+    // Clean up
+    public void dispose() {
+
+        // Dispose of pages & containers
+        for (Page page : pages) {
+            if (page!=null)
+                page.dispose();
+        }
+        pages = null;
+
+        contents = null;
+        scene = null;
+
+        //Restore forms setting
+        if (pdf.formRenderer != null)
+            pdf.formRenderer.setIgnoreForms(formsIgnoredStore);
+
+        System.gc();
+    }
+
+    public void stop() {
+        stopAddingPages = true;
+        while(currentlyAddingPages) {
+            try {
+                Thread.sleep(100);
+            } catch(InterruptedException e) {
+                //tell user and log
+                if(LogWriter.isOutput())
+                    LogWriter.writeLog("Exception: "+e.getMessage());
+            }
+        }
+    }
+
+    /**
+     * Add pages around the current page
+     */
+    private void addPages() {
+        Thread t = new Thread("3D-addPages"){
+            public void run() {
+                currentlyAddingPages = true;
+                int firstPage = pageNumber;
+                //Add pages on either side
+                for (int i=0; i<=pagesToGenerate; i++) {
+
+                    if (checkMemory())
+                        return;
+
+                    int spacesLeft = ((pagesToGenerate*2)-1) - pagesInMemory;
+                    if (spacesLeft < 2)
+                        removeFurthestPages(2-spacesLeft);
+
+                    if (i==pagesToGenerate-1) {
+                        long used = runtime.totalMemory()-runtime.freeMemory();
+                        if (used < memoryLimit && pagesToGenerate < pageCount && pagesToGenerate < pageLimit) {
+                            pagesToGenerate++;
+                        } else {
+                            used = runtime.totalMemory()-runtime.freeMemory();
+                            if (used < memoryLimit && pagesToGenerate < pageCount && pagesToGenerate < pageLimit) {
+                                pagesToGenerate++;
+                            }
+                        }
+                    }
+
+                    if (stopAddingPages) {
+                        currentlyAddingPages=false;
+                        stopAddingPages=false;
+                        return;
+                    }
+
+                    int pn = firstPage+i;
+                    //if 40 from center start doing only even pages
+                    if (i > 40) {
+                        pn += i-40;
+                        pn = pn - (pn & 1);
+
+                        //fill in the odd pages
+                        if (pn > pageCount) {
+                            pn = pn - (pageCount-(firstPage+40));
+                            if ((pn&1)==0)
+                                pn--;
+                        }
+                    }
+                    if (pn<=pageCount && pages[pn-1]==null) {
+                        try {
+                            final Page page = new Page(pn);
+                            pages[pn-1] = page;
+                            reorderPages((int) (pageFocus + 0.5), true);
+                            pagesInMemory++;
+                            if (pn==pageNumber)
+                                page.setMain(true);
+                        } catch (Exception e) {
+                            pages[pn-1]=null;
+                            pagesInMemory--;
+
+                            //tell user and log
+                            if(LogWriter.isOutput())
+                                LogWriter.writeLog("Exception: "+e.getMessage());
+                        }
+                    }
+
+                    if (stopAddingPages) {
+                        currentlyAddingPages=false;
+                        stopAddingPages=false;
+                        return;
+                    }
+
+                    pn = firstPage-i;
+                    //if 40 from center start doing only even pages
+                    if (i>40) {
+                        pn-=i-40;
+                        pn = pn + (pn & 1);
+
+                        //fill in the odd pages
+                        if (pn < 1) {
+                            pn = pn + (firstPage-41);
+                            if ((pn&1)==0)
+                                pn--;
+                        }
+                    }
+                    if (pn>0 && pages[pn-1]==null) {
+                        try {
+                            final Page page = new Page(pn);
+                            pages[pn-1] = page;
+                            reorderPages((int) (pageFocus + 0.5), true);
+                            pagesInMemory++;
+
+                        } catch (NullPointerException e) {
+                            pages[pn-1]=null;
+                            pagesInMemory--;
+
+                            //tell user and log
+                            if(LogWriter.isOutput())
+                                LogWriter.writeLog("Exception: "+e.getMessage());
+                        }
+                    }
+
+                    //update page range to generate
+                    if (firstPage!=pageNumber) {
+                        i=-1;
+                        firstPage=pageNumber;
+                    }
+
+                    //Mandatory sleep so Swing can do it's thing
+                    if (i>10) {
+                        while ((speed > 0.005f || speed < -0.005f) && firstPage == pageNumber) {
+                            try {
+                                Thread.sleep(10);
+                            }catch(InterruptedException e){
+
+                                //tell user and log
+                                if(LogWriter.isOutput())
+                                    LogWriter.writeLog("Exception: "+e.getMessage());
+                            }
+                        }
+                    }
+                }
+                currentlyAddingPages = false;
+            }
+        };
+
+        if (!currentlyAddingPages) {
+            currentlyAddingPages=true;
+            t.start();
+        }
+    }
+
+    private boolean checkMemory() {
+        final int threshold = 32000000;
+        final boolean debugMemory = false;
+
+        if (runtime.maxMemory()-(runtime.totalMemory()-runtime.freeMemory()) < threshold) {
+
+            if (debugMemory)
+                System.out.println("mem less than threshold - "+pagesInMemory+" pages in memory");
+
+            if (pagesInMemory > 1) {
+                if (debugMemory)
+                    System.out.println("Clearing old pages, calling GC and retesting");
+                System.gc();
+
+                boolean shrinkingSuccessful = true;
+                while(runtime.maxMemory()-(runtime.totalMemory()-runtime.freeMemory()) < threshold) {
+                    if (pagesToGenerate > 5) {
+                        pagesToGenerate--;
+                        int toRemove = pagesInMemory-((pagesToGenerate*2)-1);
+                        if (toRemove>0)
+                            removeFurthestPages(toRemove);
+                        System.gc();
+                    } else {
+                        shrinkingSuccessful = false;
+                    }
+                }
+
+                if (shrinkingSuccessful)
+                    return false;
+
+                if (runtime.maxMemory()-(runtime.totalMemory()-runtime.freeMemory()) < threshold) {
+                    if (!memoryWarningShown) {
+                        if (debugMemory)
+                            System.out.println("Warning about memory issues.");
+
+                        if (messageListener!=null && !pageFlowEnding)
+                            messageListener.actionPerformed(new ActionEvent(this,
+                                    ActionEvent.ACTION_PERFORMED,
+                                    Messages.getMessage("PdfViewer.PageFlowFXLowMemory")));
+
+                        memoryWarningShown = true;
+                    }
+                    if (debugMemory)
+                        System.out.println("Testing finished - no more pages will be added.");
+                    currentlyAddingPages=false;
+                    return true;
+                }
+            } else {
+                if (debugMemory)
+                    System.out.println("Removing and cleaning up");
+                stop();
+                // canvas.stopRenderer(); // No FX equivalent
+                if (SwingUtilities.isEventDispatchThread()) {
+
+                    pdf.setDisplayView(Display.SINGLE_PAGE, Display.DISPLAY_CENTERED);
+
+                } else {
+                    final Runnable doPaintComponent = new Runnable() {
+
+                        public void run() {
+                            pdf.setDisplayView(Display.SINGLE_PAGE, Display.DISPLAY_CENTERED);
+                        }
+                    };
+                    SwingUtilities.invokeLater(doPaintComponent);
+                }
+//                pdf.setDisplayView(Display.SINGLE_PAGE, Display.DISPLAY_CENTERED); // Commented in Java3D also
+                if (messageListener!=null && !pageFlowEnding) {
+                    pageFlowEnding = true;
+                    messageListener.actionPerformed(new ActionEvent(this,
+                            ActionEvent.ACTION_PERFORMED,
+                            Messages.getMessage("PdfViewer.PageFlowFXNotEnoughMemory")));
+                }
+                return true;
+            }
+        }
+        if (debugMemory)
+            System.out.println("Testing finished - adding may resume");
+        return false;
+    }
+
+    private void removeFurthestPages(int pagesToRemove) {
+        int pagesRemoved=0;
+
+        int before = pageNumber-1;
+        int after = pageCount-pageNumber;
+
+        int max = before > after ? before : after;
+        int cursor = max;
+
+        //Remove even pages further than 40 from center first
+        while (pagesRemoved < pagesToRemove) {
+
+            if (cursor < 40)
+                break;
+
+            int pre = (pageNumber-cursor);
+            pre = pre - (1-(pre&1));
+            if (pre > 0 && pages[pre-1] != null) {
+                pages[pre-1].dispose();
+                pagesRemoved++;
+            }
+
+            if (pagesRemoved != pagesToRemove) {
+                int post = pageNumber+cursor;
+                post = post - (1-(post&1));
+                if (post <= pageCount && pages[post-1] != null) {
+                    pages[post-1].dispose();
+                    pagesRemoved++;
+                }
+
+                cursor--;
+            }
+        }
+
+        cursor = max;
+
+        //remove all pages furthest from center now
+        while (pagesRemoved < pagesToRemove) {
+            if (cursor < 0)
+                break;
+
+            int pre = (pageNumber-cursor);
+            if (pre > 0 && pages[pre-1]!= null) {
+                pages[pre-1].dispose();
+                pagesRemoved++;
+            }
+
+            if (pagesRemoved != pagesToRemove) {
+                int post = pageNumber+cursor;
+                if (post <= pageCount && pages[post-1] != null) {
+                    pages[post-1].dispose();
+                    pagesRemoved++;
+                }
+
+                cursor--;
+            }
+        }
+
+        System.gc();
+    }
+
+    private class Page extends ImageView {
+        private Image lowResImage;
+        private int page, rotation;
+        private PerspectiveTransform trans;
+        private ColorAdjust colorAdjust;
+        private boolean isMain=false;
+        private int mainTextureSize;
+        private ImageView reflection;
+        private PerspectiveTransform reflectionTransform;
+
+        private double x = 0, y = 0, width = 0, height = 0, ratio = 0, ratioRotated = 0;
+
+        public Page(final int page) {
+
+            reflection = new ImageView();
+            reflectionTransform = new PerspectiveTransform();
+            reflectionTransform.setInput(new ColorAdjust(0, 0, -0.75, 0));
+            reflection.setEffect(reflectionTransform);
+            this.rotation = displayRotation;
+            this.page = page;
+            lowResImage = getPageImage(page, rotation,textureSize);
+
+            if (lowResImage == null) {
+                dispose();
+                height=0;
+                width=0;
+                return;
+            }
+
+            setImage(lowResImage);
+            reflection.setImage(lowResImage);
+
+            ratio = pageData.getCropBoxWidth2D(page) / pageData.getCropBoxHeight2D(page);
+            ratioRotated = pageData.getCropBoxHeight2D(page) / pageData.getCropBoxWidth2D(page);
+
+            setCache(true);
+            setCacheHint(CacheHint.QUALITY);
+
+            createMouseHandlers();
+
+            trans = new PerspectiveTransform();
+
+            colorAdjust = new ColorAdjust();
+            trans.setInput(colorAdjust);
+            setEffect(trans);
+            
+            update();
+        }
+
+        private void createMouseHandlers() {
+            /**
+             * clickEvent is required to let the scene know that we are handling the mouse event.
+             * setOnMouseClicked still runs even when the click includes a drag, hence detecting manually.
+             */
+
+            setOnMousePressed(new EventHandler<MouseEvent>() {
+                public void handle(MouseEvent e) {
+                    clickEvent = true;
+                }
+            });
+
+            setOnMouseDragged(new EventHandler<MouseEvent>() {
+                public void handle(MouseEvent e) {
+                    clickEvent = false;
+                }
+            });
+
+            setOnMouseReleased(new EventHandler<MouseEvent>() {
+                public void handle(MouseEvent e) {
+                    if (clickEvent) {
+                        pageNumber = page;
+                        goTo(page);
+                    }
+                }
+            });
+        }
+
+        // Update pageFocus values then redraw.
+        public void update() {
+
+            // Set width based on height.
+            // Set height based on size of scene & current scaling.
+            height = (scene.getHeight() / (13*scaling)) * 12;
+            width = height;
+//        	width = height * ((rotation == 0 || rotation == 180) ? ratio : ratioRotated);
+            pageWidths[page-1] = width;
+
+            // Set y to move page up slightly.
+            y = (-height / 40);
+            // Set x based on current pageFocus.
+            // If diff > 1 then put pages closer together.
+            double diff = page - pageFocus;
+            double distanceScale = Math.pow(1 - (0.00001), Math.abs(diff));
+            if (diff > 1) {
+                diff = ((diff - 1)/5)+1;
+            } else if (diff < -1) {
+                diff = ((diff + 1)/5)-1;
+            }
+            x = diff * width * distanceScale;
+
+            redraw();
+        }
+
+        private void redraw() {
+            // If new or old pageFocus is visible then update pageFocus & transform.
+            boolean update = (getRealX(x) + width > 0 && getRealX(x) < scene.getWidth()) ||
+                    (trans.getUrx() > 0 && trans.getUlx() < scene.getWidth());
+
+            if (update) {
+                Platform.runLater(new Runnable() {
+                    public void run() {
+                        // Use distance from current pageFocus to define the transform.
+                        double diff = page - pageFocus;
+
+                        double ddiff = Math.abs(diff);
+                        if (ddiff > 1) {
+                            ddiff = ((ddiff - 1) /64)+1;
+                        }
+                        double distanceScale = 1 * Math.pow(1 - 0.3, ddiff);
+
+                        if (diff > 1) {
+                            diff = 1;
+                        }
+                        if (diff < -1) {
+                            diff = -1;
+                        }
+                        boolean rightSide = diff > 0;
+                        diff = Math.abs(diff);
+
+                        colorAdjust.setBrightness(-diff / 2);
+
+                        double halfWidth = width/2;
+                        double halfHeight = height/2;
+                        double halfDiff = diff/2;
+                        double quarterDiff = diff/4;
+
+                        //Set X values
+                        trans.setLlx(getRealX(halfWidth + x - (1 - halfDiff)*halfWidth * distanceScale));
+                        trans.setUlx(getRealX(halfWidth + x - (1 - halfDiff)*halfWidth * distanceScale));
+                        trans.setLrx(getRealX(halfWidth + x + (1 - halfDiff)*halfWidth * distanceScale));
+                        trans.setUrx(getRealX(halfWidth + x + (1 - halfDiff)*halfWidth * distanceScale));
+
+                        reflectionTransform.setLlx(trans.getLlx());
+                        reflectionTransform.setUlx(trans.getUlx());
+                        reflectionTransform.setLrx(trans.getLrx());
+                        reflectionTransform.setUrx(trans.getUrx());
+
+                        // Set Y values
+                        if (rightSide) { // Slant to left
+                            trans.setLly(getRealY(halfHeight + y + (1 - quarterDiff)*halfHeight * distanceScale));
+                            trans.setUly(getRealY(halfHeight + y - (1 - quarterDiff)*halfHeight * distanceScale));
+                            trans.setLry(getRealY(halfHeight + y + halfHeight * distanceScale));
+                            trans.setUry(getRealY(halfHeight + y - halfHeight * distanceScale));
+
+                            reflectionTransform.setLly(trans.getLly());
+                            reflectionTransform.setLry(trans.getLry());
+                            reflectionTransform.setUly(trans.getLly() + (trans.getLly() - trans.getUly()));
+                            reflectionTransform.setUry(trans.getLry() + (trans.getLry() - trans.getUry()));
+                        } else { // Slant to right
+                            trans.setLry(getRealY(halfHeight + y + (1 - quarterDiff)*halfHeight * distanceScale));
+                            trans.setUry(getRealY(halfHeight + y - (1 - quarterDiff)*halfHeight * distanceScale));
+                            trans.setLly(getRealY(halfHeight + y + halfHeight * distanceScale));
+                            trans.setUly(getRealY(halfHeight + y - halfHeight * distanceScale));
+
+                            reflectionTransform.setLly(trans.getLly());
+                            reflectionTransform.setLry(trans.getLry());
+                            reflectionTransform.setUly(trans.getLly() + (trans.getLly() - trans.getUly()));
+                            reflectionTransform.setUry(trans.getLry() + (trans.getLry() - trans.getUry()));
+                        }
+
+                        // Set X,Y,Width,Height.
+                        // This is redundant after setting the PerspectiveTransform but still useful to set.
+
+                        setFitWidth((int)width);
+                        setFitHeight((int)height);
+                        setX((int)getRealX(x));
+                        setY((int)getRealY(y));
+                    }
+                });
+            }
+        }
+
+        public void setMain(boolean isMain) {
+            //resize main texture
+            int tex = textureSize;
+            int min = (int)(scene.getHeight()*1.4);
+            while (tex < min) {
+                tex = tex*2;
+            }
+//            tex = tex * 2;
+
+            //check for no change
+            if (this.isMain==isMain && (!isMain || tex==mainTextureSize))
+                return;
+
+            mainTextureSize = tex;
+
+            if (isMain) {
+                Thread t = new Thread("3D-setMain") {
+                    public void run() {
+                        if (checkMemory())
+                            return;
+
+                        mainTextureSize = (int)((((scene.getHeight() / (13)) * 12)+0.5)*1.5);
+
+                        final Image img = getPageImage(page, rotation, mainTextureSize);
+                        if (img != null) {
+                            Platform.runLater(new Runnable() {
+                                public void run() {
+                                    setImage(img);
+                                }
+                            });
+                        }
+                    }
+                };
+                t.start();
+            } else {
+                Platform.runLater(new Runnable() {
+                    public void run() {
+                        setImage(lowResImage);
+                    }
+                });
+            }
+
+            this.isMain=isMain;
+        }
+
+        private ImageView getReflection() {
+            return reflection;
+        }
+
+        // Convert an x pageFocus into a real world coordinate.
+        private double getRealX(double x) {
+            return sceneXOffset + getXOffset() + x;
+        }
+
+        // Convert a y pageFocus into a real world coordinate.
+        private double getRealY(double y) {
+            return sceneYOffset + getYOffset() + y;
+        }
+
+        private double getXOffset() {
+            return -width/2;
+        }
+
+        private double getYOffset() {
+            return -height/2;
+        }
+
+        public final boolean isValid() {
+            return displayRotation==rotation;
+        }
+
+        public void dispose() {
+            Platform.runLater(new Runnable() {
+                public void run() {
+                    setImage(null);
+                }
+            });
+            pagesInMemory--;
+            pages[page-1] = null;
+        }
+    }
+}

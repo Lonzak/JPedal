@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontMappings>
+    <font>
+    	<rawFont>DEFAULT_FONT</rawFont>
+    	<sizeAdjust>-1</sizeAdjust>
+    	<mappedTo>'Times New Roman', Times, serif</mappedTo>
+    	<style></style>
+    	<weight></weight>
+    </font>
+    <font>
+        <rawFont>Helvetica-Narrow</rawFont>
+        <sizeAdjust>-2</sizeAdjust>
+        <mappedTo>Impact</mappedTo>
+    </font>
+    <font>
+        <rawFont>Helvetica-Narrow-Bold</rawFont>
+        <sizeAdjust>-2</sizeAdjust>
+        <mappedTo>Impact</mappedTo>
+	<weight>bold</weight>
+    </font>
+    <font>
+    	<rawFont>HelveticaNeue</rawFont>
+    	<mappedTo>Helvetica, Arial, sans-serif</mappedTo>
+    	<sizeAdjust>-2</sizeAdjust>
+    </font>
+    <font>
+    	<rawFont>HelveticaNeue</rawFont>
+    	<mappedTo>Helvetica, Arial, sans-serif</mappedTo>
+    	<sizeAdjust>-2</sizeAdjust>
+    </font>
+    <font>
+    	<rawFont>CourierNew</rawFont>
+    	<sizeAdjust>-1</sizeAdjust>
+    </font>
+</fontMappings>

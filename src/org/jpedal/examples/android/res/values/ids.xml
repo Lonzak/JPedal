@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<item name="menuBar" type="id"/><item name="thumbnailRow" type="id"/><item name="pageNumberTow" type="id"/>
+    <item name="hide_navbar" type="id" />
+    <item name="aboutMenu" type="id" /><item name="layout" type="id"/>
+</resources>
