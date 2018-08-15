@@ -725,7 +725,7 @@ public class GenericColorSpace implements Cloneable, Serializable {
 
 		// hack to fix bug on Linux (also effects Windows 1.5 so disabled)
 		if (System.getProperty("java.version").startsWith("1.5")) {
-			// if(PdfDecoder.isRunningOnLinux && System.getProperty("java.version").startsWith("1.5")){
+			// if(DecoderOptions.isRunningOnLinux && System.getProperty("java.version").startsWith("1.5")){
 			return img;
 		}
 

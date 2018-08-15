@@ -48,6 +48,7 @@ import javax.xml.transform.stream.StreamSource;
 
 import org.jpedal.PdfDecoder;
 import org.jpedal.gui.ShowGUIMessage;
+import org.jpedal.parser.DecoderOptions;
 import org.jpedal.utils.LogWriter;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -157,7 +158,7 @@ public class PropertiesFile {
 			String jarLoc = getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
 			this.userDir = jarLoc.substring(0, jarLoc.lastIndexOf('/'));
 			this.configFile = this.userDir + this.separator + ".properties.xml";
-			if (PdfDecoder.isRunningOnWindows) {
+			if (DecoderOptions.isRunningOnWindows) {
 				if (this.configFile.length() > 1) {
 					this.configFile = this.configFile.substring(1);
 					this.configFile = this.configFile.replaceAll("\\\\", "/");

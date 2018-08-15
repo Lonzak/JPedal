@@ -82,6 +82,7 @@ import org.jpedal.objects.acroforms.utils.ConvertToString;
 import org.jpedal.objects.raw.FormObject;
 import org.jpedal.objects.raw.PdfDictionary;
 import org.jpedal.objects.raw.PdfObject;
+import org.jpedal.parser.DecoderOptions;
 import org.jpedal.utils.LogWriter;
 
 public class SwingFormFactory extends GenericFormFactory implements FormFactory {
@@ -992,7 +993,7 @@ public class SwingFormFactory extends GenericFormFactory implements FormFactory 
 			comp.setOpaque(true);
 		}
 		else
-			if (PdfDecoder.isRunningOnMac && (comp instanceof JButton)) {
+			if (DecoderOptions.isRunningOnMac && (comp instanceof JButton)) {
 				// hack because OS X does not f***king work properly
 				((JButton) comp).setBorderPainted(false);
 				comp.setBorder(null);

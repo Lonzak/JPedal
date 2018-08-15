@@ -68,6 +68,7 @@ import org.jpedal.objects.raw.OutlineObject;
 import org.jpedal.objects.raw.PdfArrayIterator;
 import org.jpedal.objects.raw.PdfDictionary;
 import org.jpedal.objects.raw.PdfObject;
+import org.jpedal.parser.DecoderOptions;
 import org.jpedal.utils.BrowserLauncher;
 import org.jpedal.utils.LogWriter;
 import org.jpedal.utils.Messages;
@@ -334,7 +335,7 @@ public class DefaultActionHandler implements ActionHandler {
 
 																}
 																else
-																	if (PdfDecoder.isRunningOnMac) {
+																	if (DecoderOptions.isRunningOnMac) {
 																		target = "open " + ObjectStore.temp_dir + target;
 
 																		Runtime.getRuntime().exec(target);

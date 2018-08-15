@@ -536,10 +536,6 @@ public class RotatedTexturePaint implements PdfPaint {
 	}
 
 	@Override
-	public void setPattern(int dummy) {
-	}
-
-	@Override
 	public int getRGB() {
 		return 0;
 	}

@@ -552,7 +552,7 @@ public class SwingGUI extends GUI implements GUIFactory {
 
 					int outlineTab = -1;
 
-					if (PdfDecoder.isRunningOnMac) {
+					if (DecoderOptions.isRunningOnMac) {
 						// String tabName="";
 						// see if there is an outlines tab
 						for (int jj = 0; jj < this.navOptionsPanel.getTabCount(); jj++) {
@@ -573,7 +573,7 @@ public class SwingGUI extends GUI implements GUIFactory {
 				else
 					if (this.properties.getValue("Bookmarkstab").toLowerCase().equals("true")) {
 						int outlineTab = -1;
-						if (PdfDecoder.isRunningOnMac) {
+						if (DecoderOptions.isRunningOnMac) {
 							// String tabName="";
 							// see if there is an outlines tab
 							for (int jj = 0; jj < this.navOptionsPanel.getTabCount(); jj++) {
@@ -990,7 +990,7 @@ public class SwingGUI extends GUI implements GUIFactory {
 
 	private void checkTabShown(String title) {
 		int outlineTab = -1;
-		if (PdfDecoder.isRunningOnMac) {
+		if (DecoderOptions.isRunningOnMac) {
 
 			// see if there is an outlines tab
 			for (int jj = 0; jj < this.navOptionsPanel.getTabCount(); jj++) {
@@ -1060,7 +1060,7 @@ public class SwingGUI extends GUI implements GUIFactory {
 
 		int outlineTab = -1;
 
-		if (PdfDecoder.isRunningOnMac) {
+		if (DecoderOptions.isRunningOnMac) {
 			// String tabName="";
 			// see if there is an outlines tab
 			for (int jj = 0; jj < this.navOptionsPanel.getTabCount(); jj++) {
@@ -2293,7 +2293,7 @@ public class SwingGUI extends GUI implements GUIFactory {
 
 		this.searchFrame.init(this.decode_pdf, this.commonValues);
 
-		if (PdfDecoder.isRunningOnMac) {
+		if (DecoderOptions.isRunningOnMac) {
 			if (this.thumbnails.isShownOnscreen()) this.navOptionsPanel.addTab("Search", searchFrame.getContentPanel());
 		}
 		else {
@@ -2791,7 +2791,7 @@ public class SwingGUI extends GUI implements GUIFactory {
 				}
 			});
 
-			if (PdfDecoder.isRunningOnMac) {
+			if (DecoderOptions.isRunningOnMac) {
 				this.navOptionsPanel.addTab(this.pageTitle, (Component) this.thumbnails);
 				this.navOptionsPanel.setTitleAt(this.navOptionsPanel.getTabCount() - 1, this.pageTitle);
 
@@ -3231,7 +3231,7 @@ public class SwingGUI extends GUI implements GUIFactory {
 			 * workout selected tab
 			 */
 			// String tabName="";
-			// if(PdfDecoder.isRunningOnMac){
+			// if(DecoderOptions.isRunningOnMac){
 			// tabName=navOptionsPanel.getTitleAt(tabSelected);
 			// }else
 			// tabName=navOptionsPanel.getIconAt(tabSelected).toString();
@@ -3339,7 +3339,7 @@ public class SwingGUI extends GUI implements GUIFactory {
 	private void setKeyAccelerators(int ID, JMenuItem menuItem) {
 
 		int systemMask = java.awt.Event.CTRL_MASK;
-		if (PdfDecoder.isRunningOnMac) {
+		if (DecoderOptions.isRunningOnMac) {
 			systemMask = java.awt.Event.META_MASK;
 		}
 
@@ -5249,7 +5249,7 @@ public class SwingGUI extends GUI implements GUIFactory {
 		if (this.thumbnails.isShownOnscreen()) this.thumbnails.setupThumbnails(itemSelectedCount - 1, pageUsed.get(),
 				this.commonValues.getPageCount());
 
-		if (PdfDecoder.isRunningOnMac) {
+		if (DecoderOptions.isRunningOnMac) {
 			this.navOptionsPanel.add((Component) this.thumbnails, "Extracted items");
 		}
 		else {
@@ -6741,7 +6741,7 @@ public class SwingGUI extends GUI implements GUIFactory {
 			/**
 			 * Items on signature tab
 			 */
-			if (PdfDecoder.isRunningOnMac) {
+			if (DecoderOptions.isRunningOnMac) {
 				propValue = this.properties.getValue("Pagetab");
 				set = (this.properties.getValue("Pagetab").toLowerCase().equals("true") && this.navOptionsPanel.getTabCount() != 0);
 				for (int i = 0; i < this.navOptionsPanel.getTabCount(); i++) {
@@ -7315,7 +7315,7 @@ public class SwingGUI extends GUI implements GUIFactory {
 		/**
 		 * Items on signature tab
 		 */
-		if (PdfDecoder.isRunningOnMac) {
+		if (DecoderOptions.isRunningOnMac) {
 			if (value.equals("Pagetab") && this.navOptionsPanel.getTabCount() != 0) {
 				for (int i = 0; i < this.navOptionsPanel.getTabCount(); i++) {
 

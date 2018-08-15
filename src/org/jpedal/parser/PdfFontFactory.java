@@ -365,7 +365,7 @@ public class PdfFontFactory {
 		String newSubtype = FontMappings.fontSubstitutionTable.get(testFont);
 
 		// do not replace on MAC as default does not have certain values we need
-		if (PdfDecoder.isRunningOnMac && testFont.equals("zapfdingbats")) testFont = "No match found";
+		if (DecoderOptions.isRunningOnMac && testFont.equals("zapfdingbats")) testFont = "No match found";
 
 		// check aliases
 		if (newSubtype == null) {

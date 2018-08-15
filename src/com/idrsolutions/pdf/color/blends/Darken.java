@@ -4,9 +4,10 @@
  * ===========================================
  *
  * Project Info:  http://www.idrsolutions.com
- * Help section for developers at http://www.idrsolutions.com/java-pdf-library-support/
  *
- * (C) Copyright 1997-2013, IDRsolutions and Contributors.
+ * List of all example and a link to zip at http://www.idrsolutions.com/java-code-examples-for-pdf-files/
+ *
+ * (C) Copyright 1997-2014, IDRsolutions and Contributors.
  *
  * 	This file is part of JPedal
  *
@@ -26,22 +27,45 @@
 
 
  *
+ *
  * ---------------
- * PdfPaint.java
+ * Darken.java
  * ---------------
  */
-package org.jpedal.color;
+package com.idrsolutions.pdf.color.blends;
 
-import java.awt.Paint;
+/**
+ *
+ */
+public class Darken extends BMContext {
 
-public interface PdfPaint extends Paint {
+    public Darken(final float alpha) {
+        super(alpha);
+    }
+    
+    @Override
+    int[] blend(final int[] src, final int[] dst){
+        
+        int[] ndst = new int[4];
+        
+        if((src[0]==0 && src[1]==0 && src[2]==0 && src[3]==0)){ 
+            ndst = dst;
+            dst[3]=255;
+           
+        }else{
+            for(int a=0;a<src.length;a++){
+                if(dst[a]<src[a]) {
+                    ndst[a] = dst[a];
+                }else{
+                    ndst[a] = src[a];
+                }
+            }
+        }
+        ndst[3]=255;
+        
+        return ndst;
+     }
 
-	public void setScaling(double cropX, double cropH, float scaling, float textX, float textY);
-
-	public boolean isPattern();
-
-	public int getRGB();
-
-	// added for HTML conversion
-	public void setRenderingType(int createHtml);
 }
+
+

@@ -254,14 +254,6 @@ public class PdfDecoder extends JPanel {
 	 ****************************** static variables ******************************
 	 */
 
-	/**
-	 * flag to show if on mac so we can code around certain bugs
-	 */
-	public static boolean isRunningOnMac = false;
-	public static boolean isRunningOnWindows = false;
-	public static boolean isRunningOnAIX = false;
-	public static boolean isRunningOnLinux = false;
-
 	public boolean generatingThumbnail = false;
 
 	/**
@@ -639,18 +631,18 @@ public class PdfDecoder extends JPanel {
 		 */
 		try {
 			String name = System.getProperty("os.name");
-			if (name.equals("Mac OS X")) PdfDecoder.isRunningOnMac = true;
+			if (name.equals("Mac OS X")) DecoderOptions.isRunningOnMac = true;
 			else
 				if (name.startsWith("Windows")) {
-					PdfDecoder.isRunningOnWindows = true;
+					DecoderOptions.isRunningOnWindows = true;
 				}
 				else
 					if (name.startsWith("AIX")) {
-						PdfDecoder.isRunningOnAIX = true;
+						DecoderOptions.isRunningOnAIX = true;
 					}
 					else {
 						if (name.equals("Linux")) {
-							PdfDecoder.isRunningOnLinux = true;
+							DecoderOptions.isRunningOnLinux = true;
 						}
 					}
 		}
@@ -1135,7 +1127,7 @@ public class PdfDecoder extends JPanel {
 			}
 
 			// workaround for bug in AIX
-			if (!isRunningOnAIX && !imageIsTransparent && image != null) image = ColorSpaceConvertor.convertToRGB(image);
+			if (!DecoderOptions.isRunningOnAIX && !imageIsTransparent && image != null) image = ColorSpaceConvertor.convertToRGB(image);
 
 		}
 

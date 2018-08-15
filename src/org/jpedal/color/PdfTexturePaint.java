@@ -60,9 +60,6 @@ public class PdfTexturePaint extends TexturePaint implements PdfPaint {
 	}
 
 	@Override
-	public void setPattern(int dummy) {}
-
-	@Override
 	public int getRGB() {
 		return 0;
 	}

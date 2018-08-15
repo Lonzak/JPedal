@@ -4,7 +4,8 @@
  * ===========================================
  *
  * Project Info:  http://www.idrsolutions.com
- * Help section for developers at http://www.idrsolutions.com/java-pdf-library-support/
+ *
+ * List of all example and a link to zip at http://www.idrsolutions.com/java-code-examples-for-pdf-files/
  *
  * (C) Copyright 1997-2013, IDRsolutions and Contributors.
  *
@@ -26,56 +27,28 @@
 
 
  *
+ *
  * ---------------
- * PdfColor.java
+ * UnimplementedContext.java
  * ---------------
  */
-package org.jpedal.color;
-
-import java.awt.Color;
-import java.awt.Paint;
+package com.idrsolutions.pdf.color.blends;
 
 /**
- * template for all shading operations
+ *
  */
-public class PdfColor extends Color implements PdfPaint, Paint {
+class UnimplementedContext extends BMContext {
 
-	public PdfColor(float r, float g, float b) {
-		super(r, g, b);
-	}
+    UnimplementedContext(final float alpha) {
+         super(alpha);
+    }
+    
+    @Override
+    int[] blend(final int[] src, final int[] dst){
+         
+        return new int[]{255,0,0,0};
+     }
 
-	public PdfColor(int r, int g, int b) {
-		super(r, g, b);
-	}
-
-	public PdfColor(int r, int g, int b, int a) {
-		super(r, g, b, a);
-	}
-
-	private static final long serialVersionUID = 1L;
-
-	protected boolean isPattern = false;
-
-	float scaling = 1f;
-
-	// private int cropX;
-
-	// private int cropH;
-
-	@Override
-	public void setScaling(double cropX, double cropH, float scaling, float textX, float textY) {
-		this.scaling = scaling;
-		// this.cropX=(int)cropX;
-		// this.cropH=(int)cropH;
-	}
-
-	@Override
-	public boolean isPattern() {
-		return this.isPattern;
-	}
-
-	@Override
-	public void setRenderingType(int createHtml) {
-		// added for HTML conversion
-	}
 }
+
+

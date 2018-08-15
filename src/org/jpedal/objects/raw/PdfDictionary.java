@@ -248,6 +248,8 @@ public class PdfDictionary {
 	final public static int DA = 5137;
 
 	final public static int DamagedRowsBeforeError = 904541242;
+	
+	public static final int Darken=1111181679;
 
 	final public static int DC = 5139;
 
@@ -412,6 +414,8 @@ public class PdfDictionary {
 	final public static int Group = 1111442775;
 
 	final public static int H = 24;
+	
+	public static final int HardLight=1786342520;
 
 	final public static int Height = 959926393;
 
@@ -631,6 +635,8 @@ public class PdfDictionary {
 	final public static int Ordering = 1635480172;
 
 	final public static int Outlines = 1485011327;
+	
+    public static final int Overlay=1113290622;
 
 	final public static int P = 32;
 
@@ -864,6 +870,8 @@ public class PdfDictionary {
 	final public static int V = 38;
 
 	final public static int Validate = 1516404846;
+	
+    public static final int VerticesPerRow = -1180057884;
 
 	final public static int Widget = 876043389;
 

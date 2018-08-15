@@ -81,6 +81,7 @@ import org.jpedal.examples.viewer.Viewer;
 import org.jpedal.examples.viewer.gui.CheckNode;
 import org.jpedal.examples.viewer.gui.SwingGUI;
 import org.jpedal.examples.viewer.utils.PropertiesFile;
+import org.jpedal.parser.DecoderOptions;
 import org.jpedal.utils.Messages;
 import org.jpedal.utils.SwingWorker;
 import org.w3c.dom.NodeList;
@@ -499,7 +500,7 @@ public class SwingProperties extends JPanel {
 		this.propertiesDialog.getContentPane().setLayout(new BorderLayout());
 		this.propertiesDialog.getContentPane().add(this, BorderLayout.CENTER);
 		this.propertiesDialog.pack();
-		if (PdfDecoder.isRunningOnMac) this.propertiesDialog.setSize(600, 475);
+		if (DecoderOptions.isRunningOnMac) this.propertiesDialog.setSize(600, 475);
 		else this.propertiesDialog.setSize(550, 450);
 
 		this.confirm.setText(Messages.getMessage("PdfPreferences.OK"));
@@ -621,7 +622,7 @@ public class SwingProperties extends JPanel {
 		BoxLayout layout = new BoxLayout(toolbar, BoxLayout.Y_AXIS);
 		toolbar.setLayout(layout);
 
-		// if(PdfDecoder.isRunningOnMac)
+		// if(DecoderOptions.isRunningOnMac)
 		// toolbar.setPreferredSize(new Dimension(120,0));
 
 		add(new ButtonBarPanel(toolbar), BorderLayout.CENTER);
@@ -1343,7 +1344,7 @@ public class SwingProperties extends JPanel {
 			button.setHorizontalTextPosition(SwingConstants.CENTER);
 
 			button.setContentAreaFilled(false);
-			if (PdfDecoder.isRunningOnMac) button.setHorizontalAlignment(SwingConstants.LEFT);
+			if (DecoderOptions.isRunningOnMac) button.setHorizontalAlignment(SwingConstants.LEFT);
 
 			// Center buttons
 			button.setAlignmentX(Component.CENTER_ALIGNMENT);

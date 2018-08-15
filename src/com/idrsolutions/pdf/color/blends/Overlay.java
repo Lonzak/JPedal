@@ -4,9 +4,10 @@
  * ===========================================
  *
  * Project Info:  http://www.idrsolutions.com
- * Help section for developers at http://www.idrsolutions.com/java-pdf-library-support/
  *
- * (C) Copyright 1997-2013, IDRsolutions and Contributors.
+ * List of all example and a link to zip at http://www.idrsolutions.com/java-code-examples-for-pdf-files/
+ *
+ * (C) Copyright 1997-2014, IDRsolutions and Contributors.
  *
  * 	This file is part of JPedal
  *
@@ -26,22 +27,42 @@
 
 
  *
+ *
  * ---------------
- * PdfPaint.java
+ * Overlay.java
  * ---------------
  */
-package org.jpedal.color;
+package com.idrsolutions.pdf.color.blends;
 
-import java.awt.Paint;
+/**
+ *
+ */
+class Overlay extends BMContext {
 
-public interface PdfPaint extends Paint {
+    Overlay(final float alpha) {
+        super(alpha);
+    }
+    
+    @Override
+    int[] blend(final int[] src, final int[] dst){
+        //int newAlpha = src[3] + dst[3];
+        int[] ndst = new int[4];
+        if(dst[0]==255 && dst[1]==255 && dst[2]==255 && dst[3]==255){
+            ndst = src;
+        }else if(src[3] == 255){
+            ndst = dst;
+        }else{
+            for(int i = 0; i < src.length; i++){
+                if(dst[i] < 128){ // Mutiply
+                    ndst[i]=(src[i])*dst[i] >> 7;
+                }else{ // Screen
+                    ndst[i] = 255 - ((255-dst[i])*(255-(src[i])) >> 7);
+                }
+            }
+        }
+            return ndst;
+     }
 
-	public void setScaling(double cropX, double cropH, float scaling, float textX, float textY);
-
-	public boolean isPattern();
-
-	public int getRGB();
-
-	// added for HTML conversion
-	public void setRenderingType(int createHtml);
 }
+
+

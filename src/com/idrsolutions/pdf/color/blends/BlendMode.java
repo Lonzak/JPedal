@@ -4,9 +4,10 @@
  * ===========================================
  *
  * Project Info:  http://www.idrsolutions.com
- * Help section for developers at http://www.idrsolutions.com/java-pdf-library-support/
  *
- * (C) Copyright 1997-2013, IDRsolutions and Contributors.
+ * List of all example and a link to zip at http://www.idrsolutions.com/java-code-examples-for-pdf-files/
+ *
+ * (C) Copyright 1997-2014, IDRsolutions and Contributors.
  *
  * 	This file is part of JPedal
  *
@@ -26,22 +27,38 @@
 
 
  *
+ *
  * ---------------
- * PdfPaint.java
+ * BlendMode.java
  * ---------------
  */
-package org.jpedal.color;
+package com.idrsolutions.pdf.color.blends;
 
-import java.awt.Paint;
+import java.awt.Composite;
+import java.awt.CompositeContext;
+import java.awt.RenderingHints;
+import java.awt.image.ColorModel;
 
-public interface PdfPaint extends Paint {
+/**
+ *
+ */
+public class BlendMode implements Composite{
 
-	public void setScaling(double cropX, double cropH, float scaling, float textX, float textY);
+    int blendMode;
+    
+    float alpha;
+    
+    public BlendMode(final int blendMode, final float alpha) {
+        this.blendMode=blendMode;
+        this.alpha=alpha;
+    }
+     
+    @Override
+    public CompositeContext createContext(final ColorModel srcColorModel, final ColorModel dstColorModel, final RenderingHints hints) {
+        
+        return ContextFactory.getBlendContext(blendMode,alpha);
+    }
 
-	public boolean isPattern();
-
-	public int getRGB();
-
-	// added for HTML conversion
-	public void setRenderingType(int createHtml);
 }
+
+

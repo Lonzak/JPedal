@@ -6,7 +6,9 @@
  * Project Info:  http://www.idrsolutions.com
  * Help section for developers at http://www.idrsolutions.com/java-pdf-library-support/
  *
- * (C) Copyright 1997-2013, IDRsolutions and Contributors.
+ * List of all example and a link to zip at http://www.idrsolutions.com/java-code-examples-for-pdf-files/
+ *
+ * (C) Copyright 1997-2014, IDRsolutions and Contributors.
  *
  * 	This file is part of JPedal
  *
@@ -26,56 +28,46 @@
 
 
  *
+ *
  * ---------------
- * PdfColor.java
+ * Screen.java
  * ---------------
  */
-package org.jpedal.color;
 
-import java.awt.Color;
-import java.awt.Paint;
+package com.idrsolutions.pdf.color.blends;
 
 /**
- * template for all shading operations
+ * Screen blendmode
  */
-public class PdfColor extends Color implements PdfPaint, Paint {
+public class Screen extends BMContext{
 
-	public PdfColor(float r, float g, float b) {
-		super(r, g, b);
-	}
+    public Screen(final float alpha) {
+        super(alpha);
+    }
 
-	public PdfColor(int r, int g, int b) {
-		super(r, g, b);
-	}
-
-	public PdfColor(int r, int g, int b, int a) {
-		super(r, g, b, a);
-	}
-
-	private static final long serialVersionUID = 1L;
-
-	protected boolean isPattern = false;
-
-	float scaling = 1f;
-
-	// private int cropX;
-
-	// private int cropH;
-
-	@Override
-	public void setScaling(double cropX, double cropH, float scaling, float textX, float textY) {
-		this.scaling = scaling;
-		// this.cropX=(int)cropX;
-		// this.cropH=(int)cropH;
-	}
-
-	@Override
-	public boolean isPattern() {
-		return this.isPattern;
-	}
-
-	@Override
-	public void setRenderingType(int createHtml) {
-		// added for HTML conversion
-	}
+    @Override
+    int[] blend(final int[] src, final int[] dst) {
+        
+        int result;
+        
+        if(dst[0] == 255 && dst[1] == 255 && dst[2] == 255) {
+            // Screening with black returns the original color
+            if(src[3] == 0){ // Allow for opacity
+                dst[3] = 0;
+            }else{
+                System.arraycopy(src, 0, dst, 0, dst.length);
+            }
+        }else{
+            for(int a=0;a<src.length - 1;a++){
+                result = 255 - ((255-src[a])*(255-dst[a]) >> 8);
+                if(result<256) {
+                    dst[a] = result;
+                }
+            }
+            
+            dst[3] = Math.min(255, src[3] + dst[3]);
+        }
+        return dst;
+    }
+    
 }

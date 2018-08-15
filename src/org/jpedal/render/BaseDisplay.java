@@ -288,7 +288,7 @@ public class BaseDisplay implements DynamicVectorRenderer {
 			}
 
 			// creates shadow printing to Mac so added work around
-			if (PdfDecoder.isRunningOnMac && this.isPrinting && text_fill_type == GraphicsState.FILLSTROKE) {}
+			if (DecoderOptions.isRunningOnMac && this.isPrinting && text_fill_type == GraphicsState.FILLSTROKE) {}
 			else
 				if ((text_fill_type & GraphicsState.STROKE) == GraphicsState.STROKE) {
 
@@ -899,7 +899,7 @@ public class BaseDisplay implements DynamicVectorRenderer {
 
 		this.g2.setTransform(before);
 
-		if (isClipChanged && (PdfDecoder.isRunningOnMac) && (clip != null)) {
+		if (isClipChanged && (DecoderOptions.isRunningOnMac) && (clip != null)) {
 			this.g2.setClip(clip);
 		}
 

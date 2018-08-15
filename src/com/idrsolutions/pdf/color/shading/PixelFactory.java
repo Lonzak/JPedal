@@ -6,7 +6,7 @@
  * Project Info:  http://www.idrsolutions.com
  * Help section for developers at http://www.idrsolutions.com/java-pdf-library-support/
  *
- * (C) Copyright 1997-2013, IDRsolutions and Contributors.
+ * (C) Copyright 1997-2014, IDRsolutions and Contributors.
  *
  * 	This file is part of JPedal
  *
@@ -27,55 +27,29 @@
 
  *
  * ---------------
- * PdfColor.java
+ * PixelFactory.java
  * ---------------
  */
-package org.jpedal.color;
+package com.idrsolutions.pdf.color.shading;
 
-import java.awt.Color;
-import java.awt.Paint;
+public class PixelFactory {
 
-/**
- * template for all shading operations
- */
-public class PdfColor extends Color implements PdfPaint, Paint {
+	//return both pdfX at [0] & pdfY at [1]
+	public static float[] convertPhysicalToPDF(final boolean isPrinting, final float x, final float y, final float offX, final float offY, final float scaling, final int xstart, final int ystart, final int minX, final int pageHeight) {
 
-	public PdfColor(float r, float g, float b) {
-		super(r, g, b);
-	}
+        final float pdfX;
+        final float pdfY;
 
-	public PdfColor(int r, int g, int b) {
-		super(r, g, b);
-	}
-
-	public PdfColor(int r, int g, int b, int a) {
-		super(r, g, b, a);
-	}
-
-	private static final long serialVersionUID = 1L;
-
-	protected boolean isPattern = false;
-
-	float scaling = 1f;
-
-	// private int cropX;
-
-	// private int cropH;
-
-	@Override
-	public void setScaling(double cropX, double cropH, float scaling, float textX, float textY) {
-		this.scaling = scaling;
-		// this.cropX=(int)cropX;
-		// this.cropH=(int)cropH;
-	}
-
-	@Override
-	public boolean isPattern() {
-		return this.isPattern;
-	}
-
-	@Override
-	public void setRenderingType(int createHtml) {
-		// added for HTML conversion
+        if(isPrinting){
+        	
+            pdfX=((x+xstart)-offX)*scaling;
+            pdfY=((y+ystart)-offY)*scaling;
+            
+        }else{
+        	pdfX=(scaling*(x+xstart+minX-offX));
+            pdfY=(scaling*((pageHeight-(y+ystart-offY))));
+            
+        }
+		return new float[] {pdfX, pdfY};
 	}
 }

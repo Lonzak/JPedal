@@ -3084,7 +3084,7 @@ public class Commands {
 		}
 		float scaling = 100;
 
-		if (PdfDecoder.isRunningOnWindows) scaling = 100 * this.currentGUI.getScaling();
+		if (DecoderOptions.isRunningOnWindows) scaling = 100 * this.currentGUI.getScaling();
 
 		final BufferedImage snapShot = this.decode_pdf.getSelectedRectangleOnscreen(t_x1, t_y1, t_x2, t_y2, scaling);
 

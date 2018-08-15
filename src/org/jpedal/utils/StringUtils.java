@@ -37,6 +37,7 @@ import java.io.UnsupportedEncodingException;
 import org.jpedal.PdfDecoder;
 import org.jpedal.fonts.StandardFonts;
 import org.jpedal.io.TextTokens;
+import org.jpedal.parser.DecoderOptions;
 
 public class StringUtils {
 
@@ -75,9 +76,9 @@ public class StringUtils {
 			// fine carry on
 		}
 		else
-			if (PdfDecoder.isRunningOnMac) enc = "MacRoman";
+			if (DecoderOptions.isRunningOnMac) enc = "MacRoman";
 			else
-				if (PdfDecoder.isRunningOnWindows) enc = "Cp1252";
+				if (DecoderOptions.isRunningOnWindows) enc = "Cp1252";
 				else enc = "UTF-8";
 	}
 

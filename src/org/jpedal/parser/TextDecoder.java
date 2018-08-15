@@ -1688,7 +1688,7 @@ public class TextDecoder extends BaseDecoder implements org.jpedal.parser.Decode
 						if (Tmode == GraphicsState.CLIPTEXT) {
 
 							/** set values used if rendering as well */
-							boolean isSTD = PdfDecoder.isRunningOnMac || StandardFonts.isStandardFont(this.currentFontData.getBaseFontName(), false);
+							boolean isSTD = DecoderOptions.isRunningOnMac || StandardFonts.isStandardFont(this.currentFontData.getBaseFontName(), false);
 							Area transformedGlyph2 = glyphs.getStandardGlyph(Trm, rawInt, displayValue, currentWidth, isSTD);
 
 							if (transformedGlyph2 != null) {
@@ -2076,7 +2076,7 @@ public class TextDecoder extends BaseDecoder implements org.jpedal.parser.Decode
 
 			{ // render now
 
-				boolean isSTD = actualWidth > 0 || PdfDecoder.isRunningOnMac
+				boolean isSTD = actualWidth > 0 || DecoderOptions.isRunningOnMac
 						|| StandardFonts.isStandardFont(this.currentFontData.getBaseFontName(), false) || this.currentFontData.isBrokenFont();
 
 				/** flush cache if needed */

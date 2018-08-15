@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jpedal</groupId>
 	<artifactId>jpedal_lgpl</artifactId>
-	<version>4.92-p7</version>
+	<version>4.92-p8</version>
 	<description>Patched jPedal based on the last official jpedal version 4.92</description>
 
 	<build>

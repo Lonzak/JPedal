@@ -98,6 +98,43 @@ public class DecoderOptions {
 
 	// non-static version
 	private Boolean instance_allowPagesSmallerThanPageSize = Boolean.FALSE;
+	
+    /**
+     * flag to show if on mac so we can code around certain bugs
+     */
+    public static boolean isRunningOnMac;
+    public static boolean isRunningOnWindows;
+    public static boolean isRunningOnAIX;
+    public static boolean isRunningOnLinux;
+    
+    /**
+     * work out machine type so we can call OS X code to get around Java bugs.
+     */
+    static {
+
+        /**
+         * see if mac
+         */
+        try {
+            final String name = System.getProperty("os.name");
+            if (name.equals("Mac OS X")) {
+                DecoderOptions.isRunningOnMac = true;
+            } else if (name.startsWith("Windows")) {
+                DecoderOptions.isRunningOnWindows = true;
+            }else if (name.startsWith("AIX")) {
+                DecoderOptions.isRunningOnAIX = true;
+            } else {
+                if (name.equals("Linux")) {
+                    DecoderOptions.isRunningOnLinux = true;
+                }
+            }
+        } catch (final Exception e) {
+            //tell user and log
+            if(LogWriter.isOutput()) {
+                LogWriter.writeLog("Exception: " + e.getMessage());
+            }
+        }
+    }
 
 	public boolean isXMLExtraction() {
 		return this.isXMLExtraction;

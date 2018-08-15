@@ -55,6 +55,8 @@ import org.jpedal.render.T3Renderer;
 import org.jpedal.utils.LogWriter;
 import org.jpedal.utils.Matrix;
 
+import com.idrsolutions.pdf.color.shading.ShadedPaint;
+
 /**
  * handle Pattern ColorSpace (there is also a shading class)
  */
@@ -604,12 +606,6 @@ public class PatternColorSpace extends GenericColorSpace {
 		// use alternate as preference if CMYK
 		if (newColorSpace.getID() == ColorSpaces.ICC && ColorSpace.getParameterConstant(PdfDictionary.Alternate) == ColorSpaces.DeviceCMYK) newColorSpace = new DeviceCMYKColorSpace();
 
-		if (Shading == null) {
-			return null;
-		}
-		else {
-			return null;
-			/**/
-		}
+		return new ShadedPaint(Shading, isPrinting,newColorSpace, currentPdfFile,matrix,colorsReversed, CTM);
 	}
 }

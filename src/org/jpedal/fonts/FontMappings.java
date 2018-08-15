@@ -52,6 +52,7 @@ import java.util.jar.JarFile;
 
 import org.jpedal.PdfDecoder;
 import org.jpedal.exception.PdfFontException;
+import org.jpedal.parser.DecoderOptions;
 import org.jpedal.utils.LogWriter;
 import org.jpedal.utils.Strip;
 
@@ -281,7 +282,7 @@ public class FontMappings {
 		setSubstitutedFontAliases("adobeheitistd-regular", aliases6);
 
 		// platform settings
-		if (PdfDecoder.isRunningOnMac) {
+		if (DecoderOptions.isRunningOnMac) {
 
 			// Courier (CourierNew) both on Mac and different
 			setSubstitutedFontAliases("Courier italic", new String[] { "Courier-Oblique" });
@@ -316,7 +317,7 @@ public class FontMappings {
 
 			// default at present for others as well
 		}
-		else {// if(PdfDecoder.isRunningOnWindows){
+		else {// if(DecoderOptions.isRunningOnWindows){
 
 			// Courier (CourierNew)
 			setSubstitutedFontAliases("Couri", new String[] { "Courier-Oblique", "CourierNew,italic", "CourierStd-Oblique" });
@@ -366,7 +367,7 @@ public class FontMappings {
 			});
 
 			/** check for any windows fonts lurking in Adobe folders as well */
-			if (PdfDecoder.isRunningOnWindows) {
+			if (DecoderOptions.isRunningOnWindows) {
 				File adobeFonts = new File("C:\\Program Files\\Adobe\\");
 
 				if (adobeFonts.exists()) {
