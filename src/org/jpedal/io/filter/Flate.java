@@ -135,6 +135,11 @@ public class Flate extends BaseFilter implements PdfFilter {
 						}
 						else failed = false;
 				}
+				//Lonzak: fixed memory leak when the inflater is not cleared/end 
+				finally {
+					inf.end();
+					inf=null;
+				}
 			}
 
 			data = bos.toByteArray();
@@ -194,6 +199,7 @@ public class Flate extends BaseFilter implements PdfFilter {
 			finally {
 				if (inf != null) {
 					inf.close();
+					inf=null;
 				}
 			}
 		}

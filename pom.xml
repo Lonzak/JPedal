@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jpedal</groupId>
 	<artifactId>jpedal_lgpl</artifactId>
-	<version>4.92-p8</version>
+	<version>4.92-p9-SNAPSHOT</version>
 	<description>Patched jPedal based on the last official jpedal version 4.92</description>
 
 	<build>
@@ -79,6 +79,19 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-source-plugin</artifactId>
+			  <version>3.0.1</version>
+			  <executions>
+				<execution>
+				  <id>attach-sources</id>
+				  <goals>
+					<goal>jar-no-fork</goal>
+				  </goals>
+				</execution>
+			  </executions>
 			</plugin>
 		</plugins>
 	</build>

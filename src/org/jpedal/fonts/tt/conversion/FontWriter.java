@@ -748,16 +748,27 @@ public class FontWriter extends FontFile2 {
 
 			if (compressWoff) {
 				byte[] output = new byte[d.getLength()];
-				Deflater compresser = new Deflater();
-				compresser.setInput(b);
-				compresser.finish();
-				compLength = compresser.deflate(output);
-				if (compLength < d.getLength() && compresser.finished()) {
-					dbos.write(output, 0, compLength);
+				
+				//Lonzak: added correct Deflater end() method
+				Deflater compresser=null;
+				try {
+					compresser = new Deflater(Deflater.BEST_COMPRESSION);
+					compresser.setInput(b);
+					compresser.finish();
+					compLength = compresser.deflate(output);
+					if (compLength < d.getLength() && compresser.finished()) {
+						dbos.write(output, 0, compLength);
+					}
+					else {
+						dbos.write(b);
+						compLength = d.getLength();
+					}
 				}
-				else {
-					dbos.write(b);
-					compLength = d.getLength();
+				finally {
+					if(compresser!=null) {
+						compresser.end();
+						compresser=null;
+					}
 				}
 			}
 			else {
