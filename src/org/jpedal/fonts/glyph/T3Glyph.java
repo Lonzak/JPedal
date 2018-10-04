@@ -257,4 +257,35 @@ public class T3Glyph implements PdfGlyph {
 	public boolean containsBrokenData() {
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("T3Glyph [lockColours=");
+		builder.append(this.lockColours);
+		builder.append(", ");
+		if (this.glyphDisplay != null) {
+			builder.append("glyphDisplay=");
+			builder.append(this.glyphDisplay.getClass().getSimpleName());
+			builder.append(", ");
+		}
+		builder.append("maxWidth=");
+		builder.append(this.maxWidth);
+		builder.append(", maxHeight=");
+		builder.append(this.maxHeight);
+		builder.append(", ");
+		if (this.stringName != null) {
+			builder.append("stringName=");
+			builder.append(this.stringName);
+			builder.append(", ");
+		}
+		builder.append("glyphScale=");
+		builder.append(this.glyphScale);
+		builder.append(", id=");
+		builder.append(this.id);
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 }

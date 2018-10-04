@@ -32,6 +32,8 @@
  */
 package org.jpedal.objects.raw;
 
+import java.util.Arrays;
+
 import org.jpedal.fonts.StandardFonts;
 import org.jpedal.utils.NumberUtils;
 import org.jpedal.utils.StringUtils;
@@ -361,5 +363,29 @@ public class PdfArrayIterator {
 		if (this.rawData != null) this.tokenCount = this.rawData.length;
 
 		this.currentToken = 0;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("PdfArrayIterator [");
+		if (this.rawData != null) {
+			builder.append("rawData=");
+			for (int i = 0; i < this.rawData.length; i++) {
+				builder.append(new String(this.rawData[i]));
+				builder.append(", ");
+			}
+			builder.append("], ");
+		}
+		builder.append("hasHexChars=");
+		builder.append(this.hasHexChars);
+		builder.append(", tokenCount=");
+		builder.append(this.tokenCount);
+		builder.append(", currentToken=");
+		builder.append(this.currentToken);
+		builder.append(", spaceChar=");
+		builder.append(this.spaceChar);
+		builder.append("]");
+		return builder.toString();
 	}
 }

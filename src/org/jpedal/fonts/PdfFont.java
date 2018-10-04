@@ -40,6 +40,7 @@ import java.awt.Rectangle;
 import java.io.BufferedReader;
 import java.io.Serializable;
 import java.io.StringReader;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -545,7 +546,7 @@ public class PdfFont implements Serializable {
 					Encoding.getCacheName(this.currentPdfFile.getObjectReader()));
 			encodingName = this.CMapName;
 			
-            String CMAPstream=new String(stream);
+            String CMAPstream=new String(this.stream);
             CMAPstream=CMAPstream.replaceAll(" begincidchar ", "\nbegincidchar\n");
             CMAPstream=CMAPstream.replaceAll(" endcidchar", "\nendcidchar");
             CMAPstream=CMAPstream.replaceAll(" begincidrange ", "\begincidrange\n");
@@ -1642,7 +1643,7 @@ public class PdfFont implements Serializable {
 		}
 
 		if (charInt > 255 && this.maxCharCount == 256) { // hack for odd file
-			// System.out.println(charInt+" mappedChar="+mappedChar+"<");
+			//System.err.println(charInt+" mappedChar="+mappedChar+"<");
 
 			// if(1==1)
 			// throw new RuntimeException("xxx");
@@ -2013,4 +2014,225 @@ public class PdfFont implements Serializable {
 	public String[] getCMAP() {
 		return this.CMAP;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("PdfFont [");
+		if (this.ToUnicode != null) {
+			builder.append("ToUnicode=");
+			builder.append(this.ToUnicode);
+			builder.append(", ");
+		}
+		if (this.javaFont != null) {
+			builder.append("javaFont=");
+			builder.append(this.javaFont);
+			builder.append(", ");
+		}
+		if (this.BBox != null) {
+			builder.append("BBox=");
+			builder.append(this.BBox);
+			builder.append(", ");
+		}
+		if (this.CMapName != null) {
+			builder.append("CMapName=");
+			builder.append(this.CMapName);
+			builder.append(", ");
+		}
+		builder.append("handleOddSapFontMapping=");
+		builder.append(this.handleOddSapFontMapping);
+		builder.append(", isFirstScan=");
+		builder.append(this.isFirstScan);
+		builder.append(", isDouble=");
+		builder.append(this.isDouble);
+		builder.append(", containsHexNumbers=");
+		builder.append(this.containsHexNumbers);
+		builder.append(", allNumbers=");
+		builder.append(this.allNumbers);
+		builder.append(", ");
+		if (this.embeddedFontName != null) {
+			builder.append("embeddedFontName=");
+			builder.append(this.embeddedFontName);
+			builder.append(", ");
+		}
+		if (this.embeddedFamilyName != null) {
+			builder.append("embeddedFamilyName=");
+			builder.append(this.embeddedFamilyName);
+			builder.append(", ");
+		}
+		if (this.copyright != null) {
+			builder.append("copyright=");
+			builder.append(this.copyright);
+			builder.append(", ");
+		}
+		builder.append("missingWidth=");
+		builder.append(this.missingWidth);
+		builder.append(", isSingleByte=");
+		builder.append(this.isSingleByte);
+		builder.append(", isFontVertical=");
+		builder.append(this.isFontVertical);
+		builder.append(", lastWidth=");
+		builder.append(this.lastWidth);
+		builder.append(", ");
+		if (this.glyphs != null) {
+			builder.append("glyphs=");
+			builder.append(this.glyphs);
+			builder.append(", ");
+		}
+		if (this.cachedValue != null) {
+			builder.append("cachedValue=");
+			builder.append(Arrays.toString(this.cachedValue));
+			builder.append(", ");
+		}
+		if (this.rawFontName != null) {
+			builder.append("rawFontName=");
+			builder.append(this.rawFontName);
+			builder.append(", ");
+		}
+		builder.append("currentWidth=");
+		builder.append(this.currentWidth);
+		builder.append(", ");
+		if (this.nonStandardMappings != null) {
+			builder.append("nonStandardMappings=");
+			builder.append(this.nonStandardMappings);
+			builder.append(", ");
+		}
+		builder.append("hasDoubleBytes=");
+		builder.append(this.hasDoubleBytes);
+		builder.append(", ");
+		if (this.substituteFont != null) {
+			builder.append("substituteFont=");
+			builder.append(this.substituteFont);
+			builder.append(", ");
+		}
+		builder.append("renderPage=");
+		builder.append(this.renderPage);
+		builder.append(", embeddedEnc=");
+		builder.append(this.embeddedEnc);
+		builder.append(", ");
+		if (this.diffs != null) {
+			builder.append("diffs=");
+			builder.append(Arrays.toString(this.diffs));
+			builder.append(", ");
+		}
+		builder.append("isFontEmbedded=");
+		builder.append(this.isFontEmbedded);
+		builder.append(", TTstreamisCID=");
+		builder.append(this.TTstreamisCID);
+		builder.append(", ");
+		if (this.fontID != null) {
+			builder.append("fontID=");
+			builder.append(this.fontID);
+			builder.append(", ");
+		}
+		builder.append("maxCharCount=");
+		builder.append(this.maxCharCount);
+		builder.append(", hasEncoding=");
+		builder.append(this.hasEncoding);
+		builder.append(", fontTypes=");
+		builder.append(this.fontTypes);
+		builder.append(", ");
+		if (this.substituteFontFile != null) {
+			builder.append("substituteFontFile=");
+			builder.append(this.substituteFontFile);
+			builder.append(", ");
+		}
+		builder.append("spaceChar=");
+		builder.append(this.spaceChar);
+		builder.append(", ");
+		if (this.diffTable != null) {
+			builder.append("diffTable=");
+			builder.append(Arrays.toString(this.diffTable));
+			builder.append(", ");
+		}
+		if (this.diffCharTable != null) {
+			builder.append("diffCharTable=");
+			builder.append(Arrays.toString(this.diffCharTable));
+			builder.append(", ");
+		}
+		if (this.diffLookup != null) {
+			builder.append("diffLookup=");
+			builder.append(this.diffLookup);
+			builder.append(", ");
+		}
+		if (this.widthTable != null) {
+			builder.append("widthTable=");
+			builder.append(Arrays.toString(this.widthTable));
+			builder.append(", ");
+		}
+		builder.append("possibleSpaceWidth=");
+		builder.append(this.possibleSpaceWidth);
+		builder.append(", ");
+		if (this.currentPdfFile != null) {
+			builder.append("currentPdfFile=");
+			builder.append(this.currentPdfFile);
+			builder.append(", ");
+		}
+		if (this.loader != null) {
+			builder.append("loader=");
+			builder.append(this.loader);
+			builder.append(", ");
+		}
+		if (this.FontMatrix != null) {
+			builder.append("FontMatrix=");
+			builder.append(Arrays.toString(this.FontMatrix));
+			builder.append(", ");
+		}
+		if (this.FontBBox != null) {
+			builder.append("FontBBox=");
+			builder.append(Arrays.toString(this.FontBBox));
+			builder.append(", ");
+		}
+		builder.append("ascent=");
+		builder.append(this.ascent);
+		builder.append(", descent=");
+		builder.append(this.descent);
+		builder.append(", isHex=");
+		builder.append(this.isHex);
+		builder.append(", ");
+		if (this.unicodeMappings != null) {
+			builder.append("unicodeMappings=");
+			builder.append(Arrays.toString(this.unicodeMappings));
+			builder.append(", ");
+		}
+		builder.append("fontEnc=");
+		builder.append(this.fontEnc);
+		builder.append(", isCIDFont=");
+		builder.append(this.isCIDFont);
+		builder.append(", ");
+		if (this.CMAP != null) {
+			builder.append("CMAP=");
+			builder.append(Arrays.toString(this.CMAP));
+			builder.append(", ");
+		}
+		if (this.CIDfontEncoding != null) {
+			builder.append("CIDfontEncoding=");
+			builder.append(this.CIDfontEncoding);
+			builder.append(", ");
+		}
+		builder.append("defaultWidth=");
+		builder.append(this.defaultWidth);
+		builder.append(", isFontSubstituted=");
+		builder.append(this.isFontSubstituted);
+		builder.append(", italicAngle=");
+		builder.append(this.italicAngle);
+		builder.append(", hasMatrixSet=");
+		builder.append(this.hasMatrixSet);
+		builder.append(", hasFBoxSet=");
+		builder.append(this.hasFBoxSet);
+		builder.append(", ");
+		if (this.stream != null) {
+			builder.append("stream=");
+			builder.append(Arrays.toString(this.stream));
+			builder.append(", ");
+		}
+		if (this.CIDToGIDMap != null) {
+			builder.append("CIDToGIDMap=");
+			builder.append(Arrays.toString(this.CIDToGIDMap));
+		}
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 }

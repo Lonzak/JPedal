@@ -35,6 +35,7 @@ package org.jpedal.objects.raw;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -1551,5 +1552,302 @@ public class PdfObject implements Cloneable {
 
 		this.cacheName = pdfObject.cacheName;
 		pdfObject.cacheName = null;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("PdfObject [");
+
+		if (this.rawName != null) {
+			builder.append("rawName=");
+			builder.append(new String(this.rawName));
+			builder.append(", ");
+		}
+		builder.append("isIndexed=");
+		builder.append(this.isIndexed);
+		builder.append(", maybeIndirect=");
+		builder.append(this.maybeIndirect);
+		builder.append(", isFullyResolved=");
+		builder.append(this.isFullyResolved);
+		builder.append(", isDataExternal=");
+		builder.append(this.isDataExternal);
+		builder.append(", streamMayBeCorrupt=");
+		builder.append(this.streamMayBeCorrupt);
+		builder.append(", status=");
+		builder.append(this.status);
+		builder.append(", ");
+		if (this.unresolvedData != null) {
+			builder.append("unresolvedData=");
+			builder.append(new String(this.unresolvedData));
+			builder.append(", ");
+		}
+		if (this.otherValues != null) {
+			builder.append("otherValues=");
+			builder.append(this.otherValues);
+			builder.append(", ");
+		}
+		builder.append("pageNumber=");
+		builder.append(this.pageNumber);
+		builder.append(", PDFkeyInt=");
+		builder.append(this.PDFkeyInt);
+		builder.append(", objType=");
+		builder.append(this.objType);
+		builder.append(", id=");
+		builder.append(this.id);
+		builder.append(", colorspace=");
+		builder.append(this.colorspace);
+		builder.append(", subtype=");
+		builder.append(this.subtype);
+		builder.append(", type=");
+		builder.append(this.type);
+		builder.append(", BitsPerComponent=");
+		builder.append(this.BitsPerComponent);
+		builder.append(", BitsPerCoordinate=");
+		builder.append(this.BitsPerCoordinate);
+		builder.append(", BitsPerFlag=");
+		builder.append(this.BitsPerFlag);
+		builder.append(", Count=");
+		builder.append(this.Count);
+		builder.append(", FormType=");
+		builder.append(this.FormType);
+		builder.append(", Length=");
+		builder.append(this.Length);
+		builder.append(", Length1=");
+		builder.append(this.Length1);
+		builder.append(", Length2=");
+		builder.append(this.Length2);
+		builder.append(", Length3=");
+		builder.append(this.Length3);
+		builder.append(", Rotate=");
+		builder.append(this.Rotate);
+		builder.append(", ");
+		if (this.ArtBox != null) {
+			builder.append("ArtBox=");
+			builder.append(Arrays.toString(this.ArtBox));
+			builder.append(", ");
+		}
+		if (this.BBox != null) {
+			builder.append("BBox=");
+			builder.append(Arrays.toString(this.BBox));
+			builder.append(", ");
+		}
+		if (this.BleedBox != null) {
+			builder.append("BleedBox=");
+			builder.append(Arrays.toString(this.BleedBox));
+			builder.append(", ");
+		}
+		if (this.CropBox != null) {
+			builder.append("CropBox=");
+			builder.append(Arrays.toString(this.CropBox));
+			builder.append(", ");
+		}
+		if (this.Decode != null) {
+			builder.append("Decode=");
+			builder.append(Arrays.toString(this.Decode));
+			builder.append(", ");
+		}
+		if (this.Domain != null) {
+			builder.append("Domain=");
+			builder.append(Arrays.toString(this.Domain));
+			builder.append(", ");
+		}
+		if (this.Matrix != null) {
+			builder.append("Matrix=");
+			builder.append(Arrays.toString(this.Matrix));
+			builder.append(", ");
+		}
+		if (this.MediaBox != null) {
+			builder.append("MediaBox=");
+			builder.append(Arrays.toString(this.MediaBox));
+			builder.append(", ");
+		}
+		if (this.Range != null) {
+			builder.append("Range=");
+			builder.append(Arrays.toString(this.Range));
+			builder.append(", ");
+		}
+		if (this.TrimBox != null) {
+			builder.append("TrimBox=");
+			builder.append(Arrays.toString(this.TrimBox));
+			builder.append(", ");
+		}
+		if (this.ColorSpace != null) {
+			builder.append("ColorSpace=");
+			builder.append(this.ColorSpace);
+			builder.append(", ");
+		}
+		if (this.DecodeParms != null) {
+			builder.append("DecodeParms=");
+			builder.append(this.DecodeParms);
+			builder.append(", ");
+		}
+		if (this.Encoding != null) {
+			builder.append("Encoding=");
+			builder.append(this.Encoding);
+			builder.append(", ");
+		}
+		if (this.Function != null) {
+			builder.append("Function=");
+			builder.append(this.Function);
+			builder.append(", ");
+		}
+		if (this.Resources != null) {
+			builder.append("Resources=");
+			builder.append(this.Resources);
+			builder.append(", ");
+		}
+		if (this.Shading != null) {
+			builder.append("Shading=");
+			builder.append(this.Shading);
+			builder.append(", ");
+		}
+		if (this.SMask != null) {
+			builder.append("SMask=");
+			builder.append(this.SMask);
+			builder.append(", ");
+		}
+		builder.append("ignoreRecursion=");
+		builder.append(this.ignoreRecursion);
+		builder.append(", ignoreStream=");
+		builder.append(this.ignoreStream);
+		builder.append(", isZapfDingbats=");
+		builder.append(this.isZapfDingbats);
+		builder.append(", isSymbol=");
+		builder.append(this.isSymbol);
+		builder.append(", isCompressedStream=");
+		builder.append(this.isCompressedStream);
+		builder.append(", generalType=");
+		builder.append(this.generalType);
+		builder.append(", ");
+		if (this.generalTypeAsString != null) {
+			builder.append("generalTypeAsString=");
+			builder.append(this.generalTypeAsString);
+			builder.append(", ");
+		}
+		builder.append("includeParent=");
+		builder.append(this.includeParent);
+		builder.append(", ");
+		if (this.Creator != null) {
+			builder.append("Creator=");
+			builder.append(this.Creator);
+			builder.append(", ");
+		}
+		if (this.Parent != null) {
+			builder.append("Parent=");
+			builder.append(this.Parent);
+			builder.append(", ");
+		}
+		if (this.Name != null) {
+			builder.append("Name=");
+			builder.append(this.Name);
+			builder.append(", ");
+		}
+		if (this.S != null) {
+			builder.append("S=");
+			builder.append(this.S);
+			builder.append(", ");
+		}
+		if (this.Title != null) {
+			builder.append("Title=");
+			builder.append(this.Title);
+			builder.append(", ");
+		}
+		if (this.rawCreator != null) {
+			builder.append("rawCreator=");
+			builder.append(new String(this.rawCreator));
+			builder.append(", ");
+		}
+		if (this.rawParent != null) {
+			builder.append("rawParent=");
+			builder.append(new String(this.rawParent));
+			builder.append(", ");
+		}
+		if (this.rawS != null) {
+			builder.append("rawS=");
+			builder.append(new String(this.rawS));
+			builder.append(", ");
+		}
+		if (this.rawTitle != null) {
+			builder.append("rawTitle=");
+			builder.append(new String(this.rawTitle));
+			builder.append(", ");
+		}
+		if (this.ref != null) {
+			builder.append("ref=");
+			builder.append(this.ref);
+			builder.append(", ");
+		}
+		builder.append("intRef=");
+		builder.append(this.intRef);
+		builder.append(", gen=");
+		builder.append(this.gen);
+		builder.append(", hasStream=");
+		builder.append(this.hasStream);
+		builder.append(", ");
+		if (this.stream != null) {
+			builder.append("stream=");
+			builder.append(new String(this.stream));
+			builder.append(", ");
+		}
+		if (this.DecodedStream != null) {
+			builder.append("DecodedStream=");
+			builder.append(new String(this.DecodedStream));
+			builder.append(", ");
+		}
+		builder.append("startStreamOnDisk=");
+		builder.append(this.startStreamOnDisk);
+		builder.append(", ");
+		if (this.objReader != null) {
+			builder.append("objReader=");
+			builder.append(this.objReader);
+			builder.append(", ");
+		}
+		if (this.cacheName != null) {
+			builder.append("cacheName=");
+			builder.append(this.cacheName);
+			builder.append(", ");
+		}
+		if (this.Filter != null) {
+			builder.append("Filter=");
+			builder.append(Arrays.toString(this.Filter));
+			builder.append(", ");
+		}
+		if (this.TR != null) {
+			builder.append("TR=");
+			builder.append(Arrays.toString(this.TR));
+			builder.append(", ");
+		}
+		if (this.keys != null) {
+			builder.append("keys=");
+			builder.append(Arrays.toString(this.keys));
+			builder.append(", ");
+		}
+		if (this.values != null) {
+			builder.append("values=");
+			builder.append(Arrays.toString(this.values));
+			builder.append(", ");
+		}
+		if (this.DecodeParmsAsArray != null) {
+			builder.append("DecodeParmsAsArray=");
+			builder.append(Arrays.toString(this.DecodeParmsAsArray));
+			builder.append(", ");
+		}
+		if (this.objs != null) {
+			builder.append("objs=");
+			builder.append(Arrays.toString(this.objs));
+			builder.append(", ");
+		}
+		if (this.currentKey != null) {
+			builder.append("currentKey=");
+			builder.append(this.currentKey);
+			builder.append(", ");
+		}
+		builder.append("parentType=");
+		builder.append(this.parentType);
+		builder.append(", isInCompressedStream=");
+		builder.append(this.isInCompressedStream);
+		builder.append("]");
+		return builder.toString();
 	}
 }

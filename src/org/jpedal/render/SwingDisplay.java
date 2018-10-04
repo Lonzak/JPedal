@@ -56,6 +56,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -3437,4 +3438,283 @@ public class SwingDisplay extends BaseDisplay implements DynamicVectorRenderer {
 		this.hasOCR = isOCR;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("SwingDisplay [ignoreHighlight=");
+		builder.append(this.ignoreHighlight);
+		builder.append(", noRepaint=");
+		builder.append(this.noRepaint);
+		builder.append(", lastItemPainted=");
+		builder.append(this.lastItemPainted);
+		builder.append(", optimsePainting=");
+		builder.append(this.optimsePainting);
+		builder.append(", needsHorizontalInvert=");
+		builder.append(this.needsHorizontalInvert);
+		builder.append(", needsVerticalInvert=");
+		builder.append(this.needsVerticalInvert);
+		builder.append(", pageX1=");
+		builder.append(this.pageX1);
+		builder.append(", pageX2=");
+		builder.append(this.pageX2);
+		builder.append(", pageY1=");
+		builder.append(this.pageY1);
+		builder.append(", pageY2=");
+		builder.append(this.pageY2);
+		builder.append(", highlightsNeedToBeGenerated=");
+		builder.append(this.highlightsNeedToBeGenerated);
+		builder.append(", ");
+		if (this.singleImage != null) {
+			builder.append("singleImage=");
+			builder.append(this.singleImage);
+			builder.append(", ");
+		}
+		builder.append("imageCount=");
+		builder.append(this.imageCount);
+		builder.append(", endItem=");
+		builder.append(this.endItem);
+		builder.append(", ");
+		if (this.cachedWidths != null) {
+			builder.append("cachedWidths=");
+			builder.append(this.cachedWidths);
+			builder.append(", ");
+		}
+		if (this.cachedHeights != null) {
+			builder.append("cachedHeights=");
+			builder.append(this.cachedHeights);
+			builder.append(", ");
+		}
+		if (this.fonts != null) {
+			builder.append("fonts=");
+			builder.append(this.fonts);
+			builder.append(", ");
+		}
+		if (this.fontsUsed != null) {
+			builder.append("fontsUsed=");
+			builder.append(this.fontsUsed);
+			builder.append(", ");
+		}
+		if (this.factory != null) {
+			builder.append("factory=");
+			builder.append(this.factory);
+			builder.append(", ");
+		}
+		if (this.glyphs != null) {
+			builder.append("glyphs=");
+			builder.append(this.glyphs);
+			builder.append(", ");
+		}
+		if (this.imageID != null) {
+			builder.append("imageID=");
+			builder.append(this.imageID);
+			builder.append(", ");
+		}
+		if (this.imageIDtoName != null) {
+			builder.append("imageIDtoName=");
+			builder.append(this.imageIDtoName);
+			builder.append(", ");
+		}
+		if (this.storedImageValues != null) {
+			builder.append("storedImageValues=");
+			builder.append(this.storedImageValues);
+			builder.append(", ");
+		}
+		if (this.textHighlightsX != null) {
+			builder.append("textHighlightsX=");
+			builder.append(Arrays.toString(this.textHighlightsX));
+			builder.append(", ");
+		}
+		if (this.textHighlightsWidth != null) {
+			builder.append("textHighlightsWidth=");
+			builder.append(Arrays.toString(this.textHighlightsWidth));
+			builder.append(", ");
+		}
+		if (this.textHighlightsHeight != null) {
+			builder.append("textHighlightsHeight=");
+			builder.append(Arrays.toString(this.textHighlightsHeight));
+			builder.append(", ");
+		}
+		builder.append("stopG2setting=");
+		builder.append(this.stopG2setting);
+		builder.append(", ");
+		if (this.x_coord != null) {
+			builder.append("x_coord=");
+			builder.append(Arrays.toString(this.x_coord));
+			builder.append(", ");
+		}
+		if (this.y_coord != null) {
+			builder.append("y_coord=");
+			builder.append(Arrays.toString(this.y_coord));
+			builder.append(", ");
+		}
+		if (this.largeImages != null) {
+			builder.append("largeImages=");
+			builder.append(this.largeImages);
+			builder.append(", ");
+		}
+		if (this.text_color != null) {
+			builder.append("text_color=");
+			builder.append(this.text_color);
+			builder.append(", ");
+		}
+		if (this.stroke_color != null) {
+			builder.append("stroke_color=");
+			builder.append(this.stroke_color);
+			builder.append(", ");
+		}
+		if (this.fill_color != null) {
+			builder.append("fill_color=");
+			builder.append(this.fill_color);
+			builder.append(", ");
+		}
+		if (this.stroke != null) {
+			builder.append("stroke=");
+			builder.append(this.stroke);
+			builder.append(", ");
+		}
+		if (this.pageObjects != null) {
+			builder.append("pageObjects=");
+			builder.append(this.pageObjects);
+			builder.append(", ");
+		}
+		if (this.shapeType != null) {
+			builder.append("shapeType=");
+			builder.append(this.shapeType);
+			builder.append(", ");
+		}
+		if (this.fontBounds != null) {
+			builder.append("fontBounds=");
+			builder.append(this.fontBounds);
+			builder.append(", ");
+		}
+		if (this.af1 != null) {
+			builder.append("af1=");
+			builder.append(this.af1);
+			builder.append(", ");
+		}
+		if (this.af2 != null) {
+			builder.append("af2=");
+			builder.append(this.af2);
+			builder.append(", ");
+		}
+		if (this.af3 != null) {
+			builder.append("af3=");
+			builder.append(this.af3);
+			builder.append(", ");
+		}
+		if (this.af4 != null) {
+			builder.append("af4=");
+			builder.append(this.af4);
+			builder.append(", ");
+		}
+		if (this.imageOptions != null) {
+			builder.append("imageOptions=");
+			builder.append(this.imageOptions);
+			builder.append(", ");
+		}
+		if (this.TRvalues != null) {
+			builder.append("TRvalues=");
+			builder.append(this.TRvalues);
+			builder.append(", ");
+		}
+		if (this.fs != null) {
+			builder.append("fs=");
+			builder.append(this.fs);
+			builder.append(", ");
+		}
+		if (this.lw != null) {
+			builder.append("lw=");
+			builder.append(this.lw);
+			builder.append(", ");
+		}
+		if (this.clips != null) {
+			builder.append("clips=");
+			builder.append(this.clips);
+			builder.append(", ");
+		}
+		if (this.objectType != null) {
+			builder.append("objectType=");
+			builder.append(this.objectType);
+			builder.append(", ");
+		}
+		if (this.javaObjects != null) {
+			builder.append("javaObjects=");
+			builder.append(this.javaObjects);
+			builder.append(", ");
+		}
+		if (this.textFillType != null) {
+			builder.append("textFillType=");
+			builder.append(this.textFillType);
+			builder.append(", ");
+		}
+		if (this.opacity != null) {
+			builder.append("opacity=");
+			builder.append(this.opacity);
+			builder.append(", ");
+		}
+		builder.append("currentItem=");
+		builder.append(this.currentItem);
+		builder.append(", lastFillTextCol=");
+		builder.append(this.lastFillTextCol);
+		builder.append(", lastFillCol=");
+		builder.append(this.lastFillCol);
+		builder.append(", lastStrokeCol=");
+		builder.append(this.lastStrokeCol);
+		builder.append(", ");
+		if (this.lastStroke != null) {
+			builder.append("lastStroke=");
+			builder.append(this.lastStroke);
+			builder.append(", ");
+		}
+		if (this.lastAf != null) {
+			builder.append("lastAf=");
+			builder.append(Arrays.toString(this.lastAf));
+			builder.append(", ");
+		}
+		builder.append("lastTR=");
+		builder.append(this.lastTR);
+		builder.append(", lastFS=");
+		builder.append(this.lastFS);
+		builder.append(", lastLW=");
+		builder.append(this.lastLW);
+		builder.append(", resetTextColors=");
+		builder.append(this.resetTextColors);
+		builder.append(", fillSet=");
+		builder.append(this.fillSet);
+		builder.append(", strokeSet=");
+		builder.append(this.strokeSet);
+		builder.append(", needsHighlights=");
+		builder.append(this.needsHighlights);
+		builder.append(", paintThreadCount=");
+		builder.append(this.paintThreadCount);
+		builder.append(", paintThreadID=");
+		builder.append(this.paintThreadID);
+		builder.append(", ");
+		if (this.drawnHighlights != null) {
+			builder.append("drawnHighlights=");
+			builder.append(Arrays.toString(this.drawnHighlights));
+			builder.append(", ");
+		}
+		builder.append("hasOCR=");
+		builder.append(this.hasOCR);
+		builder.append(", type=");
+		builder.append(this.type);
+		builder.append(", minX=");
+		builder.append(this.minX);
+		builder.append(", minY=");
+		builder.append(this.minY);
+		builder.append(", maxX=");
+		builder.append(this.maxX);
+		builder.append(", maxY=");
+		builder.append(this.maxY);
+		builder.append(", renderFailed=");
+		builder.append(this.renderFailed);
+		builder.append(", ");
+		if (this.frame != null) {
+			builder.append("frame=");
+			builder.append(this.frame);
+		}
+		builder.append("]");
+		return builder.toString();
+	}
 }

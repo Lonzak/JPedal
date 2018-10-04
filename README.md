@@ -24,4 +24,5 @@ Changes so far:
 - fixed a bug which caused bold text to disappear
 - fixed a bug which caused strange black glyphs when using the image export
 - upgraded bouncycastle to Version 1.54
-- fixed huge memory leak when handling zip/pdf encoding. (After this patch the server didn't freeze and the memory requirement was reduced by half when converting PDF to images.)
+- fixed huge memory leak when handling zip/pdf encoding. This first occured when using Java8 but was there all the time. (After this patch the server didn't freeze and the memory requirement was reduced by half when converting PDF to images.)
+- fixed a font bug (Type3 font in combination with WinAnsiEncoding)

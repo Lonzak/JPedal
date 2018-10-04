@@ -33,6 +33,7 @@
 package org.jpedal.utils.repositories;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * Provides the functionality/convenience of a Vector for Doubles
@@ -250,5 +251,23 @@ public class Vector_Double implements Serializable {
 	/** reset pointer used in add to remove items above */
 	public void setSize(int currentItem) {
 		this.current_item = currentItem;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Vector_Double [current_item=");
+		builder.append(this.current_item);
+		builder.append(", ");
+		if (this.items != null && this.size()>0) {
+			builder.append("items=");
+			builder.append("[");
+			for (int i = 0; i < this.size(); i++) {
+				builder.append(this.items[i]);
+				builder.append(", ");
+			}
+			builder.append("]]");
+		}
+		return builder.toString();
 	}
 }

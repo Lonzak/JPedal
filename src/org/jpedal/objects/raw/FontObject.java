@@ -32,6 +32,8 @@
  */
 package org.jpedal.objects.raw;
 
+import java.util.Arrays;
+
 import org.jpedal.fonts.StandardFonts;
 import org.jpedal.utils.LogWriter;
 
@@ -860,4 +862,213 @@ public class FontObject extends PdfObject {
 	public boolean decompressStreamWhenRead() {
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("FontObject [");
+		builder.append("ID=");
+		builder.append(super.getID());
+		builder.append(", ");
+		if (super.getName(PdfDictionary.Name) != null) {
+			builder.append("FontName=");
+			builder.append(super.getName(PdfDictionary.Name));
+			builder.append(", ");
+		}
+		if (this.rawFontName != null) {
+			builder.append("rawFontName=");
+			builder.append(new String(this.rawFontName));
+			builder.append(", ");
+		}
+		if (this.rawBaseFont != null) {
+			builder.append("rawBaseFont=");
+			builder.append(new String(this.rawBaseFont));
+			builder.append(", ");
+		}
+		if (this.unknownValue != null) {
+			builder.append("unknownValue=");
+			builder.append(this.unknownValue);
+			builder.append(", ");
+		}
+		if (this.CharProcs != null) {
+			builder.append("CharProcs=");
+			builder.append(this.CharProcs);
+			builder.append(", ");
+		}
+		if (this.CIDSet != null) {
+			builder.append("CIDSet=");
+			builder.append(this.CIDSet);
+			builder.append(", ");
+		}
+		if (this.CIDSystemInfo != null) {
+			builder.append("CIDSystemInfo=");
+			builder.append(this.CIDSystemInfo);
+			builder.append(", ");
+		}
+		if (this.CIDToGIDMap != null) {
+			builder.append("CIDToGIDMap=");
+			builder.append(this.CIDToGIDMap);
+			builder.append(", ");
+		}
+		if (this.DescendantFonts != null) {
+			builder.append("DescendantFonts=");
+			builder.append(this.DescendantFonts);
+			builder.append(", ");
+		}
+		if (this.FontDescriptor != null) {
+			builder.append("FontDescriptor=");
+			builder.append(this.FontDescriptor);
+			builder.append(", ");
+		}
+		if (this.FontFile != null) {
+			builder.append("FontFile=");
+			builder.append(this.FontFile);
+			builder.append(", ");
+		}
+		if (this.FontFile2 != null) {
+			builder.append("FontFile2=");
+			builder.append(this.FontFile2);
+			builder.append(", ");
+		}
+		if (this.FontFile3 != null) {
+			builder.append("FontFile3=");
+			builder.append(this.FontFile3);
+			builder.append(", ");
+		}
+		if (this.ToUnicode != null) {
+			builder.append("ToUnicode=");
+			builder.append(this.ToUnicode);
+			builder.append(", ");
+		}
+		builder.append("BaseEncoding=");
+		builder.append(this.BaseEncoding);
+		builder.append(", CIDToGIDMapAsConstant=");
+		builder.append(this.CIDToGIDMapAsConstant);
+		builder.append(", FirstChar=");
+		builder.append(this.FirstChar);
+		builder.append(", LastChar=");
+		builder.append(this.LastChar);
+		builder.append(", Flags=");
+		builder.append(this.Flags);
+		builder.append(", MissingWidth=");
+		builder.append(this.MissingWidth);
+		builder.append(", DW=");
+		builder.append(this.DW);
+		builder.append(", StemV=");
+		builder.append(this.StemV);
+		builder.append(", Supplement=");
+		builder.append(this.Supplement);
+		builder.append(", Ascent=");
+		builder.append(this.Ascent);
+		builder.append(", Descent=");
+		builder.append(this.Descent);
+		builder.append(", ");
+		if (this.Widths != null) {
+			builder.append("Widths=");
+			builder.append(Arrays.toString(this.Widths));
+			builder.append(", ");
+		}
+		if (this.FontBBox != null) {
+			builder.append("FontBBox=");
+			builder.append(Arrays.toString(this.FontBBox));
+			builder.append(", ");
+		}
+		if (this.FontMatrix != null) {
+			builder.append("FontMatrix=");
+			builder.append(Arrays.toString(this.FontMatrix));
+			builder.append(", ");
+		}
+		if (this.Differences != null) {
+			builder.append("Differences=[");
+			
+			for (int i = 0; i < this.Differences.length; i++) {
+				builder.append(new String(this.Differences[i]));
+				builder.append(", ");
+			}
+			builder.append("]");
+		}
+		if (this.rawCharSet != null) {
+			builder.append("rawCharSet=");
+			builder.append(new String(this.rawCharSet));
+			builder.append(", ");
+		}
+		if (this.rawCMapName != null) {
+			builder.append("rawCMapName=");
+			builder.append(new String(this.rawCMapName));
+			builder.append(", ");
+		}
+		if (this.rawFontStretch != null) {
+			builder.append("rawFontStretch=");
+			builder.append(new String(this.rawFontStretch));
+			builder.append(", ");
+		}
+		if (this.rawOrdering != null) {
+			builder.append("rawOrdering=");
+			builder.append(new String(this.rawOrdering));
+			builder.append(", ");
+		}
+		if (this.rawRegistry != null) {
+			builder.append("rawRegistry=");
+			builder.append(new String(this.rawRegistry));
+			builder.append(", ");
+		}
+		if (this.rawW != null) {
+			builder.append("rawW=");
+			builder.append(new String(this.rawW));
+			builder.append(", ");
+		}
+		if (this.rawW2 != null) {
+			builder.append("rawW2=");
+			builder.append(new String(this.rawW2));
+			builder.append(", ");
+		}
+		if (this.BaseFont != null) {
+			builder.append("BaseFont=");
+			builder.append(this.BaseFont);
+			builder.append(", ");
+		}
+		if (this.CharSet != null) {
+			builder.append("CharSet=");
+			builder.append(this.CharSet);
+			builder.append(", ");
+		}
+		if (this.CMapName != null) {
+			builder.append("CMapName=");
+			builder.append(this.CMapName);
+			builder.append(", ");
+		}
+		if (this.FontName != null) {
+			builder.append("FontName=");
+			builder.append(this.FontName);
+			builder.append(", ");
+		}
+		if (this.FontStretch != null) {
+			builder.append("FontStretch=");
+			builder.append(this.FontStretch);
+			builder.append(", ");
+		}
+		if (this.Ordering != null) {
+			builder.append("Ordering=");
+			builder.append(this.Ordering);
+			builder.append(", ");
+		}
+		if (this.Registry != null) {
+			builder.append("Registry=");
+			builder.append(this.Registry);
+			builder.append(", ");
+		}
+		if (this.W != null) {
+			builder.append("W=");
+			builder.append(this.W);
+			builder.append(", ");
+		}
+		if (this.W2 != null) {
+			builder.append("W2=");
+			builder.append(this.W2);
+		}
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 }

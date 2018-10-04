@@ -56,4 +56,28 @@ public class T3StreamDecoder extends PdfStreamDecoder {
 
 		return decodePageContent(glyphObj);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("T3StreamDecoder [");
+		if (this.newGS != null) {
+			builder.append("newGS=");
+			builder.append(this.newGS);
+			builder.append(", ");
+		}
+		builder.append("isType3Font=");
+		builder.append(this.isType3Font);
+		builder.append(", isPrinting=");
+		builder.append(this.isPrinting);
+		builder.append(", ");
+		if (this.gs != null) {
+			builder.append("gs=");
+			builder.append(this.gs);
+		}
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 }

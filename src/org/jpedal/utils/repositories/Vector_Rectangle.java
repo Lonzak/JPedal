@@ -44,6 +44,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Arrays;
 
 import org.jpedal.io.PathSerializer;
 
@@ -296,4 +297,29 @@ public class Vector_Rectangle implements Serializable {
 	public void setSize(int currentItem) {
 		this.current_item = currentItem;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Vector_Rectangle current_item=");
+		builder.append(this.current_item);
+		builder.append(", ");
+		if (this.items != null) {
+			
+			builder.append("items=[");
+			for (int i = 0; i < this.size(); i++) {
+				if(this.items[i]!=null) {
+					builder.append(this.items[i]);
+					builder.append(", ");
+				}
+			}
+			builder.append("], ");
+		}
+		builder.append("checkPoint=");
+		builder.append(this.checkPoint);
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 }

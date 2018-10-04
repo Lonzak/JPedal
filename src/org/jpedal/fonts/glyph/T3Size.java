@@ -41,4 +41,17 @@ package org.jpedal.fonts.glyph;
 public class T3Size {
 
 	public int x, y;
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("T3Size [x=");
+		builder.append(x);
+		builder.append(", y=");
+		builder.append(y);
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 }

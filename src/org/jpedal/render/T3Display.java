@@ -92,4 +92,10 @@ public class T3Display extends SwingDisplay implements T3Renderer {
 		if (!nonstrokePaint.isPattern()) nonstrokeColor = (Color) nonstrokePaint;
 		this.fillCol = new PdfColor(nonstrokeColor.getRed(), nonstrokeColor.getGreen(), nonstrokeColor.getBlue());
 	}
+
+	@Override
+	public String toString() {
+		return "T3Display: " + super.toString();
+	}
+	
 }

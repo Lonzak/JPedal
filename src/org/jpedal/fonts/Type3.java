@@ -195,7 +195,9 @@ public class Type3 extends PdfFont {
 
 							if (keyPairs.isNextKeyANumber()) otherKey = keyPairs.getNextKeyAsNumber();
 						}
-						else key = keyPairs.getNextKeyAsNumber();
+						else {
+							key = keyPairs.getNextKeyAsNumber();
+						}
 
 						this.glyphs.setT3Glyph(key, otherKey, glyph);
 

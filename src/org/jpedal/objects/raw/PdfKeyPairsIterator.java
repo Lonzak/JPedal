@@ -32,6 +32,10 @@
  */
 package org.jpedal.objects.raw;
 
+import java.util.Arrays;
+
+import org.jpedal.fonts.StandardFonts;
+import org.jpedal.fonts.Type1C;
 import org.jpedal.utils.NumberUtils;
 
 /**
@@ -115,19 +119,24 @@ public class PdfKeyPairsIterator {
 
 		if (!isNumber) {
 			if (this.keys[this.current].length != 1) {
-				if (1 == 1) throw new RuntimeException("Unexpected value in getNextKeyAsNumber >" + new String(this.keys[this.current]) + '<');
+				
+				String key = new String(this.keys[this.current]);
+				PdfObject value = this.objs[this.current];
+				//Assume WinAnsiEncoding (Encoding is not parsed correctly)
+				int mapping = StandardFonts.lookupCharacterIndex(key,StandardFonts.WIN);
+				//non existing mapping 
+				if (mapping==0) throw new RuntimeException("Unexpected value in getNextKeyAsNumber >" + new String(this.keys[this.current]) + '<');
+				return mapping;
 			}
 			else return (this.keys[this.current][0] & 255);
 		}
 		else return NumberUtils.parseInt(0, length, this.keys[this.current]);
-
-		return -1;
+		//return -1;
 	}
 
 	public boolean isNextKeyANumber() {
 
 		int length = this.keys[this.current].length;
-
 		boolean isNumber = true;
 
 		for (int ii = 0; ii < length; ii++) {
@@ -161,5 +170,38 @@ public class PdfKeyPairsIterator {
 	 */
 	public PdfObject getNextValueAsDictionary() {
 		return this.objs[this.current];
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("PdfKeyPairsIterator [");
+		
+		if (this.keys != null) {
+			builder.append("keys=");
+			for (int i = 0; i < this.keys.length; i++) {
+				builder.append(new String(this.keys[i]));
+				builder.append(", ");
+			}
+		}
+		if (this.values != null) {
+			builder.append("values=");
+			for (int i = 0; i < this.keys.length; i++) {
+				builder.append(new String(this.values[i]).substring(0, 30));
+				builder.append("... (shortened)");
+				builder.append(", ");
+			}
+		}
+		if (this.objs != null) {
+			builder.append("objs=");
+			builder.append(Arrays.toString(this.objs));
+			builder.append(", ");
+		}
+		builder.append("maxCount=");
+		builder.append(this.maxCount);
+		builder.append(", current=");
+		builder.append(this.current);
+		builder.append("]");
+		return builder.toString();
 	}
 }
