@@ -5,8 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jpedal</groupId>
 	<artifactId>jpedal_lgpl</artifactId>
-	<version>4.92-p10</version>
+	<version>4.92-p11</version>
 	<description>Patched jPedal based on the last official jpedal version 4.92</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
 	<build>
 		<sourceDirectory>${basedir}/src</sourceDirectory>

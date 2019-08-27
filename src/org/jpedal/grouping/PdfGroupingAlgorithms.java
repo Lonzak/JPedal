@@ -586,28 +586,43 @@ public class PdfGroupingAlgorithms {
 
 		// strip the markers
 		StringTokenizer tokens = new StringTokenizer(contents, MARKER, true);
-		String temp_token;
+		String temp_token=null;
 		StringBuilder processed_data = new StringBuilder();
-
+		boolean pushBackByOne = false;
+		
 		// with a token to make sure cleanup works
 		while (tokens.hasMoreTokens()) {
 
-			// encoding in data
-			temp_token = tokens.nextToken(); // see
-												// if
-												// first
-												// marker
-			if (temp_token.equals(MARKER)) {
+		    if(!pushBackByOne) {
+		        // encoding in data
+		        temp_token = tokens.nextToken(); // see if first marker
+		    }
+		    else {
+		        //skip fetching nextToken() since it was fetched in the last round
+		        pushBackByOne=false;
+		    }
+			
+			if (MARKER.equals(temp_token)) {
 				tokens.nextToken(); // point character starts
 				tokens.nextToken(); // second marker
 				tokens.nextToken(); // width
 				tokens.nextToken(); // third marker
 
-				// put back chars
-				processed_data = processed_data.append(tokens.nextToken());
-				// value
+                //Lonzak: There are PDFs which contain \0\0 (should be e.g. \0 \0 or \0c\0...) and then the lexer gets confused
+                //thus do a push back
+				String next = tokens.nextToken();
+				if(next.equals(MARKER)) {
+				    pushBackByOne=true;
+				}
+				else {
+				    // put back chars
+    				processed_data = processed_data.append(next);
+				}
 			}
-			else processed_data = processed_data.append(temp_token);
+			else {
+			    // value
+			    processed_data = processed_data.append(temp_token);
+			}
 		}
 		return processed_data.toString();
 	}
