@@ -53,7 +53,7 @@ import org.jpedal.utils.Strip;
 /**
  * set of methods to save/load objects to keep memory usage to a minimum by spooling images to disk Also includes ancillary method to store a filename
  * - LogWriter is my logging class - Several methods are very similar and I should recode my code to use a common method for the RGB conversion
- * 
+ *
  * Converted to avoid threading issues, if this causes any problems, please raise them in our forums, http://www.jpedal.org/support.php
  */
 public class ObjectStore {
@@ -142,7 +142,7 @@ public class ObjectStore {
 	/**
 	 * ObjectStore - Converted for Threading purposes - To fix any errors please try replacing <b>ObjectStore</b> with <b>{your instance of
 	 * PdfDecoder}.getObjectStore()</b> -
-	 * 
+	 *
 	 */
 	public ObjectStore(ImageHelper images) {
 
@@ -156,7 +156,7 @@ public class ObjectStore {
 	/**
 	 * ObjectStore - Converted for Threading purposes - To fix any errors please try replacing <b>ObjectStore</b> with <b>{your instance of
 	 * PdfDecoder}.getObjectStore()</b> -
-	 * 
+	 *
 	 */
 	public ObjectStore() {
 
@@ -210,24 +210,24 @@ public class ObjectStore {
 	}
 
 	/**
-	 * 
+	 *
 	 * get the file name - we use this as a get in our file repository -
-	 * 
-	 * 
+	 *
+	 *
 	 * <b>Note </b> this method is not part of the API and is not guaranteed to be in future versions of JPedal -
-	 * 
+	 *
 	 */
 	public String getCurrentFilename() {
 		return this.currentFilename;
 	}
 
 	/**
-	 * 
+	 *
 	 * get the file path for current PDF
-	 * 
-	 * 
+	 *
+	 *
 	 * <b>Note </b> this method is not part of the API and is not guaranteed to be in future versions of JPedal -
-	 * 
+	 *
 	 */
 	public String getCurrentFilepath() {
 		return this.currentFilePath;
@@ -236,7 +236,7 @@ public class ObjectStore {
 	/**
 	 * store filename as a key we can use to differentiate images,etc - <b>Note</b> this method is not part of the API and is not guaranteed to be in
 	 * future versions of JPedal -
-	 * 
+	 *
 	 */
 	final public void storeFileName(String name) {
 
@@ -280,7 +280,7 @@ public class ObjectStore {
 	/**
 	 * save raw CMYK data in CMYK directory - We extract the DCT encoded image stream and save as a file with a .jpeg ending so we have the raw image
 	 * - This works for DeviceCMYK -
-	 * 
+	 *
 	 */
 	public boolean saveRawCMYKImage(byte[] image_data, String name) {
 
@@ -313,7 +313,7 @@ public class ObjectStore {
 
 	/**
 	 * save buffered image as JPEG or tif
-	 * 
+	 *
 	 */
 	final public synchronized boolean saveStoredImage(String current_image, BufferedImage image, boolean file_name_is_path, boolean save_unclipped,
 			String type) {
@@ -359,7 +359,7 @@ public class ObjectStore {
 
 	/**
 	 * get type of image used to store graphic
-	 * 
+	 *
 	 */
 	final public String getImageType(String current_image) {
 		return (String) this.image_type.get(current_image);
@@ -367,7 +367,7 @@ public class ObjectStore {
 
 	/**
 	 * init method to pass in values for temp directory, unique key, etc so program knows where to store files
-	 * 
+	 *
 	 */
 	final public void init(String current_key) {
 		this.key = current_key + System.currentTimeMillis();
@@ -379,7 +379,7 @@ public class ObjectStore {
 
 	/**
 	 * load a image when required and remove from store
-	 * 
+	 *
 	 */
 	final public synchronized BufferedImage loadStoredImage(String current_image) {
 
@@ -424,7 +424,7 @@ public class ObjectStore {
 
 	/**
 	 * routine to remove all objects from temp store
-	 * 
+	 *
 	 */
 	final synchronized public void flush() {
 
@@ -531,7 +531,7 @@ public class ObjectStore {
 
 	/**
 	 * copies cmyk raw data from cmyk temp dir to target directory
-	 * 
+	 *
 	 */
 	public static void copyCMYKimages(String target_dir) {
 
@@ -660,7 +660,7 @@ public class ObjectStore {
 
 	/**
 	 * save copy
-	 * 
+	 *
 	 */
 	final public void saveAsCopy(String current_image, String destination) {
 		BufferedInputStream from = null;
@@ -696,7 +696,7 @@ public class ObjectStore {
 
 	/**
 	 * save copy
-	 * 
+	 *
 	 * Converted to avoid threading issues, if this causes any problems, please raise them in our forums, http://www.jpedal.org/
 	 */
 	static public void copy(String source, String destination) {
@@ -1107,6 +1107,7 @@ public class ObjectStore {
 				return this.imagesOnDiskAsBytesH.get(new Integer(imageID));
 			}
 			else
+				
 				if (key.equals(IMAGE_pX)) {
 					return this.imagesOnDiskAsBytespX.get(new Integer(imageID));
 				}
@@ -1128,13 +1129,18 @@ public class ObjectStore {
 	public static File createTempFile(String filename) throws IOException {
 
 		File tempURLFile;
-		String prefix, suffix;
-
-		prefix = filename.substring(0, filename.lastIndexOf('.'));
-		while (prefix.length() < 3)
+		String prefix = filename;
+		String suffix = "pdf";
+		
+		int separatorIndex = filename.lastIndexOf('.');
+		if (separatorIndex >= 0) {
+			prefix = filename.substring(0, separatorIndex);
+			suffix = filename.substring(separatorIndex);
+		}
+		while (prefix.length() < 3) {
 			prefix = prefix + 'a';
+		}
 
-		suffix = filename.substring(filename.lastIndexOf('.'));
 		if (suffix.length() < 3) suffix = "pdf";
 
 		tempURLFile = File.createTempFile(prefix, suffix, new File(ObjectStore.temp_dir));
@@ -1144,7 +1150,7 @@ public class ObjectStore {
 
 	/**
 	 * Remove troublesome characters from temp file names.
-	 * 
+	 *
 	 * @param s
 	 * @return
 	 */
@@ -1169,7 +1175,7 @@ public class ObjectStore {
 
 	/**
 	 * add file to list we delete on flush so we can clear any temp files we create
-	 * 
+	 *
 	 * @param rawFileName
 	 */
 	public void setFileToDeleteOnFlush(String rawFileName) {
