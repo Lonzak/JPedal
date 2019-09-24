@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jpedal</groupId>
 	<artifactId>jpedal_lgpl</artifactId>
-	<version>4.92-p11</version>
+	<version>4.92-p12</version>
 	<description>Patched jPedal based on the last official jpedal version 4.92</description>
 
 	<properties>
@@ -43,47 +43,47 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
+				<version>3.8.1</version>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<archive>
-						<manifest>
-							<addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
-							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-							<mainClass>org.jpedal.examples.viewer.Viewer</mainClass>
-							<addClasspath>true</addClasspath>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.10</version>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/lib</outputDirectory>
-							<overWriteReleases>false</overWriteReleases>
-							<overWriteSnapshots>false</overWriteSnapshots>
-							<overWriteIfNewer>true</overWriteIfNewer>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-jar-plugin</artifactId>-->
+<!--				<version>2.6</version>-->
+<!--				<configuration>-->
+<!--					<archive>-->
+<!--						<manifest>-->
+<!--							<addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>-->
+<!--							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
+<!--							<mainClass>org.jpedal.examples.viewer.Viewer</mainClass>-->
+<!--							<addClasspath>true</addClasspath>-->
+<!--						</manifest>-->
+<!--					</archive>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-dependency-plugin</artifactId>-->
+<!--				<version>2.10</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>copy-dependencies</id>-->
+<!--						<phase>package</phase>-->
+<!--						<goals>-->
+<!--							<goal>copy-dependencies</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<outputDirectory>${project.build.directory}/lib</outputDirectory>-->
+<!--							<overWriteReleases>false</overWriteReleases>-->
+<!--							<overWriteSnapshots>false</overWriteSnapshots>-->
+<!--							<overWriteIfNewer>true</overWriteIfNewer>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 			<plugin>
 			  <groupId>org.apache.maven.plugins</groupId>
 			  <artifactId>maven-source-plugin</artifactId>
