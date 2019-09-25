@@ -50,6 +50,7 @@ import java.awt.print.PageFormat;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.net.URL;
 import java.security.PrivateKey;
 import java.security.cert.Certificate;
@@ -482,7 +483,7 @@ public class PdfDecoder extends JPanel {
 	// <start-adobe>
 	/**
 	 * return markedContent object as XML Document
-	 * 
+	 *
 	 * @return Document containing XML structure with data
 	 */
 	public Document getMarkedContent() {
@@ -495,7 +496,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * used by remote printing to pass in page metrics
-	 * 
+	 *
 	 * @param pageData
 	 */
 	public void setPageData(PdfPageData pageData) {
@@ -513,7 +514,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * return details on page for type (defined in org.jpedal.constants.PageInfo) or null if no values Unrecognised key will throw a RunTime exception
-	 * 
+	 *
 	 * null returned if JPedal not clear on result
 	 */
 	public Iterator getPageInfo(int type) {
@@ -523,7 +524,7 @@ public class PdfDecoder extends JPanel {
 	// <start-adobe>
 	/**
 	 * provide direct access to outlineData object
-	 * 
+	 *
 	 * @return OutlineData
 	 */
 	public OutlineData getOutlineData() {
@@ -532,7 +533,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * track if file still loaded in background
-	 * 
+	 *
 	 * @return
 	 */
 	public boolean isLoadingLinearizedPDF() {
@@ -547,8 +548,9 @@ public class PdfDecoder extends JPanel {
 	/**
 	 * class to repaint multiple views
 	 */
-	private class RefreshLayout extends ComponentAdapter {
-
+	private class RefreshLayout extends ComponentAdapter implements Serializable {
+		private static final long serialVersionUID = 1L;
+		
 		java.util.Timer t2 = null;
 
 		/*
@@ -718,7 +720,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * This will be needed for text extraction as it paramter makes sure widths included in text stream
-	 * 
+	 *
 	 * @param newEmbedWidthData
 	 *            - flag to embed width data in text fragments for use by grouping algorithms
 	 */
@@ -733,7 +735,7 @@ public class PdfDecoder extends JPanel {
 	/**
 	 * Recommend way to create a PdfDecoder if no rendering of page may be required<br>
 	 * Otherwise use PdfDecoder()
-	 * 
+	 *
 	 * @param newRender
 	 *            flag to show if pages are being rendered (true) or only extraction taking place (false).
 	 */
@@ -962,7 +964,7 @@ public class PdfDecoder extends JPanel {
 	/**
 	 * Access should not generally be required to this class. Please look at getBackgroundGroupingObject() - provide method for outside class to get
 	 * data object containing text and metrics of text. - Viewer can only access data for finding on page
-	 * 
+	 *
 	 * @return PdfData object containing text content from PDF
 	 */
 	final public PdfData getPdfBackgroundData() {
@@ -973,7 +975,7 @@ public class PdfDecoder extends JPanel {
 	 * Access should not generally be required to this class. Please look at getGroupingObject() - provide method for outside class to get data object
 	 * containing raw text and metrics of text<br>
 	 * - Viewer can only access data for finding on page
-	 * 
+	 *
 	 * @return PdfData object containing text content from PDF
 	 */
 	final public PdfData getPdfData() throws PdfException {
@@ -1000,7 +1002,7 @@ public class PdfDecoder extends JPanel {
 	/**
 	 * Provides method for outside class to get data object containing information on the page for calculating grouping <br>
 	 * Please note: Structure of PdfPageData is not guaranteed to remain constant. Please contact IDRsolutions for advice.
-	 * 
+	 *
 	 * @return PdfPageData object
 	 */
 	final public PdfPageData getPdfPageData() {
@@ -1009,7 +1011,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * set page range (inclusive) - If end is less than start it will print them backwards (invalid range will throw PdfException)
-	 * 
+	 *
 	 * @throws PdfException
 	 */
 	public void setPagePrintRange(int start, int end) throws PdfException {
@@ -1067,7 +1069,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * generate BufferedImage of a page in current file
-	 * 
+	 *
 	 * Page size is defined by CropBox
 	 */
 	public BufferedImage getPageAsImage(int pageIndex) throws PdfException {
@@ -1137,7 +1139,7 @@ public class PdfDecoder extends JPanel {
 	// <start-wrap>
 	/**
 	 * return scaleup factor applied to last Hires image of page generated
-	 * 
+	 *
 	 * negative values mean no upscaling applied and should be ignored
 	 */
 	public float getHiResUpscaleFactor() {
@@ -1148,7 +1150,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * provide method for outside class to clear store of objects once written out to reclaim memory
-	 * 
+	 *
 	 * @param reinit
 	 *            flag to show if image data flushed as well
 	 */
@@ -1163,7 +1165,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * provide method for outside class to get data object containing images
-	 * 
+	 *
 	 * @return PdfImageData containing image metadata
 	 */
 	final public PdfImageData getPdfImageData() {
@@ -1172,7 +1174,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * provide method for outside class to get data object containing images.
-	 * 
+	 *
 	 * @return PdfImageData containing image metadata
 	 */
 	final public PdfImageData getPdfBackgroundImageData() {
@@ -1209,7 +1211,7 @@ public class PdfDecoder extends JPanel {
 	}
 
 	/**
-	 * 
+	 *
 	 * Please do not use for general usage. Use setPageParameters(scalingValue, pageNumber) to set page scaling
 	 */
 	final public void setExtractionMode(int mode, float scaling) {
@@ -1237,9 +1239,9 @@ public class PdfDecoder extends JPanel {
 	}
 
 	/**
-	 * 
+	 *
 	 * Please do not use for general usage. Use setPageParameters(scalingValue, pageNumber) instead;
-	 * 
+	 *
 	 * @deprecated use setPageParameters(scalingValue, pageNumber) instead
 	 */
 	@Deprecated
@@ -1273,7 +1275,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * return handle on PDFFactory which adjusts display size so matches size in Acrobat
-	 * 
+	 *
 	 * @return
 	 */
 	public DPIFactory getDPIFactory() {
@@ -1443,7 +1445,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * When changing the mouse mode we call this method to set the mouse mode default cursor
-	 * 
+	 *
 	 * @param c
 	 *            :: The cursor to set as the default
 	 */
@@ -1469,7 +1471,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * decode a page, - <b>page</b> must be between 1 and <b>PdfDecoder.getPageCount()</b> - Will kill off if already running
-	 * 
+	 *
 	 * returns minus page if trying to open linearized page not yet available
 	 */
 	final public void decodePage(int rawPage) throws PdfException {
@@ -1830,7 +1832,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * see if page available if in Linearized mode or return true
-	 * 
+	 *
 	 * @param rawPage
 	 * @return
 	 */
@@ -1851,7 +1853,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * store objects to use on a print
-	 * 
+	 *
 	 * @param page
 	 * @param type
 	 * @param colors
@@ -1865,7 +1867,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * store objects to use on a print
-	 * 
+	 *
 	 * @param type
 	 * @param colors
 	 * @param obj
@@ -1879,7 +1881,7 @@ public class PdfDecoder extends JPanel {
 	/**
 	 * uses hires images to create a higher quality display - downside is it is slower and uses more memory (default is false).- Does nothing in OS
 	 * version
-	 * 
+	 *
 	 * @param value
 	 */
 	public void useHiResScreenDisplay(boolean value) {
@@ -1891,7 +1893,7 @@ public class PdfDecoder extends JPanel {
 	// <start-adobe>
 	/**
 	 * decode a page as a background thread (use other background methods to access data)
-	 * 
+	 *
 	 * we now recommend you use decodePage as this has been heavily optimised for speed
 	 */
 	final synchronized public void decodePageInBackground(int i) {
@@ -2004,10 +2006,10 @@ public class PdfDecoder extends JPanel {
 	// <start-demo>
 	/**
 	 * //<end-demo>
-	 * 
-	 * 
-	 * 
-	 * 
+	 *
+	 *
+	 *
+	 *
 	 * /** show if encryption password has been supplied or set a certificate
 	 */
 	final public boolean isPasswordSupplied() {
@@ -2073,7 +2075,7 @@ public class PdfDecoder extends JPanel {
 	 * routine to open a byte stream containing the PDF file and extract key info from pdf file so we can decode any pages. Does not actually decode
 	 * the pages themselves - By default files over 16384 bytes are cached to disk but this can be altered by setting
 	 * PdfFileReader.alwaysCacheInMemory to a maximimum size or -1 (always keep in memory)
-	 * 
+	 *
 	 */
 	final public void openPdfArray(byte[] data) throws PdfException {
 
@@ -2107,7 +2109,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * allow user to open file using Certificate and key
-	 * 
+	 *
 	 * @param filename
 	 * @param certificate
 	 * @param key
@@ -2197,7 +2199,7 @@ public class PdfDecoder extends JPanel {
 		 * test code in case we need to test byte[] version //get size try{ File file=new File(filename); int length= (int) file.length(); byte[]
 		 * fileData=new byte[length]; FileInputStream fis=new FileInputStream(filename); fis.read(fileData); fis.close();
 		 * currentPdfFile.openPdfFile(fileData); }catch(Exception e){
-		 * 
+		 *
 		 * }/
 		 **/
 
@@ -2237,7 +2239,7 @@ public class PdfDecoder extends JPanel {
 	 * routine to open PDF file via URL and extract key info from pdf file so we can decode any pages - Does not actually decode the pages themselves
 	 * - Also reads the form data - Based on an idea by Peter Jacobsen <br />
 	 * You must explicitly close any open files with closePdfFile() so Java will release all the memory <br />
-	 * 
+	 *
 	 * If boolean supportLinearized is true, method will return with true value once Linearized part read
 	 */
 	final public boolean openPdfFileFromURL(String pdfUrl, boolean supportLinearized) throws PdfException {
@@ -2265,7 +2267,7 @@ public class PdfDecoder extends JPanel {
 	 * routine to open PDF file via URL and extract key info from pdf file so we can decode any pages - Does not actually decode the pages themselves
 	 * - Also reads the form data - Based on an idea by Peter Jacobsen <br />
 	 * You must explicitly close any open files with closePdfFile() so Java will release all the memory <br />
-	 * 
+	 *
 	 * If boolean supportLinearized is true, method will return with true value once Linearized part read
 	 */
 	final public boolean openPdfFileFromURL(String pdfUrl, boolean supportLinearized, String password) throws PdfException {
@@ -2294,7 +2296,7 @@ public class PdfDecoder extends JPanel {
 	 * themselves -
 	 * <p/>
 	 * You must explicitly close any open files with closePdfFile() to Java will not release all the memory
-	 * 
+	 *
 	 * IMPORTANT NOTE: If the stream does not contain enough bytes, test for Linearization may fail If boolean supportLinearized is true, method will
 	 * return with true value once Linearized part read (we recommend use you false unless you know exactly what you are doing)
 	 */
@@ -2316,7 +2318,7 @@ public class PdfDecoder extends JPanel {
 	 * themselves -
 	 * <p/>
 	 * You must explicitly close any open files with closePdfFile() to Java will not release all the memory
-	 * 
+	 *
 	 * IMPORTANT NOTE: If the stream does not contain enough bytes, test for Linearization may fail If boolean supportLinearized is true, method will
 	 * return with true value once Linearized part read (we recommend use you false unless you know exactly what you are doing)
 	 */
@@ -2333,7 +2335,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * common code for reading URL and InputStream
-	 * 
+	 *
 	 * @param supportLinearized
 	 * @param is
 	 * @param rawFileName
@@ -2362,8 +2364,15 @@ public class PdfDecoder extends JPanel {
 				}
 				else tempURLFile = ObjectStore.createTempFile(rawFileName);
 
-				/** store fi name for use elsewhere as part of ref key without .pdf */
-				this.objectStoreRef.storeFileName(tempURLFile.getName().substring(0, tempURLFile.getName().lastIndexOf('.')));
+				/* store fi name for use elsewhere as part of ref key without .pdf */
+                int separatorIndex = tempURLFile.getName().lastIndexOf('.');
+                String storeFilename;
+                if (separatorIndex >= 0) {
+                	storeFilename = tempURLFile.getName().substring(0, tempURLFile.getName().lastIndexOf('.'));
+				} else {
+                	storeFilename = tempURLFile.getName();
+				}
+                this.objectStoreRef.storeFileName(storeFilename);
 
 				if (supportLinearized) {
 
@@ -2371,7 +2380,7 @@ public class PdfDecoder extends JPanel {
 
 					if (linearBytes != null) {
 
-						/**
+						/*
 						 * read partial data so we can display
 						 */
 
@@ -2392,14 +2401,17 @@ public class PdfDecoder extends JPanel {
 				}
 
 				if (supportLinearized) {
-					// else{
-					// System.out.println("xx");
-					/** get reader object to open the file */
+					/* get reader object to open the file */
 					openPdfFile(tempURLFile.getAbsolutePath());
 
-					/** store fi name for use elsewhere as part of ref key without .pdf */
-					this.objectStoreRef.storeFileName(tempURLFile.getName().substring(0, tempURLFile.getName().lastIndexOf('.')));
-					// }
+					/* store fi name for use elsewhere as part of ref key without .pdf */
+					separatorIndex = tempURLFile.getName().lastIndexOf('.');
+					if (separatorIndex >= 0) {
+						storeFilename = tempURLFile.getName().substring(0, tempURLFile.getName().lastIndexOf('.'));
+					} else {
+						storeFilename = tempURLFile.getName();
+					}
+					this.objectStoreRef.storeFileName(storeFilename);
 				}
 
 			}
@@ -2604,7 +2616,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * will return some dictionary values - if not a set value, will return null
-	 * 
+	 *
 	 * @return
 	 */
 	public Object getJPedalObject(int id) {
@@ -2635,7 +2647,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * read the data from pages lists and pages so we can open each page.
-	 * 
+	 *
 	 * object reference to first trailer
 	 */
 	private int readAllPageReferences(boolean ignoreRecursion, PdfObject pdfObject, Map rotations, Map parents, int tempPageCount) {
@@ -2799,7 +2811,7 @@ public class PdfDecoder extends JPanel {
 	/**
 	 * allows user to cache large objects to disk to avoid memory issues, setting minimum size in bytes (of uncompressed stream) above which object
 	 * will be stored on disk if possible (default is -1 bytes which is all objects stored in memory) - Must be set before file opened.
-	 * 
+	 *
 	 */
 	public void setStreamCacheSize(int size) {
 		this.minimumCacheSize = size;
@@ -2868,7 +2880,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * given a ref, what is the page
-	 * 
+	 *
 	 * @param ref
 	 *            - PDF object reference
 	 * @return - page number with being first page
@@ -2935,7 +2947,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * shows if page reported any errors while printing. Log can be found with getPageFailureMessage()
-	 * 
+	 *
 	 * @return Returns the printingSuccessful.
 	 */
 	public boolean isPageSuccessful() {
@@ -2959,7 +2971,7 @@ public class PdfDecoder extends JPanel {
 	/**
 	 * If running in GUI mode, will extract a section of rendered page as BufferedImage -coordinates are PDF co-ordinates. If you wish to use hires
 	 * image, you will need to enable hires image display with decode_pdf.useHiResScreenDisplay(true);
-	 * 
+	 *
 	 * @param t_x1
 	 * @param t_y1
 	 * @param t_x2
@@ -2993,7 +3005,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * Return decoder options as object for cases where value is needed externally and can't be static
-	 * 
+	 *
 	 * @return DecoderOptions object containing settings for this PdfDecoder object
 	 */
 	public DecoderOptions getDecoderOptions() {
@@ -3004,7 +3016,7 @@ public class PdfDecoder extends JPanel {
 	/**
 	 * returns object containing grouped text of last decoded page - if no page decoded, a Runtime exception is thrown to warn user Please see
 	 * org.jpedal.examples.text for example code.
-	 * 
+	 *
 	 */
 	public PdfGroupingAlgorithms getGroupingObject() throws PdfException {
 		return this.options.getGroupingObject(this.lastPageDecoded, getPdfData(), this.pageData);
@@ -3163,30 +3175,6 @@ public class PdfDecoder extends JPanel {
 		return this.resultsFromDecode.getImagesProcessedFully();
 	}
 
-	/**
-	 * allow user to set certain paramters - only supports DecodeStatus.Timeout at present
-	 * 
-	 * @param status
-	 * @param value
-	 */
-	// public void setPageDecodeStatus(int status, Object value) {
-	//
-	// if(status==(DecodeStatus.Timeout)){
-	// if(value instanceof Boolean){
-	//
-	// boolean timeout=((Boolean)value).booleanValue();
-	// if(timeout && current!=null)
-	// current.reqestTimeout(null);
-	//
-	// }else if(value instanceof Integer){
-	//
-	// if(current!=null)
-	// current.reqestTimeout(value);
-	// }
-	// }else
-	// new RuntimeException("Unknown parameter");
-	// }
-
 	public boolean getPageDecodeStatus(int status) {
 
 		/**
@@ -3217,7 +3205,7 @@ public class PdfDecoder extends JPanel {
 	 * allows external helper classes to be added to JPedal to alter default functionality - not part of the API and should be used in conjunction
 	 * with IDRsolutions only <br>
 	 * if Options.FormsActionHandler is the type then the <b>newHandler</b> should be of the form <b>org.jpedal.objects.acroforms.ActionHandler</b>
-	 * 
+	 *
 	 * @param newHandler
 	 * @param type
 	 */
@@ -3271,7 +3259,7 @@ public class PdfDecoder extends JPanel {
 	/**
 	 * allows external helper classes to be accessed if needed - also allows user to access SwingGUI if running full Viewer package - not all Options
 	 * available to get - please contact IDRsolutions if you are looking to use
-	 * 
+	 *
 	 * @param type
 	 */
 	public Object getExternalHandler(int type) {
@@ -3315,7 +3303,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * reference for Page object
-	 * 
+	 *
 	 * @param page
 	 * @return String ref (ie 1 0 R) pdfObject=new PageObject(currentPageOffset); currentPdfFile.readObject(pdfObject);
 	 */
@@ -3325,7 +3313,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * allow printing of different sizes pages (default is false as PrintJob does not support different page sizes whereas DocPrintJob does)
-	 * 
+	 *
 	 * @param allowDifferentPrintPageSizes
 	 */
 	public void setAllowDifferentPrintPageSizes(boolean allowDifferentPrintPageSizes) {
@@ -3336,7 +3324,7 @@ public class PdfDecoder extends JPanel {
 	private org.jpedal.text.TextLines textLines = new TextLines();
 
 	/**
-	 * 
+	 *
 	 * access textlines object
 	 */
 	public TextLines getTextLines() {
@@ -3364,7 +3352,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * set a left margin for printing pages (ie for duplex)
-	 * 
+	 *
 	 * @param oddPages
 	 */
 	public void setPrintIndent(int oddPages, int evenPages) {
@@ -3374,7 +3362,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * allow user to 'move' display of PDF
-	 * 
+	 *
 	 * mode is a Constant in org.jpedal.external.OffsetOptions (ie OffsetOptions.SWING_DISPLAY,OffsetOptions.PRINTING)
 	 */
 	public void setUserOffsets(int x, int y, int mode) {
@@ -3608,7 +3596,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * part of pageable interface - used only in printing Use getPageCount() for number of pages
-	 * 
+	 *
 	 * @see java.awt.print.Pageable#getNumberOfPages()
 	 */
 	public int getNumberOfPages() {
@@ -3617,7 +3605,7 @@ public class PdfDecoder extends JPanel {
 
 	/**
 	 * part of pageable interface
-	 * 
+	 *
 	 * @see java.awt.print.Pageable#getPageFormat(int)
 	 */
 	public PageFormat getPageFormat(int p) throws IndexOutOfBoundsException {
