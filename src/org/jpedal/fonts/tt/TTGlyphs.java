@@ -286,10 +286,9 @@ public class TTGlyphs extends PdfJavaGlyphs {
 	}
 
 	/**
-	 * return name of font or all fonts if TTC NAME will be LOWERCASE to avoid issues of capitalisation when used for lookup - if no name, will
-	 * default to null
+	 * @return name of font or all fonts if TTC NAME will be LOWERCASE to avoid issues of capitalisation when used for lookup - if no name, will default to null
 	 * 
-	 * @mode is PdfDecoder.SUBSTITUTE_* CONSTANT. RuntimeException will be thrown on invalid value
+	 * Mode is PdfDecoder.SUBSTITUTE_* CONSTANT. RuntimeException will be thrown on invalid value
 	 */
 	public static String[] readFontNames(FontData fontData, int mode) {
 

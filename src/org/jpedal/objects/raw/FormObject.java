@@ -1935,7 +1935,7 @@ public class FormObject extends PdfObject {
 	}
 
 	/**
-	 * returns true if this formObject represents an XFAObject
+	 * @return true if this formObject represents an XFAObject
 	 */
 	public boolean isXFAObject() {
 		return this.isXFAObject;
@@ -2231,7 +2231,7 @@ public class FormObject extends PdfObject {
 	}
 
 	/**
-	 * returns the alignment (Q)
+	 * @return the alignment (Q)
 	 */
 	public int getAlignment() {
 
@@ -2450,7 +2450,7 @@ public class FormObject extends PdfObject {
 	}
 
 	/**
-	 * returns the flags array (Ff in PDF) (indexs are the number listed) * all <br>
+	 * 
 	 * 1=readonly - if set there is no interaction <br>
 	 * 2=required - if set the field must have a value when submit-form-action occures <br>
 	 * 3=noexport - if set the field must not be exported by a submit-form-action <br>
@@ -2477,6 +2477,8 @@ public class FormObject extends PdfObject {
 	 * 16=radio - if set is a set of radio buttons <br>
 	 * 17=pushbutton - if set its a push button, if neither 16 nor 17 its a check box <br>
 	 * 26=radiosinunison - if set all radio buttons with the same on state are turned on and off in unison (same behaviour as html browsers)
+	 * 
+	 * @return the flags array (Ff in PDF) (indexs are the number listed) * all <br>
 	 */
 	public boolean[] getFieldFlags() {// otherwise known as Ff flags
 		if (this.flags == null) this.flags = new boolean[32];
@@ -2624,7 +2626,7 @@ public class FormObject extends PdfObject {
 		this.invertDownIcon = true;
 	}
 
-	/**
+	/*
 	 * returns to rotation of this field object, currently in stamp annotations only
 	 * 
 	 * deprecated use formObject.getDictionary(PdfDictionary.MK).getInt(PdfDictionary.R);
@@ -2632,45 +2634,45 @@ public class FormObject extends PdfObject {
 	 * public int getRotation(){
 	 * 
 	 * return getDictionary(PdfDictionary.MK).getInt(PdfDictionary.R); }/
-	 **/
+	 */
 
 	/**
-	 * returns true if has normal of image
+	 * @return true if has normal of image
 	 */
 	public boolean hasNormalOff() {
 		return this.normalOffImage != null;
 	}
 
 	/**
-	 * returns true if has rollover off image
+	 * @return true if has rollover off image
 	 */
 	public boolean hasRolloverOff() {
 		return this.rolloverOffImage != null;
 	}
 
 	/**
-	 * returns true if has down off image
+	 * @return true if has down off image
 	 */
 	public boolean hasDownOff() {
 		return this.downOffImage != null;
 	}
 
 	/**
-	 * returns true if has one or more down images set
+	 * @return true if has one or more down images set
 	 */
 	public boolean hasDownImage() {
 		return (this.downOnImage != null || hasDownOff());
 	}
 
 	/**
-	 * returns true if has a rollover on image
+	 * @return true if has a rollover on image
 	 */
 	public boolean hasRolloverOn() {
 		return this.rolloverOnImage != null;
 	}
 
 	/**
-	 * returns true if has a normal on image
+	 * @return true if has a normal on image
 	 */
 	public boolean hasNormalOn() {
 		return this.normalOnImage != null;
@@ -3218,7 +3220,7 @@ public class FormObject extends PdfObject {
 	}
 
 	/**
-	 * @oldJS sets the value of this field dependent on which type of field it is
+	 * sets the value of this field dependent on which type of field it is
 	 */
 	public void setValue(String inVal) {// need to kept as java strings
 		boolean preFormChanged = this.formChanged;
@@ -3287,7 +3289,7 @@ public class FormObject extends PdfObject {
 	}
 
 	/**
-	 * @oldJs defines the thickness of the border when stroking.
+	 *  defines the thickness of the border when stroking.
 	 */
 	public void setLineWidth(int lineWidth) {
 
@@ -3304,7 +3306,7 @@ public class FormObject extends PdfObject {
 	public int display = -1;
 
 	/**
-	 * @oldJs added for backward compatibility or old adobe files.
+	 *  added for backward compatibility or old adobe files.
 	 */
 	public void setBorderWidth(int width) {
 		setLineWidth(width);
@@ -3315,7 +3317,7 @@ public class FormObject extends PdfObject {
 	 * shift; source; target; targetName; type; value;
 	 */
 	/**
-	 * @oldJS Verifies the current keystroke event before the data is committed. It can be used to check target form field values to verify, for
+	 *  Verifies the current keystroke event before the data is committed. It can be used to check target form field values to verify, for
 	 *        example, whether character data was entered instead of numeric data. JavaScript sets this property to true after the last keystroke
 	 *        event and before the field is validated.
 	 */
@@ -3335,21 +3337,21 @@ public class FormObject extends PdfObject {
 	}
 
 	/**
-	 * @oldJS added to return this for event.target from javascript
+	 *  added to return this for event.target from javascript
 	 */
 	public Object getTarget() {
 		return this;
 	}
 
 	/**
-	 * @oldJS JS returns the normal caption associated to this button
+	 *  @return the normal caption associated to this button
 	 */
 	public String buttonGetCaption() {
 		return buttonGetCaption(0);
 	}
 
 	/**
-	 * @oldJS returns the caption associated with this button,
+	 *  @return the caption associated with this button,
 	 * @param nFace
 	 *            - 0 normal caption (default) 1 down caption 2 rollover caption
 	 */
@@ -3365,14 +3367,14 @@ public class FormObject extends PdfObject {
 	}
 
 	/**
-	 * @oldJS sets this buttons normal caption to <b>cCaption</b>
+	 *  sets this buttons normal caption to <b>cCaption</b>
 	 */
 	public void buttonSetCaption(String cCaption) {
 		buttonSetCaption(cCaption, 0);
 	}
 
 	/**
-	 * @oldJS sets this buttons caption to <b>cCaption</b>, it sets the caption defined by <b>nFace</b>.
+	 *  sets this buttons caption to <b>cCaption</b>, it sets the caption defined by <b>nFace</b>.
 	 * @param nFace
 	 *            - 0 (default) normal caption 1 down caption 2 rollover caption
 	 */
@@ -3390,7 +3392,7 @@ public class FormObject extends PdfObject {
 	}
 
 	/**
-	 * @oldJS returns the background color for the annotation objects
+	 * @return the background color for the annotation objects
 	 */
 	public Object getfillColor() {
 		return generateColor(getDictionary(PdfDictionary.MK).getFloatArray(PdfDictionary.BG));
@@ -3415,7 +3417,7 @@ public class FormObject extends PdfObject {
 		return this.formType;
 	}
 
-	/** returns an Opaque BufferedImage for use when appearance Streams are null */
+	/** @return an Opaque BufferedImage for use when appearance Streams are null */
 	public static BufferedImage getOpaqueImage() {
 		return new BufferedImage(20, 20, BufferedImage.TYPE_INT_ARGB);
 	}

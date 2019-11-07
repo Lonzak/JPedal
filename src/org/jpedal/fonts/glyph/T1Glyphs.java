@@ -127,9 +127,9 @@ public class T1Glyphs extends PdfJavaGlyphs {
 	}
 
 	/**
-	 * return name of font NAME will be LOWERCASE to avoid issues of capitalisation when used for lookup - if no name, will default to null
+	 * Mode is PdfDecoder.SUBSTITUTE_* CONSTANT. RuntimeException will be thrown on invalid value
 	 * 
-	 * @mode is PdfDecoder.SUBSTITUTE_* CONSTANT. RuntimeException will be thrown on invalid value
+	 * @return name of font NAME will be LOWERCASE to avoid issues of capitalisation when used for lookup - if no name, will default to null
 	 */
 	public static String[] readFontNames(FontData fontData, int mode) {
 
