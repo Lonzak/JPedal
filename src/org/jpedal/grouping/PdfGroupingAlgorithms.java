@@ -1179,7 +1179,6 @@ public class PdfGroupingAlgorithms {
 
 	/**
 	 * @param textValue
-	 * @return
 	 */
 	private static boolean checkForPunctuation(String textValue, String punctuation) {
 
@@ -2459,7 +2458,7 @@ public class PdfGroupingAlgorithms {
 
 	/**
 	 * @param estimateParagraphs
-	 * @return
+
 	 * @throws PdfException
 	 */
 	private int mergeLinesTogether(int currentWritingMode, boolean estimateParagraphs, int x1, int x2, int y1, int y2) throws PdfException {

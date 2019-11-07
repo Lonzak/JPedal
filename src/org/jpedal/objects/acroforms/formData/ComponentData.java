@@ -217,10 +217,8 @@ public abstract class ComponentData implements GUIData {
 	}
 
 	/**
-	 * return list of form names for page
-	 * 
 	 * @param pageNumber
-	 * @return
+	 * @return list of form names for page
 	 */
 	@Override
 	public List<String> getComponentNameList(int pageNumber) {
@@ -352,10 +350,7 @@ public abstract class ComponentData implements GUIData {
 	}
 
 	/**
-	 * return next ID for this page and also set pointer
-	 * 
 	 * @param page
-	 * @return
 	 */
 	private void setStartForPage(int page) {
 
@@ -545,7 +540,6 @@ public abstract class ComponentData implements GUIData {
 	 * get actual widget using objectName as ref or null if none
 	 * 
 	 * @param objectName
-	 * @return
 	 */
 	@Override
 	public Object getWidget(Object objectName) {
@@ -578,7 +572,6 @@ public abstract class ComponentData implements GUIData {
 	/**
 	 * get next free field slot
 	 * 
-	 * @return
 	 */
 	@Override
 	public int getNextFreeField() {
@@ -593,10 +586,8 @@ public abstract class ComponentData implements GUIData {
 	}
 
 	/**
-	 * return start component ID or -1 if not set or -999 if trackPagesRendered not initialised
-	 * 
 	 * @param page
-	 * @return
+	 * @return start component ID or -1 if not set or -999 if trackPagesRendered not initialized
 	 */
 	@Override
 	public int getStartComponentCountForPage(int page) {
@@ -867,7 +858,6 @@ public abstract class ComponentData implements GUIData {
 	 * convert ID used for GUI components to PDF ref for underlying object used so we can access form object knowing ID of component
 	 * 
 	 * @param objectID
-	 * @return
 	 */
 	@Override
 	public String convertIDtoRef(int objectID) {
@@ -892,7 +882,6 @@ public abstract class ComponentData implements GUIData {
 	 * used to debug form names in test code
 	 * 
 	 * @param objectName
-	 * @return
 	 */
 	@Override
 	public String getnameToRef(String objectName) {
@@ -1106,7 +1095,6 @@ public abstract class ComponentData implements GUIData {
 	/**
 	 * return components which match object name
 	 * 
-	 * @return
 	 */
 	public Object[] getComponentsByName(String objectName, Object checkObj, boolean collateIndexs) {
 

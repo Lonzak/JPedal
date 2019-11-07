@@ -278,7 +278,6 @@ public class Summary extends javax.swing.JPanel {
 
 	/**
 	 * @param bytes
-	 * @return
 	 * @throws NoSuchAlgorithmException
 	 */
 	private static byte[] getDigest(byte[] bytes, String algorithm) throws NoSuchAlgorithmException {
@@ -288,9 +287,6 @@ public class Summary extends javax.swing.JPanel {
 		return sha1Res;
 	}
 
-	/**
-	 * @return
-	 */
 	private static String byteToHex(byte[] bytes) {
 		String hex = "";
 		for (byte aByte : bytes) {

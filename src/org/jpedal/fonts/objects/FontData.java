@@ -113,7 +113,6 @@ public class FontData {
 	 * check block in memory, read if not and adjust pointer
 	 * 
 	 * @param pointer
-	 * @return
 	 */
 	private int adjustForCache(int pointer) {
 

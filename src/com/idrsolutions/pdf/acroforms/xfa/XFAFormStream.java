@@ -1345,9 +1345,8 @@ public class XFAFormStream extends FormStream {
 	/**
 	 * method recursively look until which finds the pageArea element and store the page number and rootNode into pageArea HashMap
 	 * 
-	 * @param Node
-	 *            node
-	 * @param int recursion depth
+	 * @param node
+	 * @param depth recursion depth
 	 * */
 	private void allocatePagesWithContents(Node node, int depth) {
 

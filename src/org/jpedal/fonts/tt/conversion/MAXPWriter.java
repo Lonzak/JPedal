@@ -46,7 +46,7 @@ public class MAXPWriter extends Maxp implements FontTableWriter {
 	/**
 	 * used to turn Ps into OTF
 	 * 
-	 * @param pdfFont
+	 * @param glyphs
 	 */
 	public MAXPWriter(PdfJavaGlyphs glyphs) {
 

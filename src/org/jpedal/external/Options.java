@@ -61,7 +61,7 @@ public class Options {
 	final public static int FormsActionHandler = 5;
 
 	/**
-	 * allows user to link in their own code for Javascript validation - needs to implement {@link org.jpedal.objects.javascript.ExpressionEngine}
+	 * allows user to link in their own code for Javascript validation.
 	 * Default implementation at {@link org.jpedal.objects.acroforms.creation.SwingFormFactory}
 	 */
 	final public static int ExpressionEngine = 6;

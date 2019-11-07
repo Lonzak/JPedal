@@ -368,9 +368,7 @@ public class PaperSizes {
 	}
 
 	/**
-	 * Returns the index of the default paper size
-	 * 
-	 * @return
+	 * @return the index of the default paper size
 	 */
 	public int getDefaultPageIndex() {
 		return this.defaultPageIndex;

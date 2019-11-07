@@ -118,7 +118,6 @@ public class ShadingUtils {
      * @param c1 control point
      * @param c2 control point
      * @param ep end point
-     * @return
      */
     public static Point2D findDistancedPoint(double t, Point2D sp, Point2D c1, Point2D c2, Point2D ep) {
         double d = 1 - t;

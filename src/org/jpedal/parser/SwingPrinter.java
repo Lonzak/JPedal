@@ -382,7 +382,6 @@ public class SwingPrinter {
 	 * turn list into Array
 	 * 
 	 * @param values
-	 * @return
 	 */
 	private static Map toMap(int[] values) {
 

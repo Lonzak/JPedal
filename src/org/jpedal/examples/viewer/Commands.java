@@ -2750,7 +2750,6 @@ public class Commands {
 	/**
 	 * this is the code which does all the work
 	 * 
-	 * @return
 	 */
 	private PdfDecoder openNewMultiplePage(String fileName) {
 
@@ -5919,10 +5918,10 @@ public class Commands {
 	 * examine first few bytes to see if linearized and return true linearized file
 	 * 
 	 * @param pdfUrl
-	 * @return
+	 * @return true if linearized file otherwise false
 	 * @throws PdfException
 	 */
-	static final public boolean isPDFLinearized(String pdfUrl) throws PdfException {
+	public static final boolean isPDFLinearized(String pdfUrl) throws PdfException {
 
 		if (pdfUrl.startsWith("jar")) return false;
 

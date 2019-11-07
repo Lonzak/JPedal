@@ -137,7 +137,6 @@ public class ObjectDecoder implements Serializable {
 	 * @param i
 	 * @param raw
 	 * @param length
-	 * @return
 	 */
 	private int readObjectDataValues(PdfObject pdfObject, int i, byte[] raw, int length) {
 
@@ -2466,7 +2465,6 @@ public class ObjectDecoder implements Serializable {
 	 * @param raw
 	 * @param PDFkeyInt
 	 *            - -1 will store in pdfObject directly, not as separate object
-	 * @return
 	 */
 	int readDictionaryFromRefOrDirect(int id, PdfObject pdfObject, String objectRef, int i, byte[] raw, int PDFkeyInt) {
 

@@ -522,7 +522,6 @@ public class SwingData extends ComponentData {
 	 * 
 	 * @param c
 	 * @param count
-	 * @return
 	 */
 	private static char[] createCharArray(char c, int count) {
 		if (count <= 0) return new char[0];

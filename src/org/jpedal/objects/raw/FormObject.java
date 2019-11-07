@@ -3154,9 +3154,6 @@ public class FormObject extends PdfObject {
 		this.popupBuilt = true;
 	}
 
-	/**
-	 * @return
-	 */
 	public String getLayerName() {
 
 		// lazy initialisation
@@ -3188,9 +3185,8 @@ public class FormObject extends PdfObject {
 	}
 
 	/**
-	 * @oldJS returns the current value for this field, if text field the text string, if choice field the selected item if button field the normal
+	 * @return the current value for this field, if text field the text string, if choice field the selected item if button field the normal
 	 *        caption
-	 * @return
 	 */
 	public String getValue() {
 

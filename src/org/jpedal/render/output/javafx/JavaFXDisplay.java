@@ -633,7 +633,6 @@ public class JavaFXDisplay extends OutputDisplay {
 	 * handle any characters which need conversion or escaping
 	 * 
 	 * @param outputString
-	 * @return
 	 */
 	private static String tidyQuotes(String outputString) {
 		String newString = ""; // the new clean string that will be returned

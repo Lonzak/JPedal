@@ -213,7 +213,6 @@ public class TextBlock {
 	/**
 	 * make sure it is between 0 and 360
 	 * 
-	 * @return
 	 */
 	public int getRotationAngleInDegrees() {
 		int angle = (int) (getRotationAngle() * 180 / Math.PI);
@@ -232,9 +231,6 @@ public class TextBlock {
 		this.text += s;
 	}
 
-	/**
-	 * @return
-	 */
 	public String getOutputString(boolean isOutput) {
 		String result = this.text;
 
@@ -266,13 +262,11 @@ public class TextBlock {
 	/**
 	 * Append a glyf to the current string.
 	 * 
-	 * @param pageRotation
-	 * 
 	 * @param glyf
 	 * @param charWidth
 	 * @param x
 	 * @param y
-	 * @return false if glfy can be appended
+	 * @return false if glyf can be appended
 	 */
 	public boolean appendText(String glyf, float charWidth, float x, float y, boolean groupTJGlyphs, boolean checkGaps, float realX, float realY) {
 
@@ -408,9 +402,8 @@ public class TextBlock {
 	}
 
 	/**
-	 * For over large fonts that cant be mapped to a suitable equivalent.
+	 * For over large fonts that can't be mapped to a suitable equivalent.
 	 * 
-	 * @return
 	 */
 	public int getFontAdjustment() {
 		return this.fontAdjust;

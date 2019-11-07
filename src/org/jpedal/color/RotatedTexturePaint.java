@@ -153,7 +153,6 @@ public class RotatedTexturePaint implements PdfPaint {
 	 * @param ub
 	 * @param xform
 	 * @param hints
-	 * @return
 	 */
 	@Override
 	public PaintContext createContext(ColorModel cm, Rectangle db, Rectangle2D ub, AffineTransform xform, RenderingHints hints) {

@@ -162,7 +162,6 @@ public class JBIG2Decoder {
 	/**
 	 * 
 	 * @param page
-	 * @return
 	 */
 	public BufferedImage getPageAsBufferedImage(int page) {
 		page++;

@@ -38,7 +38,6 @@ public class PdfArray {
 
 	/**
 	 * @param value
-	 * @return
 	 */
 	public static float[] convertToFloatArray(String value) {
 
@@ -149,7 +148,6 @@ public class PdfArray {
 
 	/**
 	 * @param value
-	 * @return
 	 */
 	public static double[] convertToDoubleArray(String value) {
 
@@ -175,7 +173,6 @@ public class PdfArray {
 
 	/**
 	 * @param value
-	 * @return
 	 */
 	public static String[] convertToStringArray(String value) {
 
@@ -199,7 +196,6 @@ public class PdfArray {
 
 	/**
 	 * @param value
-	 * @return
 	 */
 	public static boolean[] convertToBooleanArray(String value) {
 
@@ -225,7 +221,6 @@ public class PdfArray {
 
 	/**
 	 * @param value
-	 * @return
 	 */
 	public static int[] convertToIntArray(String value) {
 
@@ -251,7 +246,6 @@ public class PdfArray {
 
 	/**
 	 * @param value
-	 * @return
 	 */
 	public static Object[] convertToObjectArray(String value) {
 

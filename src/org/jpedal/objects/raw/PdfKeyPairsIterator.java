@@ -62,9 +62,7 @@ public class PdfKeyPairsIterator {
 	}
 
 	/**
-	 * number of PAIRS (or keys)
-	 * 
-	 * @return
+	 * @return number of PAIRS (or keys)
 	 */
 	public int getTokenCount() {
 		return this.maxCount;
@@ -73,7 +71,6 @@ public class PdfKeyPairsIterator {
 	/**
 	 * roll onto next key and value
 	 * 
-	 * @return
 	 */
 	public void nextPair() {
 
@@ -82,9 +79,7 @@ public class PdfKeyPairsIterator {
 	}
 
 	/**
-	 * next key
-	 * 
-	 * @return
+	 * @return next key
 	 */
 	public String getNextKeyAsString() {
 
@@ -108,7 +103,7 @@ public class PdfKeyPairsIterator {
 	/**
 	 * used by CharProcs to return number or number of key (ie /12 or /A)
 	 * 
-	 * @return
+	 * @return number or number of key (ie /12 or /A)
 	 */
 	public int getNextKeyAsNumber() {
 
@@ -164,9 +159,7 @@ public class PdfKeyPairsIterator {
 	}
 
 	/**
-	 * return value as PdfObject or null
-	 * 
-	 * @return
+	 * @return value as PdfObject or null
 	 */
 	public PdfObject getNextValueAsDictionary() {
 		return this.objs[this.current];

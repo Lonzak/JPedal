@@ -1380,10 +1380,7 @@ public class SingleDisplay implements Display {
 	 * put a little thumbnail of page on display for user in viewer as he scrolls through
 	 * 
 	 * @param g2
-	 * @param previewImage
 	 * @param visibleRect
-	 * @param previewText
-	 * @param xOffset
 	 */
 	@Override
 	public void drawPreviewImage(Graphics2D g2, Rectangle visibleRect) {

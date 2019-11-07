@@ -198,7 +198,6 @@ public class GraphicsState {
 	 * use STROKE or FILL
 	 * 
 	 * @param type
-	 * @return
 	 */
 	public float getAlpha(int type) {
 
@@ -233,7 +232,6 @@ public class GraphicsState {
 	 * use STROKE or FILL
 	 * 
 	 * @param type
-	 * @return
 	 */
 	public float getAlphaMax(int type) {
 
@@ -254,14 +252,13 @@ public class GraphicsState {
 		return value;
 	}
 
-	/**
+	/*
 	 * get stroke op* public boolean getStrokeOP(){ return this.OP; } /
-	 **/
+	 */
 
 	/**
 	 * get stroke op
 	 * 
-	 * @return
 	 */
 	public boolean getNonStrokeOP() {
 		return this.op;
@@ -270,7 +267,6 @@ public class GraphicsState {
 	/**
 	 * get stroke op
 	 * 
-	 * @return
 	 */
 	public float getOPM() {
 		return this.OPM;
@@ -296,7 +292,6 @@ public class GraphicsState {
 	/**
 	 * set text render type
 	 * 
-	 * @return
 	 */
 	final public int getTextRenderType() {
 		return this.text_render_type;
@@ -315,7 +310,6 @@ public class GraphicsState {
 	/**
 	 * get line width
 	 * 
-	 * @return
 	 */
 	final public float getLineWidth() {
 		return this.current_line_width;
@@ -324,7 +318,6 @@ public class GraphicsState {
 	/**
 	 * get line width for HTML/SVG etc. value is -1 if not set.
 	 * 
-	 * @return
 	 */
 	final public int getOutputLineWidth() {
 		return this.output_line_width;
@@ -388,9 +381,7 @@ public class GraphicsState {
 
 	// ////////////////////////////////////////////////////////////////////////
 	/**
-	 * get the current stroke to be used - basic solid line or pattern
-	 * 
-	 * @return
+	 * @return the current stroke to be used - basic solid line or pattern 
 	 */
 	final public Stroke getStroke() {
 
@@ -434,9 +425,7 @@ public class GraphicsState {
 	}
 
 	/**
-	 * get the stroke width after being adjusted by the CTM
-	 * 
-	 * @return
+	 * @return the stroke width after being adjusted by the CTM
 	 */
 	public float getCTMAdjustedLineWidth() {
 		// factor in scaling to line width
@@ -463,8 +452,7 @@ public class GraphicsState {
 	/**
 	 * get the stroke width after being adjusted by the CTM
 	 * 
-	 * @param the
-	 *            CTM adjusted line width
+	 * @param width CTM adjusted line width
 	 */
 	public void setCTMAdjustedLineWidth(float width) {
 		// factor out scaling to line width
@@ -478,16 +466,13 @@ public class GraphicsState {
 	/**
 	 * set line width for HTML/SVG etc. value is -1 if not set.
 	 * 
-	 * @return
 	 */
-	final public void setOutputLineWidth(int output_line_width) {
+	public final void setOutputLineWidth(int output_line_width) {
 		this.output_line_width = output_line_width;
 	}
 
 	/**
-	 * get clipping shape
-	 * 
-	 * @return
+	 * @return clipping shape
 	 */
 	final public Area getClippingShape() {
 		if (this.TRmask != null && this.current_clipping_shape == null) {
@@ -760,7 +745,6 @@ public class GraphicsState {
 	/**
 	 * get fill type
 	 * 
-	 * @return
 	 */
 	final public int getFillType() {
 		return this.fill_type;
@@ -825,7 +809,6 @@ public class GraphicsState {
 	/**
 	 * tell software if clip has changed and return
 	 * 
-	 * @return
 	 */
 	public boolean hasClipChanged() {
 

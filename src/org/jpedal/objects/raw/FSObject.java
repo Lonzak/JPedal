@@ -603,8 +603,6 @@ public class FSObject extends FormObject {
 
 	/**
 	 * used to debug specific Objects
-	 * 
-	 * @return
 	 */
 	public static boolean getDebugMode() {
 		debug = false;

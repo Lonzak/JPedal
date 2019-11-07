@@ -100,11 +100,8 @@ public class Hhea extends Table {
 	}
 
 	/**
-	 * returns the value of given int number of variable
-	 * 
-	 * @param required
-	 *            key value
-	 * @return value of the variable
+	 * @param key value (required)
+	 * @return  the value of given int number of variable
 	 */
 	public int getIntValue(int key) {
 		switch (key) {

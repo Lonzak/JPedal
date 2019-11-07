@@ -2218,7 +2218,6 @@ public class TextDecoder extends BaseDecoder implements org.jpedal.parser.Decode
 	 * @param unicodeValue
 	 * @param textData
 	 * @param spaces
-	 * @return
 	 */
 	private static boolean writeOutText(boolean hasContent, boolean isHorizontal, float[][] TrmWithRotationRemoved, float[][] Trm, float fontScale,
 			float currentWidth, String unicodeValue, StringBuffer textData, String spaces, boolean isXMLExtraction, int currentRotation) {

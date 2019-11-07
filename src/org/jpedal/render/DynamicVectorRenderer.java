@@ -166,9 +166,8 @@ public interface DynamicVectorRenderer {
 			int optionsApplied, int previousUse);
 
 	/**
-	 * return which part of page drawn onto
 	 * 
-	 * @return
+	 * @return which part of page drawn onto
 	 */
 	public abstract Rectangle getOccupiedArea();
 
@@ -285,18 +284,14 @@ public interface DynamicVectorRenderer {
 	public abstract Rectangle getArea(int i);
 
 	/**
-	 * return number of image in display queue or -1 if none
-	 * 
-	 * @return
+	 * @return number of image in display queue or -1 if none
 	 */
 	public abstract int isInsideImage(int x, int y);
 
 	public abstract void saveImage(int id, String des, String type);
 
 	/**
-	 * return number of image in display queue or -1 if none
-	 * 
-	 * @return
+	 * @return number of image in display queue or -1 if none
 	 */
 	public abstract int getObjectUnderneath(int x, int y);
 
@@ -307,8 +302,6 @@ public interface DynamicVectorRenderer {
 	// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/**
 	 * just for printing
-	 * 
-	 * @return
 	 */
 	public abstract void stopG2HintSetting(boolean isSet);
 

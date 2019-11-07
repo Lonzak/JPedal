@@ -1406,7 +1406,6 @@ public class GenericColorSpace implements Cloneable, Serializable {
 	/**
 	 * flag to show if YCCK image decoded so we can draw attention to user
 	 * 
-	 * @return
 	 */
 	public boolean isImageYCCK() {
 		return this.hasYCCKimages;

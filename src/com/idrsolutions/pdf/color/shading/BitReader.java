@@ -97,17 +97,16 @@ public class BitReader {
      * return positive integer only
      *
      * @param bitLen
-     * @return
+     * @return this return value is not actual int and it is a data
      */
     public int getPositive(int bitLen) {
         return readBits(bitLen);
     }
 
     /**
-     * return floating point;
      *
      * @param bitLen
-     * @return
+     * @return floating point
      */
     public float getFloat(int bitLen) {
         int value = readBits(bitLen);

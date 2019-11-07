@@ -1663,9 +1663,7 @@ public class Type1C extends Type1 {
 	}
 
 	/**
-	 * get bounding box to highlight
-	 * 
-	 * @return
+	 * @return bounding box to highlight
 	 */
 	@Override
 	public Rectangle getBoundingBox() {

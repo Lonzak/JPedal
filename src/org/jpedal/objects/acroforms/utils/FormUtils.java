@@ -179,7 +179,7 @@ public class FormUtils {
 	/**
 	 * sorts the integer array into the right order to read the component array in size order largest first
 	 * 
-	 * @param allFields
+	 * @param comps allFields
 	 */
 	public static FormObject[] sortGroupLargestFirst(FormObject[] comps) {
 		return sortCompsDesending(comps);

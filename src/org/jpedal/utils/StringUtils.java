@@ -41,31 +41,31 @@ import org.jpedal.parser.DecoderOptions;
 
 public class StringUtils {
 
-	private final static int aInt = 97;
-	private final static int zeroInt = 48;
-	private final static int nineInt = 57;
-	private final static int openSquareBracketInt = 91;
-	private final static int closeSquareBracketInt = 93;
-	private final static int openCurlyBracket = 40;
-	private final static int closeCurlyBracket = 41;
-	private final static int backSlashInt = 92;
-	private final static int forwardSlashInt = 47;
-	private final static int hashInt = 35;
-	private final static int divideInt = 247;
-	private final static int fullStopInt = 46;
-	private final static int spaceInt = 32;
-	private final static int percentInt = 37;
-	private final static int minusInt = 45;
-	private final static int underScoreInt = 95;
-	private final static int backSlachInt = 92;
-	private final static int nInt = 110;
-	private final static int newLineInt = 10;
-	private final static int plusInt = 43;
-	private final static int pInt = 112;
-	private final static int colonInt = 58;
-	private final static int equalsInt = 61;
-	private final static int cInt = 99;
-	private final static int qInt = 113;
+	private static final int aInt = 97;
+	private static final int zeroInt = 48;
+	private static final int nineInt = 57;
+	private static final int openSquareBracketInt = 91;
+	private static final int closeSquareBracketInt = 93;
+	private static final int openCurlyBracket = 40;
+	private static final int closeCurlyBracket = 41;
+	private static final int backSlashInt = 92;
+	private static final int forwardSlashInt = 47;
+	private static final int hashInt = 35;
+	private static final int divideInt = 247;
+	private static final int fullStopInt = 46;
+	private static final int spaceInt = 32;
+	private static final int percentInt = 37;
+	private static final int minusInt = 45;
+	private static final int underScoreInt = 95;
+	private static final int backSlachInt = 92;
+	private static final int nInt = 110;
+	private static final int newLineInt = 10;
+	private static final int plusInt = 43;
+	private static final int pInt = 112;
+	private static final int colonInt = 58;
+	private static final int equalsInt = 61;
+	private static final int cInt = 99;
+	private static final int qInt = 113;
 
 	private static String enc;
 
@@ -153,7 +153,6 @@ public class StringUtils {
 	 * turn any hex values (ie #e4) into chars
 	 * 
 	 * @param value
-	 * @return
 	 */
 	static final public String convertHexChars(String value) {
 
@@ -410,7 +409,6 @@ public class StringUtils {
 	 * 
 	 * @param source
 	 *            The UTF16 String
-	 * @return
 	 */
 	public static String decodeUTF16String(String source) {
 		String copy = source.toUpperCase();
@@ -577,7 +575,6 @@ public class StringUtils {
 	 * between: 0 to 31 inclusive and 127 to 159 inclusive.
 	 * 
 	 * @param S
-	 * @return
 	 */
 	public static String stripIllegalCharacters(String S) {
 		String newString = "";

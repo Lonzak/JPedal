@@ -644,8 +644,6 @@ public class LinearizedObject extends PdfObject {
 
 	/**
 	 * used to debug specific Objects
-	 * 
-	 * @return
 	 */
 	public static boolean getDebugMode() {
 		debug = false;

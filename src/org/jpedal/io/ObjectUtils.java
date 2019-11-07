@@ -170,7 +170,6 @@ public class ObjectUtils {
 	 * 
 	 * @param pdfObject
 	 * @param objReader
-	 * @return
 	 */
 	public static PdfObject[] setupDecodeParms(PdfObject pdfObject, PdfFileReader objReader) {
 

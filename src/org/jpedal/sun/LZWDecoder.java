@@ -66,7 +66,7 @@ public class LZWDecoder {
 	 *            The compressed data.
 	 * @param uncompData
 	 *            Array to return the uncompressed data in.
-	 * @param boolean Default should be true. RE: PDF spec EarlyChange
+	 * @param earlyChange Default should be true. RE: PDF spec EarlyChange
 	 */
 	public void decode(byte data[], OutputStream uncompData, boolean earlyChange) {
 

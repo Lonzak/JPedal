@@ -40,8 +40,7 @@ public class XFAUtils {
 	/**
 	 * Convert the given unit length to a millipoints value
 	 * 
-	 * @param String
-	 *            input unit value
+	 * @param str input unit value
 	 * @return double millipoints
 	 */
 	public static double convertToMilliPoints(String str) {
@@ -78,8 +77,7 @@ public class XFAUtils {
 	/**
 	 * Convert the given unit length to a 96dpi pixel value
 	 * 
-	 * @param String
-	 *            input unit value
+	 * @param str input unit value
 	 * @return double pixels
 	 */
 	public static double convertToPixels96(String str) {

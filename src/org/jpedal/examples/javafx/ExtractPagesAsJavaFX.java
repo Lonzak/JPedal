@@ -680,10 +680,8 @@ public class ExtractPagesAsJavaFX {
 	}
 
 	/**
-	 * Returns the stripped out, java coding friendly, version of input
-	 * 
 	 * @param input
-	 * @return
+	 * @return the stripped out, java coding friendly, version of input
 	 */
 	protected static String getStrippedText(String input) {
 

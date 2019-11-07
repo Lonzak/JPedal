@@ -47,58 +47,56 @@ public interface WizardPanelModel {
 	/**
 	 * @return true if the currently displayed panel requires a Finish box instead of a next box.
 	 */
-	abstract public boolean isFinishPanel();
+	public abstract boolean isFinishPanel();
 
 	/**
 	 * @return The unique ID String of the first JPanel to be shown
 	 */
-	abstract public String getStartPanelID();
+	public abstract String getStartPanelID();
 
 	/**
 	 * @return The ID of the JPanel that should be displayed if next is clicked.
 	 */
-	abstract public String next();
+	public abstract String next();
 
 	/**
 	 * @return The ID of the JPanel that should be displayed if previous is clicked.
 	 */
-	abstract public String previous();
+	public abstract String previous();
 
 	/**
 	 * This method can contain any housekeeping you require when the Wizard is exited.
 	 */
-	abstract public void close();
+	public abstract void close();
 
 	/**
 	 * @return true if the current panel has a previous panel
 	 */
-	abstract public boolean hasPrevious();
+	public abstract boolean hasPrevious();
 
 	/**
 	 * @return true if the current panel is able to advance.
 	 */
-	abstract public boolean canAdvance();
+	public abstract boolean canAdvance();
 
 	/**
 	 * In order to use the Card Layout in the wizard class each JPanel must have a unique String identifier. ie HashMap<String, JPanel>
 	 * 
 	 * @return A mapping of ID Strings to JPanels.
 	 */
-	abstract public Map getJPanels();
+	public abstract Map getJPanels();
 
 	/**
 	 * A component that is registered will alert the Wizard class that it should check whether the advance button should be enabled.
 	 * 
-	 * @param Alerts
-	 *            Wizard that the registered component effects the Next button enable/disable status
+	 * @param changelistener
 	 */
-	abstract public void registerNextChangeListeners(ChangeListener e);
+	public abstract void registerNextChangeListeners(ChangeListener changelistener);
 
 	/**
 	 * The same effect as registerNextChangeListeners(ChangeListener e) except applied to keys.
 	 * 
-	 * @param Alerts
-	 *            Wizard that the registered component effects the Next button enable/disable status
+	 * @param keylistener that the registered component effects the Next button enable/disable status
 	 */
-	abstract public void registerNextKeyListeners(KeyListener e);
+	public abstract void registerNextKeyListeners(KeyListener keylistener);
 }

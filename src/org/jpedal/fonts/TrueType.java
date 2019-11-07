@@ -397,9 +397,7 @@ public class TrueType extends PdfFont {
 	}
 
 	/**
-	 * get bounding box to highlight
-	 * 
-	 * @return
+	 * @return bounding box to highlight
 	 */
 	@Override
 	public Rectangle getBoundingBox() {

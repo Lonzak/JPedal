@@ -472,10 +472,8 @@ public class SwingThumbnailPanel extends JScrollPane implements GUIThumbnailPane
 	}
 
 	/**
-	 * return BufferedImage for page
-	 * 
 	 * @param page
-	 * @return
+	 * @return BufferedImage for page
 	 */
 	public BufferedImage getThumbnail(int page) {
 
@@ -484,10 +482,8 @@ public class SwingThumbnailPanel extends JScrollPane implements GUIThumbnailPane
 	}
 
 	/**
-	 * return BufferedImage for page
-	 * 
 	 * @param page
-	 * @return
+	 * @return BufferedImage for page
 	 */
 	@Override
 	public synchronized BufferedImage getImage(int page) {

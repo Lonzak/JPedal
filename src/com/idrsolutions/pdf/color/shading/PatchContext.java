@@ -270,7 +270,6 @@ public class PatchContext implements PaintContext {
     /**
      * Get the bounds of the shading in Pattern space. 
      * Used to scale the pattern to device space.
-     * @return 
      */
     private Rectangle2D getPatternBounds(){
         if(patternBounds != null) {

@@ -162,9 +162,8 @@ public class PdfObject implements Cloneable {
 	}
 
 	/**
-	 * name of file with cached data on disk or null
 	 * 
-	 * @return
+	 * @return name of file with cached data on disk or null
 	 */
 	public String getCacheName(PdfFileReader objReader) {
 
@@ -537,7 +536,6 @@ public class PdfObject implements Cloneable {
 	/**
 	 * only used internally for some forms - please do not use
 	 * 
-	 * @return
 	 */
 	public int getParentID() {
 		return this.parentType;
@@ -1378,7 +1376,6 @@ public class PdfObject implements Cloneable {
 	/**
 	 * used in Forms code where keys can be page numbers
 	 * 
-	 * @return
 	 */
 	public Map getOtherDictionaries() {
 		return this.otherValues;

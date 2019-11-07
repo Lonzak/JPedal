@@ -4016,11 +4016,9 @@ public class SwingGUI extends GUI implements GUIFactory {
 	}
 
 	/**
-	 * return comboBox or nul if not (QUALITY, SCALING or ROTATION
-	 * 
 	 * @param ID
-	 * @return
-	 */
+	 * @return comboBox or null if not (QUALITY, SCALING or ROTATION)
+	 */ 
 	public GUICombo getCombo(int ID) {
 
 		switch (ID) {

@@ -1620,7 +1620,6 @@ public class PdfFont implements Serializable {
 	 * Relational Contracts.pdf)
 	 * 
 	 * @param glypName
-	 * @return
 	 */
 	final public int getDiffChar(String glypName) {
 
@@ -1659,10 +1658,8 @@ public class PdfFont implements Serializable {
 	}
 
 	/**
-	 * return char mapped onto value in Differences or null
-	 * 
 	 * @param charInt
-	 * @return
+	 * @return char mapped onto value in Differences or null
 	 */
 	public String getDiffMapping(int charInt) {
 		if (this.diffTable == null) return null;
@@ -1833,9 +1830,7 @@ public class PdfFont implements Serializable {
 	}
 
 	/**
-	 * get bounding box to highlight
-	 * 
-	 * @return
+	 * @return bounding box to highlight
 	 */
 	public Rectangle getBoundingBox() {
 
@@ -1921,7 +1916,6 @@ public class PdfFont implements Serializable {
 	/**
 	 * workaround to handle issue with some odd SAP files Please do not use.
 	 * 
-	 * @return
 	 */
 	public boolean isBrokenFont() {
 		return this.handleOddSapFontMapping;
@@ -1997,7 +1991,6 @@ public class PdfFont implements Serializable {
 	/**
 	 * flag to show if double (1), single (0) or unset (-1)
 	 * 
-	 * @return
 	 */
 	public int isDoubleBytes() {
 		return this.isDouble;

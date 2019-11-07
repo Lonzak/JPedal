@@ -801,7 +801,6 @@ public class FontFile2 implements Serializable {
 	/**
 	 * used to test if table too short so need to stop reading
 	 * 
-	 * @return
 	 */
 	public boolean hasValuesLeft() {
 
@@ -815,7 +814,6 @@ public class FontFile2 implements Serializable {
 	/**
 	 * used to see how many bytes left to avoid exception if figure wrong
 	 * 
-	 * @return
 	 */
 	public int getBytesLeft() {
 

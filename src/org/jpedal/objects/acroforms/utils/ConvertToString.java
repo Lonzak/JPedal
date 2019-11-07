@@ -126,9 +126,6 @@ public class ConvertToString {
 		}
 	}
 
-	/**
-	 * @return
-	 */
 	public static String convertArrayToString(float[] values) {
 		if (values != null) {
 			StringBuilder ret = new StringBuilder();
@@ -144,9 +141,6 @@ public class ConvertToString {
 		}
 	}
 
-	/**
-	 * @return
-	 */
 	public static String convertArrayToString(float[][] values) {
 		if (values != null) {
 			StringBuilder ret = new StringBuilder();
@@ -168,9 +162,6 @@ public class ConvertToString {
 		}
 	}
 
-	/**
-	 * @return
-	 */
 	public static String convertArrayToString(int[] items) {
 		if (items != null) {
 			StringBuilder ret = new StringBuilder();
@@ -208,7 +199,6 @@ public class ConvertToString {
 
 	/**
 	 * @param components
-	 * @return
 	 */
 	public static String convertArrayToString(Object[] components) {
 
@@ -222,9 +212,6 @@ public class ConvertToString {
 		return ret.toString();
 	}
 
-	/**
-	 * @return
-	 */
 	public static String convertArrayToString(List data) {
 		if (data == null) return "null";
 		StringBuilder ret = new StringBuilder();
@@ -243,9 +230,6 @@ public class ConvertToString {
 		return convertArrayToString(data.toArray());
 	}
 
-	/**
-	 * @return
-	 */
 	public static String convertArrayToString(Boolean[] flags) {
 		if (flags != null) {
 			StringBuilder ret = new StringBuilder();

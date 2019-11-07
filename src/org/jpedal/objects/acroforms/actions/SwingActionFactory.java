@@ -106,10 +106,7 @@ public class SwingActionFactory implements ActionFactory {
 	/**
 	 * shows and hides the appropriate fields as defined within the map defined
 	 * 
-	 * @param fieldsToHide
-	 *            - the field names to which we want to hide
-	 * @param whetherToHide
-	 *            - flags to show if we hide or show the respective field both arrays must be the same length.
+	 * @param fieldToHide - the field names to which we want to hide
 	 */
 	@Override
 	public void setFieldVisibility(FieldsHideObject fieldToHide) {

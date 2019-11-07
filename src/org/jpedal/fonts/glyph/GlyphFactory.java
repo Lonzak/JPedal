@@ -42,9 +42,6 @@ public interface GlyphFactory {
 	 */
 	void reinitialise(double[] fontMatrix);
 
-	/**
-	 * @return
-	 */
 	PdfGlyph getGlyph(boolean debug);
 
 	/**

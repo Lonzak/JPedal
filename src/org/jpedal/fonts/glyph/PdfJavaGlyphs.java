@@ -657,7 +657,6 @@ public class PdfJavaGlyphs implements PdfGlyphs, Serializable {
 	/**
 	 * flag to show if CID TT fonts have identity matrix
 	 * 
-	 * @return
 	 */
 	public boolean isIdentity() {
 		return this.isIdentity;

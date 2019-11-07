@@ -2538,7 +2538,6 @@ public class PdfFileReader {
 	 * @param isCompressed
 	 * @param objectID
 	 * @param gen
-	 * @return
 	 */
 	public byte[] readObjectAsByteArray(PdfObject pdfObject, boolean isCompressed, int objectID, int gen) {
 

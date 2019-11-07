@@ -1522,8 +1522,6 @@ public class PostscriptFactory {
 	/**
 	 * convert byteStream to double primitive
 	 * 
-	 * @param nextVal
-	 * @return
 	 */
 	private static double convertToDouble(byte[] stream) {
 

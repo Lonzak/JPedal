@@ -66,7 +66,7 @@ public class CMAPWriter extends CMAP implements FontTableWriter {
 	/**
 	 * Creates format 0 subtable for true type fonts [only]
 	 * 
-	 * @param PdfJavaGlyphs
+	 * @param glyphs PdfJavaGlyphs
 	 * @return length of format 0 table [hardcoded to 262]
 	 */
 	private int createFormat0MapForTT(PdfJavaGlyphs glyphs) {

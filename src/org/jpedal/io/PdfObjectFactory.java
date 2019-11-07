@@ -41,7 +41,6 @@ public class PdfObjectFactory {
 	 * get correct key value
 	 * 
 	 * @param PDFkeyInt
-	 * @return
 	 */
 	public static int getInlineID(int PDFkeyInt) {
 		switch (PDFkeyInt) {

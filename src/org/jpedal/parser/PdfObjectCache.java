@@ -366,8 +366,7 @@ public class PdfObjectCache {
 	/**
 	 * see if image saved (and flag as true in future)
 	 * 
-	 * @param objectRefAsString
-	 * @return
+	 * @param XObject objectRefAsString
 	 */
 	public boolean testIfImageAlreadySaved(PdfObject XObject) {
 

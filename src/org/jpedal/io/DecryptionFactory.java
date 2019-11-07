@@ -1022,7 +1022,6 @@ public class DecryptionFactory {
 	/**
 	 * show if U or O value present
 	 * 
-	 * @return
 	 */
 	public boolean hasPassword() {
 		return this.O != null || this.U != null;

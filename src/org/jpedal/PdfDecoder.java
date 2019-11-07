@@ -534,11 +534,9 @@ public class PdfDecoder extends JPanel {
 	/**
 	 * track if file still loaded in background
 	 * 
-	 * @return
 	 */
 	public boolean isLoadingLinearizedPDF() {
 		return false;
-		/**/
 	}
 
 	protected void resetMultiPageForms(int page) {
@@ -1274,9 +1272,8 @@ public class PdfDecoder extends JPanel {
 	}
 
 	/**
-	 * return handle on PDFFactory which adjusts display size so matches size in Acrobat
+	 * @return handle on PDFFactory which adjusts display size so matches size in Acrobat
 	 * 
-	 * @return
 	 */
 	public DPIFactory getDPIFactory() {
 		return this.scalingdpi;
@@ -1834,7 +1831,6 @@ public class PdfDecoder extends JPanel {
 	 * see if page available if in Linearized mode or return true
 	 * 
 	 * @param rawPage
-	 * @return
 	 */
 	public synchronized boolean isPageAvailable(int rawPage) {
 		return this.linearParser.isPageAvailable(rawPage, this.currentPdfFile);
@@ -2339,7 +2335,7 @@ public class PdfDecoder extends JPanel {
 	 * @param supportLinearized
 	 * @param is
 	 * @param rawFileName
-	 * @return
+
 	 * @throws PdfException
 	 */
 	private boolean readFile(boolean supportLinearized, InputStream is, String rawFileName, String password) throws PdfException {
@@ -2616,9 +2612,8 @@ public class PdfDecoder extends JPanel {
 	}
 
 	/**
-	 * will return some dictionary values - if not a set value, will return null
+	 * @return will return some dictionary values - if not a set value, will return null
 	 * 
-	 * @return
 	 */
 	public Object getJPedalObject(int id) {
 		switch (id) {

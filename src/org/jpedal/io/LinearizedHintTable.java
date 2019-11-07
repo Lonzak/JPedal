@@ -444,10 +444,8 @@ public class LinearizedHintTable {
 	// }
 
 	/**
-	 * return ref number for page of -1 if not yet set or page out of range
-	 * 
 	 * @param rawPage
-	 * @return
+	 * @return ref number for page of -1 if not yet set or page out of range
 	 */
 	public int getPageObjectRef(int rawPage) {
 
@@ -458,10 +456,8 @@ public class LinearizedHintTable {
 	}
 
 	/**
-	 * return raw data for obj or null
-	 * 
 	 * @param objID
-	 * @return
+	 * @return raw data for obj or null
 	 */
 	public synchronized byte[] getObjData(int objID) {
 

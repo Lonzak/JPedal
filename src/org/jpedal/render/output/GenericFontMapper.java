@@ -355,7 +355,6 @@ public class GenericFontMapper implements org.jpedal.render.output.FontMapper {
 	 * Search mappings for a one that sounds close.
 	 * 
 	 * @param fontName
-	 * @return
 	 */
 	private boolean hasSimiliarMapping(String fontName) {
 		Set<String> keySet = fontMappings.keySet();

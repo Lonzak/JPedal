@@ -82,10 +82,8 @@ public interface PdfGlyph {
 	public abstract void setWidth(float width);
 
 	/**
-	 * retrun fontBounds paramter where type is a contant in PdfGlyh
-	 * 
 	 * @param type
-	 * @return
+	 * @return fontBounds paramter where type is a contant in PdfGlyh
 	 */
 	int getFontBB(int type);
 

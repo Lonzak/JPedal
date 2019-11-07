@@ -210,9 +210,7 @@ public class TTGlyphs extends PdfJavaGlyphs {
 	}
 
 	/**
-	 * Return charstrings and subrs - used by PS to OTF converter
-	 * 
-	 * @return
+	 * @return charstrings and subrs - used by PS to OTF converter
 	 */
 	@Override
 	public Map getCharStrings() {

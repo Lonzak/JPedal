@@ -1928,9 +1928,7 @@ public class SwingDisplay extends BaseDisplay implements DynamicVectorRenderer {
 	}
 
 	/**
-	 * return which part of page drawn onto
-	 * 
-	 * @return
+	 * @return which part of page drawn onto
 	 */
 	@Override
 	public Rectangle getOccupiedArea() {
@@ -3048,9 +3046,7 @@ public class SwingDisplay extends BaseDisplay implements DynamicVectorRenderer {
 	}
 
 	/**
-	 * return number of image in display queue or -1 if none
-	 * 
-	 * @return
+	 * @return number of image in display queue or -1 if none
 	 */
 	@Override
 	public int isInsideImage(int x, int y) {
@@ -3398,9 +3394,7 @@ public class SwingDisplay extends BaseDisplay implements DynamicVectorRenderer {
 	}
 
 	/**
-	 * return number of image in display queue or -1 if none
-	 * 
-	 * @return
+	 * @return number of image in display queue or -1 if none
 	 */
 	@Override
 	public int getObjectUnderneath(int x, int y) {

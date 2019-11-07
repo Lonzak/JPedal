@@ -1151,7 +1151,6 @@ public class ObjectStore {
 	 * Remove troublesome characters from temp file names.
 	 * 
 	 * @param s
-	 * @return
 	 */
 	public static String removeIllegalFileNameCharacters(String s) {
 

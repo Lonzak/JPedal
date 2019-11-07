@@ -65,7 +65,6 @@ public class ColorMapping implements Serializable {
 	 * Do the actual conversion
 	 * 
 	 * @param values
-	 * @return
 	 */
 	public float[] getOperandFloat(float[] values) {
 		return this.function.compute(values);

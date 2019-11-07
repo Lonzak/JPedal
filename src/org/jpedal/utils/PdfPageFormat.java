@@ -74,10 +74,8 @@ public class PdfPageFormat {
 	 * The size of the <tt>PageFormat</tt> is based on the given <tt>MediaSize</tt>. See
 	 * http://download.oracle.com/javase/1.4.2/docs/api/javax/print/attribute/standard/MediaSize.html
 	 * 
-	 * @param mediaSize
-	 *            The desired paper size (ie <tt>MediaSize.ISO.A4</tt>)
-	 * @param printingService
-	 *            The device to be printed to
+	 * @param mediaSizeName The desired paper size (ie <tt>MediaSize.ISO.A4</tt>)
+	 * @param printingDevice The device to be printed to
 	 * @return A formatted <tt>PageFormat</tt> for use with printing PDFs. May return null if there is no available size information.
 	 */
 	public static final PageFormat createPdfPageFormat(MediaSizeName mediaSizeName, PrintService printingDevice) {
@@ -241,7 +239,6 @@ public class PdfPageFormat {
 	 *            The desired paper width
 	 * @param cropH
 	 *            The desired paper height
-	 * @return
 	 */
 	private static PageFormat getAppropriatePageFormat(float cropW, float cropH) {
 		if (availablePaper == null) {
