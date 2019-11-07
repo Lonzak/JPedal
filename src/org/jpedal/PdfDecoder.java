@@ -50,6 +50,7 @@ import java.awt.print.PageFormat;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.net.URL;
 import java.security.PrivateKey;
 import java.security.cert.Certificate;
@@ -547,9 +548,10 @@ public class PdfDecoder extends JPanel {
 	/**
 	 * class to repaint multiple views
 	 */
-	private class RefreshLayout extends ComponentAdapter {
+	private class RefreshLayout extends ComponentAdapter implements Serializable {
 
-		java.util.Timer t2 = null;
+        private static final long serialVersionUID = 5332414763142396868L;
+        java.util.Timer t2 = null;
 
 		/*
 		 * (non-Javadoc)
@@ -2363,7 +2365,14 @@ public class PdfDecoder extends JPanel {
 				else tempURLFile = ObjectStore.createTempFile(rawFileName);
 
 				/** store fi name for use elsewhere as part of ref key without .pdf */
-				this.objectStoreRef.storeFileName(tempURLFile.getName().substring(0, tempURLFile.getName().lastIndexOf('.')));
+                int separatorIndex = tempURLFile.getName().lastIndexOf('.');
+                String storeFilename;
+                if (separatorIndex >= 0) {
+                    storeFilename = tempURLFile.getName().substring(0, tempURLFile.getName().lastIndexOf('.'));
+                } else {
+                    storeFilename = tempURLFile.getName();
+                }
+                this.objectStoreRef.storeFileName(storeFilename);
 
 				if (supportLinearized) {
 
@@ -2392,14 +2401,18 @@ public class PdfDecoder extends JPanel {
 				}
 
 				if (supportLinearized) {
-					// else{
-					// System.out.println("xx");
-					/** get reader object to open the file */
+					/* get reader object to open the file */
 					openPdfFile(tempURLFile.getAbsolutePath());
 
-					/** store fi name for use elsewhere as part of ref key without .pdf */
-					this.objectStoreRef.storeFileName(tempURLFile.getName().substring(0, tempURLFile.getName().lastIndexOf('.')));
-					// }
+                    /* store fi name for use elsewhere as part of ref key without .pdf */
+                    separatorIndex = tempURLFile.getName().lastIndexOf('.');
+                    if (separatorIndex >= 0) {
+                        storeFilename = tempURLFile.getName().substring(0, tempURLFile.getName().lastIndexOf('.'));
+                    } 
+                    else {
+                        storeFilename = tempURLFile.getName();
+                    }
+                    this.objectStoreRef.storeFileName(storeFilename);
 				}
 
 			}
@@ -3162,30 +3175,6 @@ public class PdfDecoder extends JPanel {
 	public boolean hasAllImages() {
 		return this.resultsFromDecode.getImagesProcessedFully();
 	}
-
-	/**
-	 * allow user to set certain paramters - only supports DecodeStatus.Timeout at present
-	 * 
-	 * @param status
-	 * @param value
-	 */
-	// public void setPageDecodeStatus(int status, Object value) {
-	//
-	// if(status==(DecodeStatus.Timeout)){
-	// if(value instanceof Boolean){
-	//
-	// boolean timeout=((Boolean)value).booleanValue();
-	// if(timeout && current!=null)
-	// current.reqestTimeout(null);
-	//
-	// }else if(value instanceof Integer){
-	//
-	// if(current!=null)
-	// current.reqestTimeout(value);
-	// }
-	// }else
-	// new RuntimeException("Unknown parameter");
-	// }
 
 	public boolean getPageDecodeStatus(int status) {
 

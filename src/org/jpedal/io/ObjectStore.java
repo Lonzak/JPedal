@@ -1128,13 +1128,18 @@ public class ObjectStore {
 	public static File createTempFile(String filename) throws IOException {
 
 		File tempURLFile;
-		String prefix, suffix;
-
-		prefix = filename.substring(0, filename.lastIndexOf('.'));
-		while (prefix.length() < 3)
-			prefix = prefix + 'a';
-
-		suffix = filename.substring(filename.lastIndexOf('.'));
+        String prefix = filename;
+        String suffix = "pdf";
+        
+        int separatorIndex = filename.lastIndexOf('.');
+        if (separatorIndex >= 0) {
+            prefix = filename.substring(0, separatorIndex);
+            suffix = filename.substring(separatorIndex);
+        }
+        while (prefix.length() < 3) {
+            prefix = prefix + 'a';
+        }
+		
 		if (suffix.length() < 3) suffix = "pdf";
 
 		tempURLFile = File.createTempFile(prefix, suffix, new File(ObjectStore.temp_dir));

@@ -1,7 +1,7 @@
 JPedal (LGPL) - Open Source PDF Viewer
 ======================================
 
-To fullfill the obligations of the LGPL license and since the original source of JPedal ist not available anymore: Here is a fork of the last
+To fulfill the obligations of the LGPL license and since the original source of JPedal is not available anymore: Here is a fork of the last
 official [JPedal PDF library] which integrates contributions and bug fixes to the latest available open source version 4.92.
 Since the original author removed the LGPL JPedal version from sourceforge completely (https://sourceforge.net/projects/jpedal) this page may also act as a reference.
 
@@ -13,7 +13,7 @@ The code is coming from its JPedal roots but the Swing/AWT GUI has been replaced
 If you would like to contribute you are welcome to do so - just create an issue (with an attached patch) or do a pull request and it will be integrated.
 This is however no bug reporting or "please fix my bugs" place - for that head over to (https://support.idrsolutions.com/hc/en-us/requests/new) or to [Stackoverflow](http://stackoverflow.com/questions/tagged/jpedal).
 
-Please note that for a sucessfull maven build the local maven .settings configuration needs to be connected to a (central) maven repository.
+Please note that for a successful maven build the local maven .settings configuration needs to be connected to a (central) maven repository.
 
 Changes so far:
 ---------------
@@ -28,3 +28,5 @@ Changes so far:
 - fixed huge memory leak when handling zip/pdf encoding. This first occured when using Java8 but was there all the time. (After this patch the server didn't freeze and the memory requirement was reduced by half when converting PDF to images.)
 - fixed a font bug (Type3 font in combination with WinAnsiEncoding)
 - fixed a bug when extracting text for documents with bullet point lists (p11)
+- fixed an IndexOutOfBoundsException when accessing files without file extension (p12)
+- upgraded JAI-core version (p12) 

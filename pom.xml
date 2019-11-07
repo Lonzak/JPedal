@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jpedal</groupId>
 	<artifactId>jpedal_lgpl</artifactId>
-	<version>4.92-p11</version>
+	<version>4.92-p12</version>
 	<description>Patched jPedal based on the last official jpedal version 4.92</description>
 
 	<properties>
@@ -130,9 +130,9 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>net.java.dev.jai-imageio</groupId>
-			<artifactId>jai-imageio-core-standalone</artifactId>
-			<version>1.2-pre-dr-b04-2011-07-04</version>
+            <groupId>com.github.jai-imageio</groupId>
+            <artifactId>jai-imageio-core</artifactId>
+            <version>1.4.0</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
