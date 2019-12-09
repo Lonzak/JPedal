@@ -153,4 +153,26 @@
 			<version>1.54</version>
 		</dependency>
 	</dependencies>
+	
+	<repositories>
+		<repository>
+			  <id>central</id>
+			  <name>Central Repository</name>
+			  <url>https://repo.maven.apache.org/maven2</url>
+			  <layout>default</layout>
+			  <snapshots>
+				<enabled>false</enabled>
+		  </snapshots>
+		</repository>
+
+		<repository>
+			<id>Geotoolkit</id>
+			<layout>default</layout>
+			<name>geotoolkit-repo-3rd-party</name>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<url>https://nexus.geomatys.com/repository/geotoolkit</url>
+		</repository>
+</repositories>
 </project>
