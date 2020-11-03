@@ -59,7 +59,8 @@
 							<addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
 							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 							<mainClass>org.jpedal.examples.viewer.Viewer</mainClass>
-							<addClasspath>true</addClasspath>
+							<!-- addClasspath=true causes warnings during wildfly deployment and is not necessary. See WFLYSRV0059 https://access.redhat.com/solutions/795493 -->
+							<addClasspath>false</addClasspath>
 						</manifest>
 					</archive>
 				</configuration>
